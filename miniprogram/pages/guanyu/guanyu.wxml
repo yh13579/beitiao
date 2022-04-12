@@ -1,0 +1,18 @@
+<!--pages/guanyu/guanyu.wxml-->
+<text>\n</text>
+<view>
+<text  decode="true" style="font-size: large;">&ensp;&ensp;&ensp;&ensp;"北林跳蚤市场"是北林编程工作室开发的第二款微信小程序(第一款为“莫得丢”，用来做失物招领的，小程序可搜)。 北林跳蚤市场的初衷是作为二手物品交易的中间平台，方便二手物品的出售，目前仅限于北林校区的使用。</text>
+</view>
+<text>\n</text>
+<view class="thanks">
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/guanyu.png" style="width: 100%;"></image>
+</view>
+<text style="font-size: large;">觉得不错的点个赞吧...</text>
+<text>\n</text>
+<text>\n</text>
+<view style="display: flex;">
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/zan.png" style="width: 70.5px; height: 70.5px;position: relative;left: 20%;" bindtap="zan"></image>
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/cai.png" style="width: 70.5px; height: 70.5px;position: relative;left: 40%;" bindtap="cai"></image>
+</view>
+<text>\n</text>
+<text style=" text-align: center;position: relative;top: 200rpx;">——最终解释权归北林编程工作室所有——</text>

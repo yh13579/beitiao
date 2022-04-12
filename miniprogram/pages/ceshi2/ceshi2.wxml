@@ -1,0 +1,27 @@
+<view class="a" wx:for-items = "{{taskList}}" wx:key="{{index}}" 
+            data-idx = "{{index}}" bindtap="selectIdx">
+    <view>获取到的索引:{{index}}</view>
+</view>
+
+<button bindtap="ceshi2">测试</button>
+
+
+
+<view style="display: flex;position:fixed;bottom:10rpx;width: 750rpx;left: 10rpx;">
+<view style="width: 70%;border: 3px solid black;border-radius:10px;box-sizing: border-box; ">
+  <van-cell-group>
+  <van-field
+    value="{{ comment }}" 
+    placeholder="发表你的神评论吧.."
+    border="{{ false }}"
+    bind:change="getcomment"
+  />
+</van-cell-group>
+</view>
+<view>
+  <button style="color: rgb(114, 72, 18);width: 120%;font-size: x-large;" catchtap="comment">发表</button>
+</view>
+</view>
+
+
+

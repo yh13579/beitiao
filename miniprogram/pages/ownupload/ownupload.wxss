@@ -1,0 +1,57 @@
+  .author-date{
+    width: 700rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    justify-content: flex-start;
+  }
+  
+  .avatar{
+    width: 32rpx;
+    height: 32rpx;
+  }
+  
+  .author{
+    font-size: 30rpx;
+    font-weight: 300;
+    margin-left: 20rpx;
+    color: #666;
+  }
+  
+  .const-text{
+    font-size: 24rpx;
+    color: #999;
+    margin-left: 20rpx;
+  }
+  
+  .date{
+    font-size: 24rpx;
+    margin-left: 30rpx;
+    color: #999;
+  }
+  
+  .title{
+    margin-left: 40rpx;
+    font-size: 36rpx;
+    font-weight: 700;
+    margin-top: 30rpx;
+    color: #4b556c;
+    letter-spacing: 2px;
+  }
+  
+  .detail{
+    color: #666;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+    margin-right: 30rpx;
+    line-height: 44rpx;
+    letter-spacing: 2prx;
+  }
+  
+  .horizon{
+    width: 660rpx;
+    height: 1px;
+    background-color: #e5e5e5;
+  }

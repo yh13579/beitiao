@@ -1,0 +1,7 @@
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item  icon="home-o">首页</van-tabbar-item>
+    <van-tabbar-item  icon="back-top">发布物品</van-tabbar-item>
+    <van-tabbar-item  icon="manager-o">个人中心</van-tabbar-item>
+  </van-tabbar>
+ 
+  

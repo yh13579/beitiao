@@ -1,0 +1,66 @@
+<view style="position: relative;background-color: white;height: 100%;">
+<!-- 二手物品基本信息：（文字） -->
+<text style="font-size: x-large;position: relative;left: 32rpx;top: 18rpx;">二手物品基本信息：</text> 
+
+<view>
+<!-- 物品名称 -->
+<text>\n</text>
+<van-cell-group inset>
+  <van-field label="物品名称:" placeholder="输入物品名称" value="{{goodname}}" bind:change="getgoodname"/>
+</van-cell-group>
+
+<!-- 物品分类 -->
+<view bindtap="showPopup">
+   <van-field
+    label="物品分类:"
+    placeholder="选择物品的类别"
+    value="{{category}}"
+    bind:change="getcategory"
+    disabled
+  />
+  </view>
+  <!-- 物品分类弹出选择框 -->
+  <van-popup show="{{ show }}" bind:close="onClose"  position="bottom"
+  custom-style="height: 40%">
+    <van-picker title="物品分类" show-toolbar columns="{{ columns }}"  bind:cancel="onClose"
+  bind:confirm="onConfirm"/>
+</van-popup>
+<!-- 物品售价 -->
+<van-cell-group inset> 
+  <van-field label="物品售价:" placeholder="输入合适的售价" value="{{goodprice}}" bind:change="getgoodprice" />
+</van-cell-group>
+<!-- 详细描述 -->
+<van-cell-group inset >
+  <van-field
+    v-model="message"
+    rows="2"
+    autosize
+    label="详细描述:"
+    type="textarea"
+    maxlength="50"
+    placeholder="请详细描述物品,以便于售出..."
+    value="{{gooddetail}}" bind:change="getgooddetil"
+    show-word-limit
+  />
+</van-cell-group>
+<!-- 联系电话 -->
+<van-field value="{{ phone}}" label="联系电话:" placeholder="请输入正确的电话号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
+</view>
+<!-- 上传图片（文字） -->
+<view>
+<text style="font-size: x-large;position: relative;left: 32rpx;top: 25rpx;">上传图片:</text>
+</view>
+<!-- 上传图片（图片） -->
+<view> 
+  <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" style="width: 275rpx;height: 275rpx;position: relative;left: 30rpx;top: 80rpx;"></image>  
+</view>
+<!-- 发布按钮 -->
+<view style="height: 340rpx;">
+  <button style="color: rgb(114, 72, 18);font-size: x-large;position: relative;top: 180rpx;" catchtap="uploadGood">确认发布</button>
+</view>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+
+</view>

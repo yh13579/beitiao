@@ -1,0 +1,27 @@
+<view>
+  <block wx:for="{{goodsList}}" wx:key="index">
+  <view bindtap="gotodetail" data-id="{{item._id}}">
+  <!-- 物品名称 -->
+    <view style="width: 100%;position: relative;left: 195rpx;top: 130rpx;">
+    <text class="const-text">{{item.goodname}}</text>
+</view>
+<!-- 物品价格 -->
+<view style="width: 100%;position: relative;left: 195rpx;top: 160rpx;">
+<text style="position: relative;left: 22rpx;font-size: large;color: red;">{{item.goodprice}}</text>
+</view>
+<!-- 物品图片 -->
+    <view class="author-date">
+      <image class="avatar" src="{{item.imgUrl}}" mode="aspectFill" style="width: 150rpx;height: 150rpx;"></image>
+      <text class="date" style="position: relative;top: -53rpx;left: -3rpx;">{{item.date}}</text> 
+    </view>
+  </view>
+  <!-- 按钮 -->
+  <view style="display: flex;flex-direction: row;position: relative;left: 420rpx;top: -30rpx;" wx:key="{{index}}">
+    <button style="background-color: green;width: 90px;margin: 0px;" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">通过</button>
+    <button style="background-color: red;width: 90px;margin: 0px;" bindtap="reject" data-id="{{item._id}}" data-idx = "{{index}}">拒绝</button>
+  </view>
+  <!-- <view>获取到的索引:{{index}}</view> -->
+  <!-- 分割线 -->
+  <view class="horizon"></view>
+  </block>
+</view>
