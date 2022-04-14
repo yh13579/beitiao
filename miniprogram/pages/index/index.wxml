@@ -1,7 +1,7 @@
 <view class="counter"></view> 
 <!-- 搜索框 -->
 <van-search
-  value="{{ value }}" 
+  value="{{ value }}"  
   shape='round'
   placeholder="请输入搜索关键词"
   background="#00BFFE"
@@ -21,7 +21,7 @@
   </view>
 </view>
 <!-- 轮播图 -->
-<view>
+<view> 
   <view class="lb_swiper">
     <swiper style='height:{{Hei}};position:relative;left: -33rpx;' indicator-dots="true" circular="true"
      current="{{bannerCurrent}}" bindchange="bannerChange"
@@ -34,24 +34,24 @@
     </swiper>
   </view>
 </view>
-
+<view class="blank"></view>
 
 
 <!-- 遍历物品，尚待优化 -->
-<view style="overflow:-Scroll;overflow-x:hidden">
-<view wx:for="{{goodsList}}" wx:key="index" class="goodslist">
-<van-card  bindtap="detail"
-  price="{{item.goodprice}}"
-  title="{{item.goodname}}"
-  thumb="{{item.imgUrl }}"
-  data-id="{{item._id}}"
-/>
-</view>
+<view>
+  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
+    <view class="card" bindtap="detail" data-id="{{item._id}}">
+       <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
+      <text class="goodname">{{item.goodname}}</text>
+     <text class="goodprice">{{item.goodprice}}</text>
+    </view>
+  </view>
 </view>
 
 
 <view wx:if="{{admin == 1}}">
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="shenhe" bindtap="audit"></image>
 </view>
-<text style=" text-align: center;position: relative;top: 100rpx;height: 300rpx;">暂无更多</text>
+
+<text class="nomore-text">暂无更多</text>
 

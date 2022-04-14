@@ -1,7 +1,3 @@
-// pages/detail/detail.js
-import {
-  getUserProfile
-} from "../../utils/utils" 
 Page({
     /** 
      * 页面的初始数据
@@ -27,7 +23,6 @@ Page({
     })
     },
     phone(event){
-    console.log(event)
     wx.makePhoneCall({
       phoneNumber: event.currentTarget.dataset.phone,
       success: function () {        
@@ -37,7 +32,6 @@ Page({
         console.log(e)      
       }
     })
-    console.log(this.data.phone)
   },
   bigImg() {
     wx.previewImage({

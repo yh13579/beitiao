@@ -9,7 +9,7 @@ page{
   z-index: -1;
 }
 .icons{
-  position: absolute;
+  position: absolute; 
   right: 20px;
   top:5px; 
 }
@@ -46,12 +46,6 @@ page{
     display:block;
     font-size:15px;
 }
-.van-card{
-  width: 325rpx;
-  height: 450rpx;
-  position: relative;
-  left: 37.5rpx;
-}
 .lb_swiper{
   width: 100%;
   margin-left: 5%;
@@ -81,18 +75,20 @@ page{
   transform: scale(0.6,0.6);
   border-radius:10rpx;
   overflow: hidden;
-  position: relative;
-  left: 75rpx;
+  position: absolute;
+  left: 40rpx;
 }
 .slide-active{
   transform: scale(1,1);
 }
 .goodslist{
-  float:left;
-  width:50%;
-  box-sizing: border-box;
-  padding-bottom:10px;
-}
+    float:left;
+    width:50%;
+    box-sizing: border-box;
+    padding-bottom:480rpx;
+    width: 375rpx;
+    height: 450rpx;
+  }
 .shenhe{
   font-variant: small-caps;
 	margin: 0;
@@ -118,6 +114,46 @@ page{
     height: 280rpx;
     border-bottom-left-radius:50% 40%;
     border-bottom-right-radius:50% 40%;
+}
+.blank{
+    height: 40rpx;
+}
+.nomore-text{
+    height: 250rpx;
+    width: 100%;
+    text-align: center;
+}
+.goodname{
+    font-size: large;
+    position: relative;
+    left: 10rpx;
+    bottom: 3rpx;
+    font-weight: 700;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.image{
+    width: 300rpx;
+    height: 310rpx;
+    position: relative;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+
+.card{
+  background-color: white;
+  width: 300rpx;
+  height: 420rpx;
+  position: relative;
+  left: 37.5rpx;
+  border-radius: 20rpx;
+}
+.goodprice{
+    color: #FA4A12;
+    position: absolute;
+    left: 8rpx;
+    top: 375rpx;
+    font-size: 33rpx;
 }
 
 

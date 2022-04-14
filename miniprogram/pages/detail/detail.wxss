@@ -12,7 +12,7 @@ page{
     background-color: #FE9F67;
 }
 .goodprice{
-    color: #9E0A05;
+    color: #FA4A12;
     font-size: xx-large;
     position: relative;
     top: 20rpx;

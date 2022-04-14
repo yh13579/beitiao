@@ -1,7 +1,6 @@
 import {
   getUserProfile
 } from "../../utils/utils"
-var i
 const db = wx.cloud.database();  
 Page({
   /**
@@ -60,7 +59,7 @@ Page({
   this.findgood()   //考虑是否findgood也能写进缓存
   //this.gonggao()  //动态公告，后续保留此行功能，不要误删
   },
-
+ 
   findgood(){            //读取数据库中的goods
     let length = this.data.goodsList.length
     db.collection('goods').where({
@@ -118,48 +117,6 @@ Page({
   onChange(e) {    //搜索框编辑内容
     this.setData({value: e.detail,});
   },
-  onSearch() {    //搜索功能(回车搜索)
-      let db = wx.cloud.database()
-      let _ = db.command
-      db.collection('goods')
-        .where(_.or([     //audit:1表示上架的物品（审核通过的）
-          { audit:1,  //物品名称
-            goodname: db.RegExp({ //使用正则查询，实现对搜索的模糊查询
-              regexp: this.data.value,
-              options: 'i', //大小写不区分
-            }),
-          },
-          { audit:1,  //物品详情
-            gooddetail: db.RegExp({
-              regexp: this.data.value,
-              options: 'i',
-            }),
-          },
-           { audit:1,  //物品种类
-            category: db.RegExp({
-              regexp: this.data.value,
-              options: 'i',
-            }),
-          }
-        ])).orderBy('createTime','desc').get()
-        .then(res => {
-          if(res.data.length > 0){
-            this.setData({
-              goodsList:res.data
-            })
-          }
-          else if(this.data.value == "btsailorC405YYDS"){
-            console.log("欢迎进入管理员模式")
-            this.admin()
-          }
-          else{ 
-            console.log('查询失败，没有相关数据', res)
-            this.setData({
-              goodsList:res.data
-            })
-          }
-        })
-  },
 
   admin(){
     wx.cloud.database().collection("admin")
@@ -168,11 +125,11 @@ Page({
               admin:1,
             }
           })
-          console.log("已添加进数据库")
-  },
-
-  onClick() {     //搜索功能(点击搜索)
-      this.onSearch()
+          wx.showModal({
+            title: '提示',
+            content:'进入管理员模式',
+            showCancel:false
+          })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -183,6 +140,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({value:''})
     let admin = wx.getStorageSync('admin')
     if(admin == 1 || admin == -1 ){
       this.setData({admin:admin})
@@ -213,7 +171,6 @@ Page({
      this.findgood()  
      wx.stopPullDownRefresh()
      this.setData({value:'', bannerCurrent: 0}) //清除搜索框的内容,轮播图变成第一张开始轮播
-    // //轮播图Bug仍未修复
      console.log("刷新成功")
   },
   /**
@@ -298,4 +255,19 @@ classify(event){
       url: '../classify/classify?classify='+classify,
     })
 },
+onSearch(){   //手机上点击自带的搜索或者电脑回车键
+    let valuedetail = this.data.value
+    console.log(valuedetail)
+    if(valuedetail == "btsailorC405YYDS"){
+        this.admin()
+    }
+    else{
+        wx.navigateTo({
+            url: '../classify/classify?valuedetail='+valuedetail,
+          })
+    }
+},
+onClick(){     //点击右边的搜索按钮
+   this.onSearch()
+}
 })

@@ -1,5 +1,4 @@
 /**app.wxss**/
-@import "./style/main.wxss";
 @import "./style/icon.wxss";
 @import"./style/guide.wxss";
 @import"./style/animation.wxss";

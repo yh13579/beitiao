@@ -1,2 +1,10 @@
-<!--pages/classify/classify.wxml-->
-<text>详细分类页面</text>
+<view class="blank"></view>
+<view>
+  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
+    <view class="card" bindtap="detail" data-id="{{item._id}}">
+       <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
+      <text class="goodname">{{item.goodname}}</text>
+     <text class="goodprice">{{item.goodprice}}</text>
+    </view>
+  </view>
+</view>

@@ -1,78 +1,19 @@
 page{
-    background-color: black;
+    background-color: rgb(255,248,244);
    }
-
-#oval {
-    width: 100%;
-    height: 544rpx;
-    background: rgb(255, 136, 68);
-    border-radius: 310rpx / 137rpx;
-    position: absolute;
-    top: -235rpx;
-  }
   .counter {
       background-color: rgba(255, 136, 68);
       height: 280rpx;
       border-bottom-left-radius:50% 40%;
       border-bottom-right-radius:50% 40%;
 }
+  
 
-  .menu-wrp {
-    width:100%;
-    margin-top:20rpx;
-  }
-  .menu-wrp:after{
-      content:"";
-      display:block;
-      clear:both;
-  }
    
-  .menu-list{
-      float:left;
-      width:25%;
-      box-sizing: border-box;
-      padding-bottom:10px;
-  }
+  
    
-  .menu-img{
-      width:90rpx;
-      height:80rpx;
-      display:block;
-      margin:0 auto;
-      margin-bottom:15rpx;
-  }
-  .menu-desc{
-      background-color:rgb(255,248,244);
-      color:#333333;
-      width:100%;
-      text-align: center;
-      display:block;
-      font-size:15px;
-  }
-  .goodslist{
-    float:left;
-    width:50%;
-    box-sizing: border-box;
-    padding-bottom:480rpx;
-    width: 375rpx;
-    height: 450rpx;
-  }
-  .van-card{
-    background-color: white;
-    width: 300rpx;
-    height: 420rpx;
-    position: relative;
-    left: 37.5rpx;
-  }
-  .goodname{
-      font-size: large;
-      position: relative;
-      left: 43rpx;
-      bottom: 98rpx;
-      font-weight: 700;
-  }
-  .image{
-      width: 305rpx;
-      height: 320rpx;
-      position: relative;
-  }
+  
+
+ 
+ 
+
