@@ -35,7 +35,8 @@ Page({
         let id = event.currentTarget.dataset.id
         wx.cloud.database().collection("goods")
         .doc(id)
-        .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
+        .update({
+     //1表示上架（审核通过），-1表示审核中，-2表示审核未通过
             data:{
                 audit:1
             }

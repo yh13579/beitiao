@@ -17,19 +17,11 @@
 
       <view class="details">
         <rich-text nodes="{{item.comment}}" style="position: relative;left: 150rpx;"></rich-text>
-        <text>\n</text>
       </view>
     </view>
   </view>
 </block>
 
-
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
 <!-- 发表评论和发表按钮 -->
 <view style="display: flex;position:fixed;bottom:10rpx;width: 750rpx;left: 10rpx;">
 <view style="width: 70%;border: 3px solid black;border-radius:10px;box-sizing: border-box; ">

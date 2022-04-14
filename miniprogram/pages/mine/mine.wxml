@@ -3,40 +3,14 @@
 <image src="{{AvatarUrl}}" mode="aspectFill" style="width: 125rpx;height: 125rpx;position: relative;left: 10rpx;"></image> 
 <text style="font-size: x-large;position: absolute;left: 210rpx;top: 35rpx;height: 90rpx;width: 1000rpx;overflow-x: hidden;">{{wxname}}</text>
 </van-cell-group>
-<text>\n</text>
-
 <view>
 <!-- 个人信息 -->
   <view class='item' bindtap="Information" style="background-color: white;">
-    <view class="line"></view>
     <view class="title">个人信息</view>
     <view class="detail2">
       <text>></text>
     </view>
   </view>
-  <view class="line"></view>
-  <view class="line"></view>
-
-<!-- 测试1
-  <view class="item" bindtap="测试1"style="background-color: white;">
-    <view class="title">测试</view>
-    <view class="detail2">
-      <text> ></text>
-    </view>
-  </view>
-  <view class="line"></view>
-  <view class="line"></view>
-
- 测试2 
-  <view class="item" bindtap="测试2"style="background-color: white;">
-    <view class="title">测试2</view>
-    <view class="detail2">
-      <text> ></text>
-    </view>
-  </view>
-  <view class="line"></view>
-  <view class="line"></view> -->
-
 <!-- 我发布的 -->
   <view class="item"style="background-color: white;" bindtap="ownupload">
     <view class="title">我发布的</view>
@@ -44,9 +18,6 @@
       <text> ></text>
     </view>
   </view>
-  <view class="line"></view>
-  <view class="line"></view>
-
   <!-- 我卖出的 -->
   <view class="item" bindtap="sold" style="background-color: white;">
     <view class="title">我卖出的</view>
@@ -54,9 +25,6 @@
       <text> ></text>
     </view>
   </view>
-  <view class="line"></view>
-  <view class="line"></view>
- 
  <!-- 留言板 -->
   <view class="item" bindtap="guestbook"style="background-color: white;">
     <view class="title">留言板</view>
@@ -64,17 +32,13 @@
       <text> ></text>
     </view>
   </view>
-  <view class="line"></view>
-  <view class="line"></view>
-
   <!-- 关于北跳 -->
-  <view class="item" bindtap="guanyu"style="background-color: white;">
+  <view class="item" bindtap="concerning"style="background-color: white;">
     <view class="title">关于北跳</view>
     <view class="detail2">
       <text> ></text>
     </view>
   </view>
-  <view class="line"></view>
 </view>
 
 

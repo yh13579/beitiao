@@ -1,7 +1,7 @@
 page{
-  background-color: white;
+  background-color: rgb(255,248,244);
  }
-.background{
+.background{  
   width: 100%;
   height: 100%;
   position: fixed;
@@ -11,7 +11,7 @@ page{
 .icons{
   position: absolute;
   right: 20px;
-  top:5px;
+  top:5px; 
 }
 
 .menu-wrp {
@@ -26,25 +26,25 @@ page{
  
 .menu-list{
     float:left;
-    width:20%;
+    width:25%;
     box-sizing: border-box;
     padding-bottom:10px;
 }
  
 .menu-img{
-    width:120rpx;
-    height:84rpx;
+    width:90rpx;
+    height:80rpx;
     display:block;
     margin:0 auto;
-    margin-bottom:5px;
+    margin-bottom:15rpx;
 }
 .menu-desc{
-    background-color:#ffffff;
+    background-color:rgb(255,248,244);
     color:#333333;
     width:100%;
     text-align: center;
     display:block;
-    font-size:12px;
+    font-size:15px;
 }
 .van-card{
   width: 325rpx;
@@ -76,11 +76,13 @@ page{
 
  
 .slide-image{
-  width:100%;
+  width:80%;
   height:100%;
   transform: scale(0.6,0.6);
   border-radius:10rpx;
   overflow: hidden;
+  position: relative;
+  left: 75rpx;
 }
 .slide-active{
   transform: scale(1,1);
@@ -110,6 +112,12 @@ page{
 	background-position: center;
 	vertical-align: middle;
 	font-size: 1.5em;
+}
+.counter {
+    background-color: rgba(255, 136, 68);
+    height: 280rpx;
+    border-bottom-left-radius:50% 40%;
+    border-bottom-right-radius:50% 40%;
 }
 
 

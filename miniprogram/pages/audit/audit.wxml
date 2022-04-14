@@ -1,7 +1,7 @@
 <view>
   <block wx:for="{{goodsList}}" wx:key="index">
   <view bindtap="gotodetail" data-id="{{item._id}}">
-  <!-- 物品名称 -->
+  <!-- 物品名称 --> 
     <view style="width: 100%;position: relative;left: 195rpx;top: 130rpx;">
     <text class="const-text">{{item.goodname}}</text>
 </view>

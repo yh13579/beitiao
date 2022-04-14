@@ -34,7 +34,6 @@
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"
   description="暂无更多"
 /></view> 
-<text>\n</text>
 <!-- <text>说明：</text>
 <text>1.物品状态分为"已上架","审核中","未通过"。</text>
 <text>2.普通用户最多上传5件物品（无论状态）,已卖出的物品可以通过操作在本页列表移除（目前功能尚未实现）</text>

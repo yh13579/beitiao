@@ -1,73 +1,19 @@
-
 <!-- 详情物品的图片 -->
 <view>
     <image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" style="width: 100%;height:700rpx"></image> 
-  </view>
-<!-- 物品介绍：（文字） -->
-<view>
-<text style="font-size: x-large;position: relative;left: 20rpx;top: 15rpx;">物品介绍：</text>
 </view>
 
-<!-- 物品介绍：详情 -->
-<view style="background-color:white;width: 80%;height: 150rpx;position: relative;top: 60rpx;">
-<text style="font-size: large;position: relative;left: 50rpx;top: 15rpx;">{{gooddetail}}</text>
+
+<!-- 物品价格，名称，介绍 -->
+<text class="goodprice">{{goodprice}}</text>
+<text class="goodname">{{goodname}}</text>
+<text class="gooddetail">物品介绍 (备注) : {{gooddetail}}</text>
+
+<!-- 私信和电话按钮 -->
+<view class="message_phone">
+<button class="message_-phone" bindtap="Private_messages">私信</button>
+<button class="message_-phone" catchtap="phone" data-phone="{{phone}}">电话</button>
 </view>
-
-<!-- 电话图标 -->
-<view>
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/phone.png" style="width: 120rpx;height: 120rpx;position: relative;left: 620rpx;top: -88rpx;" catchtap="phone" data-phone="{{phone}}"></image>
-</view>
-
-<!-- 评论区 -->
-<block wx:for="{{commentsList}}" wx:key="index" >
-  <view class="cu-card dynamic margin" data-id="{{item._id}}" bindlongpress="handleLongPress">
-    <view class="cu-item shadow">
-      <view class="cu-list menu-avatar">
-        <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url({{item.userAvatarUrl}});">
-          </view>
-          <view class="content flex-sub">
-            <view>{{item.userNickName}}</view>
-            <view class="text-gray text-sm flex justify-between">
-              {{item.date}}
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <view class="details">
-        <rich-text nodes="{{item.comment}}" style="position: relative;left: 150rpx;"></rich-text>
-        <text>\n</text>
-      </view>
-    </view>
-  </view>
-</block>
-
-
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
- 
-<!-- 发表评论和发表按钮 -->
-<view style="display: flex;position:fixed;bottom:10rpx;width: 750rpx;left: 10rpx;">
-<view style="width: 70%;border: 3px solid black;border-radius:10px;box-sizing: border-box; ">
-  <van-cell-group>
-  <van-field
-    value="{{ comment }}" 
-    placeholder="发表你的神评论吧.."
-    border="{{ false }}"
-    bind:change="getcomment"
-  />
-</van-cell-group>
-</view>
-<view>
-  <button style="color: rgb(114, 72, 18);width: 120%;font-size: x-large;" catchtap="comment">发表</button>
-</view>
-</view>
-
 
 
 

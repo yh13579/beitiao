@@ -8,6 +8,29 @@ Page({
    * 页面的初始数据
    */
     data: {
+        idx:0,
+        menu:{
+            imgUrls:[
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/dailyuse.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/book.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/food.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/toy.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/skinuse.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/earphone.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/medicine.png',
+              'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/other.png'
+            ],
+            descs:[
+                '生活用品',
+                '学习用品',
+                '休闲食品',
+                '休闲玩物',
+                '美妆护肤',
+                '电子设备',
+                '药物',
+                '其他'
+            ]
+      },
       background: [     
         //轮播图图片，由云开发数据库中调用，（暂时没有实现动态修改）
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/keji.jpg'}, 
@@ -15,16 +38,15 @@ Page({
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/keji3.jpg'},
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yinghua1.jpg'}, 
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yinghua2.jpg'}],
-        vertical: false,    //垂直：false  →  水平
-        interval: 5000,     //间歇：5000  →  5秒轮播一张
-        duration: 1000,     //持续时间  指换图轮播时的切换速度
-        bannerCurrent: 0,   //初始轮播的图片
-        Hei:"",             //轮播图高度
+      vertical: false,    //垂直：false  →  水平
+      interval: 5000,     //间歇：5000  →  5秒轮播一张
+      duration: 1000,    //持续时间 指换图轮播时的切换速度
+      bannerCurrent: 0,   //初始轮播的图片
+      Hei:"",             //轮播图高度
       goodsList: [],      //物品列表
       value: '',         //搜索框里的内容
       gonggao:''        //公告
-
-    },
+    }, 
   onChange(event) {         //切换底部tabbar的函数
     this.setData({ active: event.detail });
   },
@@ -263,29 +285,17 @@ intervalChange(e) {    //间歇：5000  →  5秒轮播一张
 durationChange(e) {    //持续时间  指换图轮播时的切换速度
   this.setData({duration: e.detail.value}) 
 },
-shenhe(){         //管理员审核界面
+audit(){         //管理员审核界面
   wx.navigateTo({
     url: '../audit/audit',   //切换页面的路径
   })
 },
-searchstudygoods(){
-  this.setData({value:'学习用品'})
-  this.onSearch()
-},
-searchlifegoods(){
-  this.setData({value:'生活用品'})
-  this.onSearch()
-},
-searchelectrongoods(){
-  this.setData({value:'电子设备'})
-  this.onSearch()
-},
-searchleisuregoods(){
-  this.setData({value:'休闲玩物'})
-  this.onSearch()
-},
-searchothergoods(){
-  this.setData({value:'其他'})
-  this.onSearch()
+classify(event){
+    let idx = event.currentTarget.dataset.idx
+    let classify = this.data.menu.descs[idx]
+    console.log(classify)
+    wx.navigateTo({
+      url: '../classify/classify?classify='+classify,
+    })
 },
 })

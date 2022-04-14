@@ -1,4 +1,6 @@
-/* pages/mine/mine.wxss */
+page{
+    background-color: rgb(255,248,244);
+   }
 .userinfo {
   display: flex;
   flex-direction: row;

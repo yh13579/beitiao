@@ -1,1 +1,32 @@
 /* pages/detail/detail.wxss */
+page{
+    background-color: white;
+   }
+.message_phone{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 167rpx;
+}
+.message_-phone{
+    background-color: #FE9F67;
+}
+.goodprice{
+    color: #9E0A05;
+    font-size: xx-large;
+    position: relative;
+    top: 20rpx;
+    left: 30rpx;
+}
+.goodname{
+    font-size: 45rpx;
+    position: relative;
+    top: 20rpx;
+    left: 17rpx;
+}
+.gooddetail{
+    position: relative;
+    left: 28rpx;
+    top: 30rpx;
+    width: 677rpx;
+}

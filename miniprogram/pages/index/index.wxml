@@ -1,6 +1,7 @@
+<view class="counter"></view> 
 <!-- 搜索框 -->
 <van-search
-  value="{{ value }}"
+  value="{{ value }}" 
   shape='round'
   placeholder="请输入搜索关键词"
   background="#00BFFE"
@@ -12,19 +13,13 @@
 </van-search>
 
 <!-- 分类框 -->
-<view style="position: relative;top: 20rpx;">
-  <view style="display: flex;flex-direction: row;">
-   <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/study.jpg" style="height: 150rpx;width: 50%;position: relative;left: -10rpx;" bindtap="searchstudygoods"></image>
-   <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/life.jpg" style="height: 150rpx;width: 50%;position: relative;left: 10rpx;" bindtap="searchlifegoods"></image>
-  </view>
-
-  <view style="display: flex;flex-direction: row;">
-    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/electron.jpg" style="height: 125rpx;width: 33%;position: relative;top: 15rpx;" bindtap="searchelectrongoods"></image>
-    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/leisure.jpg" style="height: 125rpx;width: 33%;position: relative;top: 15rpx;left: 5rpx;" bindtap="searchleisuregoods"></image>
-    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/other.jpg" style="height: 125rpx;width: 33%;position: relative;top: 15rpx;left: 10rpx;" bindtap="searchothergoods"></image>
+<view class="menu-wrp">
+  <!--设定一个item项后，遍历输出-->
+  <view class="menu-list" wx:for="{{menu.imgUrls}}" wx:key="index" data-idx = "{{index}}" bindtap="classify">
+    <image class="menu-img" src="{{item}}"  />
+    <view class="menu-desc">{{menu.descs[index]}}</view>
   </view>
 </view>
-<text>\n</text>
 <!-- 轮播图 -->
 <view>
   <view class="lb_swiper">
@@ -55,45 +50,8 @@
 </view>
 
 
-<view wx:if="{{admin == 1}}">管理员才能看到这行字 
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="shenhe" bindtap="shenhe"></image>
+<view wx:if="{{admin == 1}}">
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="shenhe" bindtap="audit"></image>
 </view>
+<text style=" text-align: center;position: relative;top: 100rpx;height: 300rpx;">暂无更多</text>
 
-<text>\n</text>
-
-<text>\n</text>
-<text style=" text-align: center;">暂无更多</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-
-<!-- <template>
-    <view class="swipers-wrap">
-        <swiper @animationfinish="swiperChange"  :current="currentSwiper" circular="true"  class="swipers-view"
-         :autoplay="autoplay"  @change="dotChange">
-            <block v-for="(item,index) in swiperList" :key="index">
-                <swiper-item>
-                    <view class="swipers-best-hot-video">
-                        美景展示~
-                    </view>
-                    <view class="swipers-image-view">
-                        <image :src="item.imgUrl" mode="aspectFill" class="swipers-image"></image>
-                        <view class="swipers-title">
-                            {{item.title}}
-                        </view>
-                    </view>
-                </swiper-item>
-            </block>
-        </swiper>
-        
-        --重置指示面板（小圆点）的样式  --
-        <view class="swipers-dots">
-            <block v-for="(item,index) in swiperList" :key="index">
-                <view class="dot" :class="{active:  currentDot == index}"></view>
-            </block>
-        </view>
-    </view>
-</template> -->

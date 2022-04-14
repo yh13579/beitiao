@@ -1,0 +1,36 @@
+<van-search
+  value="{{ value }}" 
+  shape='round'
+  placeholder="请输入搜索关键词"
+  background="#00BFFE"
+  use-action-slot
+  bind:change="onChange"
+  bind:search="onSearch"
+>
+  <view slot="action" bind:tap="onClick">搜索</view>
+</van-search>
+
+
+
+
+
+
+<!-- 遍历物品，尚待优化 -->
+<view style="overflow:-Scroll;overflow-x:hidden">
+<view wx:for="{{goodsList}}" wx:key="index" class="goodslist">
+<!-- <view>
+<text>{{item.goodprice}}</text>
+<text>{{item.goodname}}</text>
+<text>{{item.imgUrl}}</text>
+<text>{{item._id}}</text>
+</view> -->
+<van-card  bindtap="detail"
+  price="{{item.goodprice}}"
+  thumb="{{item.imgUrl }}"
+  data-id="{{item._id}}"
+/>
+<text class="goodname">{{item.goodname}}</text>
+</view>
+</view>
+
+<text style=" text-align: center;position: relative;bottom: 100rpx;">暂无更多</text>

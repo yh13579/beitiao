@@ -52,8 +52,8 @@
                 },
                 {
                     "name": "pages/information/information",
-                    "pathName": "pages/index/index",
-                    "query": "",
+                    "pathName": "pages/detail/detail",
+                    "query": "id=78d83437625323a20016278c4ff2cf9b",
                     "launchMode": "default",
                     "scene": null
                 },

@@ -69,9 +69,9 @@ Information() {       //个人信息界面
     url: '../information/information',
   })
   },
-guanyu() {       //关于北跳界面
+concerning() {       //关于北跳界面
   wx.navigateTo({
-    url: '../guanyu/guanyu',
+    url: '../concerning/concerning',
   })
 },
 测试1(){

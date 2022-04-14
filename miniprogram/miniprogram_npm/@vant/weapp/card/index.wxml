@@ -9,7 +9,7 @@
         mode="aspectFill" 
         lazy-load="{{ lazyLoad }}"
         class="photo" 
-        style="width: 305rpx;height: 320rpx;position: relative;left: -26rpx;top: -15rpx;"
+        style="width: 300rpx;height: 310rpx;position: relative;left: -28rpx;top: -13.5rpx;"
       />
       <slot wx:else name="thumb" />
       <van-tag
@@ -25,7 +25,7 @@
 
     <view class="van-card__content {{ utils.bem('card__content', { center: centered }) }}">
       <view>
-        <view wx:if="{{ title }}" class="van-card__title title-class"><text style="position: relative;top: 10rpx;">{{ title }}</text></view>
+        <view wx:if="{{ title }}" class="van-card__title title-class"><text>{{ title }}</text></view>
         <slot wx:else name="title" />
 
         <view wx:if="{{ desc }}" class="van-card__desc desc-class">{{ desc }}</view>
