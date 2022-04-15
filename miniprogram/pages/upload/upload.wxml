@@ -1,6 +1,5 @@
-<view style="position: relative;height: 100%;">
 <!-- 二手物品基本信息：（文字） -->
-<text style="font-size: x-large;position: relative;left: 32rpx;top: 18rpx;">二手物品基本信息：</text> 
+<text style="font-size: x-large;position: relative;left: 32rpx;top: 18rpx;">二手物品基本信息：</text>  
 
 <view>
 <!-- 物品名称 -->
@@ -45,6 +44,9 @@
 <!-- 联系电话 -->
 <van-field value="{{ phone}}" label="联系电话:" placeholder="请输入正确的电话号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
 </view>
+
+
+
 <!-- 上传图片（文字） -->
 <view>
 <text style="font-size: x-large;position: relative;left: 32rpx;top: 25rpx;">上传图片:</text>
@@ -56,5 +58,4 @@
 <!-- 发布按钮 -->
 <view style="height: 340rpx;">
   <button style="color: rgb(114, 72, 18);font-size: x-large;position: relative;top: 180rpx;" catchtap="uploadGood">确认发布</button>
-</view>
 </view>

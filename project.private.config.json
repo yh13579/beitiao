@@ -52,7 +52,7 @@
                 },
                 {
                     "name": "pages/information/information",
-                    "pathName": "pages/index/index",
+                    "pathName": "pages/test/test",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

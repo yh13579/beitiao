@@ -1,6 +1,6 @@
 import {
   getUserProfile
-} from "../../utils/utils"
+} from "../../utils/utils" 
 Page({
     /**
      * 页面的初始数据 
@@ -190,7 +190,7 @@ Page({
                 })
               })
               .catch(err => {
-                console.error(err)
+                console.log(err)
               })
         }).catch(err => {
           console.log(err)
@@ -198,7 +198,7 @@ Page({
       })
     },
     uploadGood(event) {
-      this.getownlist()
+        this.getownlist()
         if(this.data.phone.length != 11){
           this.setData({
             errorPhone: "请输入正确手机号"

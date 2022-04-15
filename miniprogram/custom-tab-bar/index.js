@@ -18,7 +18,10 @@ Component({
 		},
 		{
 		  "pagePath": "/pages/upload/upload" 
-		},
+        },
+        {
+            "pagePath":"/pages/message/message"
+        },
 		{
 		  "pagePath": "/pages/mine/mine"
 		}

@@ -1,2 +1,44 @@
-<!--pages/test2/test2.wxml-->
-<text>pages/test2/test2.wxml</text>
+<block wx:for="{{chatlists}}" wx:for-index="ind" wx:for-item="chat" wx:key="ind">
+<view class="chat self" wx:if="{{nickname == chat.nickname}}">
+	<view class="right">
+		<view class="content">
+			{{chat.content}}
+		</view>
+	</view>
+	<view class="left">
+		<image class="avatar" src="{{chat.avatar}}"></image>
+	</view>
+</view>
+
+<view class="chat" wx:else>
+	<view class="left">
+		<image class="avatar" src="{{chat.avatar}}"></image>
+	</view>
+	<view class="right">
+		<view class="nickname" style="color: #878787;">{{chat.nickname}}</view>
+		<view class="content">
+      {{chat.content}}
+		</view>
+	</view>
+</view>
+</block>
+
+
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+
+
+<!-- 发送板 -->
+<view class="form">
+	<view>
+		<input  value="{{invalue}}" bindinput="getInput"/>
+	</view>
+	<button bindtap="sendMsg">发送</button>
+</view>
+
+

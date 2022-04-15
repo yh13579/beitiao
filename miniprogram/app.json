@@ -13,7 +13,8 @@
         "pages/test/test",
         "pages/classify/classify",
         "pages/test2/test2",
-        "pages/Private_messages/Private_messages"
+        "pages/Private_messages/Private_messages",
+        "pages/message/message"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -46,6 +47,9 @@
             },
             {
                 "pagePath": "pages/upload/upload"
+            },
+            {
+                "pagePath": "pages/message/message"
             },
             {
                 "pagePath": "pages/mine/mine"

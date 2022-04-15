@@ -11,7 +11,7 @@ Page({
    */
   onLoad: function() {
     this.getTabBar().setData({
-      active : 2
+      active : 3
     })
   },
   /**
@@ -72,16 +72,6 @@ Information() {       //个人信息界面
 concerning() {       //关于北跳界面
   wx.navigateTo({
     url: '../concerning/concerning',
-  })
-},
-测试1(){
-  wx.navigateTo({
-    url: '../ceshi1/ceshi1',   //切换页面的路径
-  })
-},
-测试2(){
-  wx.navigateTo({
-    url: '../ceshi2/ceshi2',   //切换页面的路径
   })
 },
 ownupload(){

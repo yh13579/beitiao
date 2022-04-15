@@ -1,3 +1,4 @@
+<view style=" overflow-x:hidden;overflow-y:scroll">
 <view class="counter"></view> 
 <!-- 搜索框 -->
 <van-search
@@ -50,7 +51,8 @@
 
 
 <view wx:if="{{admin == 1}}">
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="shenhe" bindtap="audit"></image>
+     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="shenhe" bindtap="audit"></image>
+    </view>
 </view>
 
 <text class="nomore-text">暂无更多</text>
