@@ -145,24 +145,25 @@ Page({
       }
     },
     uploadImg(temFile) {
+      let timestamp = Date.parse(new Date()) / 1000
+      let date = new Date().toLocaleDateString()
       getUserProfile().then(res =>{
         wx.showLoading({
           title: '加载中',
           mask: true
         })
-        let timestamp = Date.parse(new Date()) / 1000
-        let date = new Date().toLocaleDateString()
         wx.cloud.uploadFile({
           cloudPath: timestamp.toString(),
           filePath: temFile,
         })
         .then(res => {
+          let avatarUrl = wx.getStorageSync("avatarUrl")
+          let nickName = wx.getStorageSync("nickName")
           wx.cloud.database().collection('goods')
               .add({
                 data: { 
-                  userAvatarUrl: res.avatarUrl,  //用户头像
-                  userNickName: res.nickName,    //用户微信名
-                  //异步问题，无法获取到头像和微信名
+                  userAvatarUrl: avatarUrl,  //用户头像
+                  userNickName: nickName,    //用户微信名
                   imgUrl: res.fileID,
                   createTime: timestamp, 
                   goodname:this.data.goodname,
@@ -213,16 +214,16 @@ Page({
                 title: '提示',
                 content: '请上传完整信息' 
               })
-            }else if(this.data.ownlistlength > 5 && this.data.admin == 0){
+            }else if(this.data.ownlistlength > 10 && this.data.admin == 0){
               wx.showModal({
                 title: '提示',
-                content: '普通用户最多上传5件物品' 
+                content: '普通用户最多上传10件物品' 
               })
             }
-            else if(this.data.goodname.length > 15 || this.data.goodprice.length > 4){
+            else if(this.data.goodname.length > 15 || this.data.goodprice >= 10000 || this.data.goodprice.length > 7){
               wx.showModal({
                 title: '提示',
-                content: '物品名称过长或售价太高' 
+                content: '物品名称过长或售价不科学' 
               })
             }
          else {

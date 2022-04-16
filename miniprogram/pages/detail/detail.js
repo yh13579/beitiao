@@ -1,5 +1,5 @@
 Page({
-    /** 
+    /**  
      * 页面的初始数据
      */
     data: {
@@ -7,7 +7,9 @@ Page({
         phone:'',
         gooddetail:'',
         goodname:'',
-        goodprice:''
+        goodprice:'',
+        nickName:'',
+        avatarUrl:''
     },
     /**
      * 生命周期函数--监听页面加载
@@ -17,9 +19,14 @@ Page({
         this.getId(options.id)
     },
     Private_messages(){
-    wx.navigateTo({
-        url: '../Private_messages/Private_messages',
-        //跳转到私信界面
+        let shopkeeper_nickname = this.data.nickName 
+        let shopkeeper_avatarUrl = this.data.avatarUrl
+        let shopkeeper_goodname = this.data.goodname
+        let shopkeeper_goodprice = this.data.goodprice
+        let shopkeeper_gooddetail = this.data.gooddetail
+        console.log(shopkeeper_goodname)
+        wx.navigateTo({
+        url: '../Private_messages/Private_messages?shopkeeper_nickname=' + shopkeeper_nickname +'&shopkeeper_goodname=' + shopkeeper_goodname +'&shopkeeper_goodprice=' + shopkeeper_goodprice +'&shopkeeper_gooddetail=' + shopkeeper_gooddetail + '&shopkeeper_avatarUrl=' +shopkeeper_avatarUrl
     })
     },
     phone(event){
@@ -68,7 +75,9 @@ Page({
               phone:res.data.phone,
               gooddetail:res.data.gooddetail,
               goodprice:res.data.goodprice,
-              goodname:res.data.goodname
+              goodname:res.data.goodname,
+              nickName:res.data.userNickName,
+              avatarUrl:res.data.userAvatarUrl
             })
           })
           .catch(err => {

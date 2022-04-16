@@ -1,2 +1,39 @@
-<!--pages/Private_messages/Private_messages.wxml-->
-<text>私信界面</text>
+<block wx:for="{{chatlists}}" wx:for-index="ind" wx:for-item="chat" wx:key="ind">
+<!-- <text>{{chat.nickname}}</text> -->
+<!-- 判断店主 -->
+<view class="chat self" wx:if="{{nickname == chat.nickname && avatar == chat.avatar}}">
+	<view class="right">
+		<view class="content">
+			{{chat.content}}
+		</view>
+	</view>
+	<view class="left">
+		<image class="avatar" src="{{customeravatar}}"></image>
+        <!-- 上面src写错了 -->
+	</view>
+</view>
+
+<!-- 判断顾客 -->
+<view class="chat" wx:else>
+	<view class="left">
+		<image class="avatar" src="{{chat.avatar}}"></image>
+	</view>
+	<view class="right">
+		<view class="nickname" style="color: #878787;">{{chat.nickname}}</view>
+		<view class="content">
+      {{chat.content}}
+		</view>
+	</view>
+</view>
+</block>
+
+<view class="blank"></view>
+<!-- 发送板 -->
+<view class="form">
+	<view>
+		<input  value="{{invalue}}" bindinput="getInput" bindconfirm="sendMsg"/>
+	</view>
+	<button bindtap="sendMsg">发送</button>
+</view>
+
+

@@ -220,7 +220,6 @@ Page({
   },
   detail(event){         //切换到物品详情页
     let id = event.currentTarget.dataset.id
-    console.log(id)
     wx.navigateTo({ 
       url: '../detail/detail?id=' + id,
     })
@@ -252,7 +251,7 @@ classify(event){
     let classify = this.data.menu.descs[idx]
     console.log(classify)
     wx.navigateTo({
-      url: '../classify/classify?classify='+classify,
+      url: '../classify/classify?classify='+classify, 
     })
 },
 onSearch(){   //手机上点击自带的搜索或者电脑回车键

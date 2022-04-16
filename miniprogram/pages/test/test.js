@@ -1,136 +1,84 @@
-// pages/contact/contact.js
-const app = getApp();
-var inputVal = '';
-var msgList = [];
-var windowWidth = wx.getSystemInfoSync().windowWidth;
-var windowHeight = wx.getSystemInfoSync().windowHeight;
-var keyHeight = 0;
-
-/**
- * 初始化数据
- */
-function initData(that) {
-  inputVal = '';
-
-  msgList = [{
-      speaker: 'server',
-      contentType: 'text',
-      content: '测试文字1'
-    },
-    {
-      speaker: 'customer',
-      contentType: 'text',
-      content: '测试文字2'
-    }
-  ]
-  that.setData({
-    msgList,
-    inputVal
-  })
-}
-
-/**
- * 计算msg总高度
- */
-// function calScrollHeight(that, keyHeight) {
-//   var query = wx.createSelectorQuery();
-//   query.select('.scrollMsg').boundingClientRect(function(rect) {
-//   }).exec();
-// }
-
+// pages/navto/navto.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    scrollHeight: '100vh',
-    inputBottom: 0
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    initData(this);
-    this.setData({
-      cusHeadIcon: app.globalData.userInfo.avatarUrl,
-    });
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 获取聚焦
-   */
-  focus: function(e) {
-    keyHeight = e.detail.height;
-    this.setData({
-      scrollHeight: (windowHeight - keyHeight) + 'px'
-    });
-    this.setData({
-      toView: 'msg-' + (msgList.length - 1),
-      inputBottom: keyHeight + 'px'
-    })
-    //计算msg高度
-    // calScrollHeight(this, keyHeight);
-
-  },
-
-  //失去聚焦(软键盘消失)
-  blur: function(e) {
-    this.setData({
-      scrollHeight: '100vh',
-      inputBottom: 0
-    })
-    this.setData({
-      toView: 'msg-' + (msgList.length - 1)
-    })
-
-  },
-
-  /**
-   * 发送点击监听
-   */
-  sendClick: function(e) {
-    msgList.push({
-      speaker: 'customer',
-      contentType: 'text',
-      content: e.detail.value
-    })
-    inputVal = '';
-    this.setData({
-      msgList,
-      inputVal
-    });
-
-
-  },
-
-  /**
-   * 退回上一页
-   */
-  toBackClick: function() {
-    wx.navigateBack({})
-  }
-
-})
+    /**
+     * 页面的初始数据
+     */
+    data: {
+      left: ["奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶", "奶茶"],
+      content: ["珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟", "珍珠奶茶", "鲜百香双响炮", "奶茶三兄弟",],
+    },
+    scroll: function (e) {
+      console.log(e)
+      this.setData({
+        intoindex: "text" + e.currentTarget.dataset.id
+      })
+    },
+    // scroll:function(e){
+    //   // console.log(e)
+    //   console.log('只要滚动就会触发事件')
+    // },
+    // lower: function (e) {
+    //   // console.log(e)
+    //   console.log("从上往下滑动到低会触发事件")
+    // },
+    // upper: function (e) {
+    //   // console.log(e)
+    //   console.log("从下往上滑动到顶会触发事件")
+    // },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+  
+    },
+  
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+  
+    },
+  
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+  
+    },
+  
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+  
+    },
+  
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+  
+    },
+  
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+  
+    },
+  
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+  
+    },
+  
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+  
+    }
+  })

@@ -2,10 +2,8 @@
 .avatar{
     width: 100rpx;
     height: 100rpx;
-    border-radius: 0%;
+    border-radius: 15%;
   }
-  
-  
   .chat{
     display: flex;
     align-items: center;
@@ -15,7 +13,6 @@
     justify-content: flex-end;
     margin-top: 15px;
   }
-  
   .left{
     padding: 20rpx;
     align-self: flex-start;
@@ -23,7 +20,6 @@
   .self .left{
     padding-top: 0;
   }
-  
   .right{
     margin-left: 10px;
   }
@@ -31,7 +27,6 @@
     background-color: white;
     color: #123;
     font-size: 16px;
-    /* border:1px solid #ddd; */
     padding: 10px;
     line-height: 26px;
     margin-right: 10px;
@@ -91,7 +86,9 @@ button{
       height: 80rpx;
       color: white;
   }
-  
+  .blank{
+      height: 200rpx;
+  }
   
   
   

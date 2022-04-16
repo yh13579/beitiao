@@ -54,25 +54,26 @@ Page({
         })
     },
     reject(event){             //点击拒绝
-        let id = event.currentTarget.dataset.id
-        wx.cloud.database().collection("goods")
-        .doc(id)
-        .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
-            data:{  
-                audit:-2   
-            }
-        })
-        .then(res => {   //实时更新数组
-            let idx = event.currentTarget.dataset.idx
-            var goodsList= this.data.goodsList;
-            goodsList.splice(idx,1)
-            this.setData({
-              goodsList: goodsList,
-            })
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        console.log(event)
+        // let id = event.currentTarget.dataset.id
+        // wx.cloud.database().collection("goods")
+        // .doc(id)
+        // .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
+        //     data:{  
+        //         audit:-2   
+        //     }
+        // })
+        // .then(res => {   //实时更新数组
+        //     let idx = event.currentTarget.dataset.idx
+        //     var goodsList= this.data.goodsList;
+        //     goodsList.splice(idx,1)
+        //     this.setData({
+        //       goodsList: goodsList,
+        //     })
+        // })
+        // .catch(err => {
+        //     console.log(err)
+        // })
     },
     gotodetail(event){
         let id = event.currentTarget.dataset.id

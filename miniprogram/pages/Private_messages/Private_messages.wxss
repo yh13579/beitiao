@@ -1,1 +1,95 @@
-/* pages/Private_messages/Private_messages.wxss */
+/* pages/chat/chat.wxss */
+.avatar{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 15%;
+  }
+  .chat{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+  }
+  .self{
+    justify-content: flex-end;
+    margin-top: 15px;
+  }
+  .left{
+    padding: 20rpx;
+    align-self: flex-start;
+  }
+  .self .left{
+    padding-top: 0;
+  }
+  .right{
+    margin-left: 10px;
+  }
+  .right .content{
+    background-color: white;
+    color: #123;
+    font-size: 16px;
+    padding: 10px;
+    line-height: 26px;
+    margin-right: 10px;
+    border-radius: 3px;
+    position: relative;
+    min-height: 20px;
+  }
+  .right .content::before{
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-right-color:#eee;
+    position: absolute;
+    top: 10px;
+    left: -23px;
+  }
+  .self .right .content::before{
+    border: 0;
+  }
+  .self .right .content::after{
+    content: ' ';
+    display: block;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-left-color:#1ad409;
+    position: absolute;
+    top: 10px;
+    right: -23px;
+  
+  }
+  .self .right .content{
+    background-color: #1ad409;
+  }
+  
+  .form{
+    position: fixed;
+    bottom: 0rpx;
+    background-color: #FFFFFF;
+    width: 750rpx;
+    display: flex;
+    height: 130rpx;
+    align-items: center;
+  }
+  .form input{
+    width: 560rpx;
+    background-color: #F2F2F2;
+    border-radius: 45rpx;
+    height: 80rpx;
+    line-height: 36px;
+    padding: 0  5px;
+  }
+button{
+      background-color: #FFA16B;
+      height: 80rpx;
+      color: white;
+  }
+  .blank{
+      height: 200rpx;
+  }
+  
+  
+  
+  

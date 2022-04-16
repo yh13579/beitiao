@@ -1,4 +1,4 @@
-<!-- 微信头像和昵称 -->
+<!-- 微信头像和昵称 --> 
 <van-cell-group style="background-color: white;display: flex;flex-direction: row;">
 <image src="{{AvatarUrl}}" mode="aspectFill" style="width: 125rpx;height: 125rpx;position: relative;left: 10rpx;"></image> 
 <text style="font-size: x-large;position: absolute;left: 210rpx;top: 35rpx;height: 90rpx;width: 1000rpx;overflow-x: hidden;">{{wxname}}</text>
@@ -40,5 +40,3 @@
     </view>
   </view>
 </view>
-
-

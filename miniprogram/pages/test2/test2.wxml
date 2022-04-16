@@ -1,5 +1,5 @@
 <block wx:for="{{chatlists}}" wx:for-index="ind" wx:for-item="chat" wx:key="ind">
-<view class="chat self" wx:if="{{nickname == chat.nickname}}">
+<view class="chat self" wx:if="{{nickname == chat.nickname && avatar == chat.avatar}}">
 	<view class="right">
 		<view class="content">
 			{{chat.content}}
@@ -22,21 +22,13 @@
 	</view>
 </view>
 </block>
-
-
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
-<text>\n</text>
+<view class="blank"></view>
 
 
 <!-- 发送板 -->
 <view class="form">
 	<view>
-		<input  value="{{invalue}}" bindinput="getInput"/>
+		<input  value="{{invalue}}" bindinput="getInput" bindconfirm="sendMsg"/>
 	</view>
 	<button bindtap="sendMsg">发送</button>
 </view>
