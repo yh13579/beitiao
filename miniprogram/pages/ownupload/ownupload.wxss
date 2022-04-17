@@ -9,8 +9,7 @@
   }
   
   .avatar{
-    width: 32rpx;
-    height: 32rpx;
+    width: 150rpx;height: 150rpx;
   }
   
   .author{
@@ -30,6 +29,9 @@
     font-size: 24rpx;
     margin-left: 30rpx;
     color: #999;
+    position: relative;
+    top: -53rpx;
+    left: -3rpx;
   }
   
   .title{
@@ -54,4 +56,54 @@
     width: 660rpx;
     height: 1px;
     background-color: #e5e5e5;
+  }
+  .goodname{
+    width: 100%;
+    position: relative;
+    left: 195rpx;
+    top: 130rpx;
+  }
+  .goodprice{
+    width: 100%;
+    position: relative;
+    left: 195rpx;
+    top: 160rpx;
+  }
+  .goodprice_text{
+    position: relative;
+    left: 22rpx;
+    font-size: large;
+    color: red;  
+  }
+  .goodimg_text{
+    position: relative;
+    top: -53rpx;
+    left: -3rpx;
+  }
+  .button_view{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 420rpx;
+    top: -30rpx;
+  }
+  .button_good{
+    background-color: green;
+    width: 90px;
+    margin: 0px;
+  }
+  .button_state{
+    background-color: red;
+    width: 90px;
+    margin: 0px;
+  }
+  .good_state{
+    position: relative;
+    left: -720rpx;
+    top: 55rpx;
+    margin: 0px;
+  }
+  .liststate{
+    position: relative;
+    top: 300rpx;
   }

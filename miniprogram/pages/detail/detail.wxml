@@ -1,6 +1,6 @@
 <!-- 详情物品的图片 -->
 <view>
-    <image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" style="width: 100%;height:700rpx"></image> 
+    <image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" class="detail_image"></image> 
 </view>
 
 

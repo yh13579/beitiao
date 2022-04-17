@@ -147,7 +147,7 @@ Page({
     uploadImg(temFile) {
       let timestamp = Date.parse(new Date()) / 1000
       let date = new Date().toLocaleDateString()
-      getUserProfile().then(res =>{
+      getUserProfile().then(res =>{ 
         wx.showLoading({
           title: '加载中',
           mask: true

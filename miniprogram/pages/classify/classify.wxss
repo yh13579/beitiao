@@ -34,7 +34,6 @@ page{
     position: relative;
     border-radius: 20rpx 20rpx 0rpx 0rpx;
 }
-
 .card{
   background-color: white;
   width: 300rpx;

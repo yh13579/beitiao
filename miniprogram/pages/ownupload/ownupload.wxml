@@ -2,34 +2,34 @@
   <block wx:for="{{goodsList}}" wx:key="index">
   <view data-id="{{item._id}}">
   <!-- 物品名称 -->
-    <view style="width: 100%;position: relative;left: 195rpx;top: 130rpx;">
+    <view class="goodname">
     <text class="const-text">{{item.goodname}}</text>
 </view>
 <!-- 物品价格 -->
-<view style="width: 100%;position: relative;left: 195rpx;top: 160rpx;">
-<text style="position: relative;left: 22rpx;font-size: large;color: red;">{{item.goodprice}}</text>
+<view class="goodprice">
+<text class="goodprice_text">{{item.goodprice}}</text>
 </view>
 <!-- 物品图片 -->
     <view class="author-date">
-      <image class="avatar" src="{{item.imgUrl}}" mode="aspectFill" style="width: 150rpx;height: 150rpx;"></image>
-      <text class="date" style="position: relative;top: -53rpx;left: -3rpx;">{{item.date}}</text> 
+      <image class="avatar" src="{{item.imgUrl}}" mode="aspectFill"></image>
+      <text class="date">{{item.date}}</text> 
     </view>
   </view>
   <!-- 按钮 -->
-  <view style="display: flex;flex-direction: row;position: relative;left: 420rpx;top: -30rpx;" wx:key="{{index}}">
-    <button style="background-color: green;width: 90px;margin: 0px;" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">物品</button>
-    <button style="background-color: red;width: 90px;margin: 0px;" bindtap="reject" data-id="{{item._id}}" data-idx = "{{index}}">状态</button>
+  <view class="button_view" wx:key="{{index}}">
+    <button class="button_good" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">物品</button>
+    <button class="button_state" bindtap="reject" data-id="{{item._id}}" data-idx = "{{index}}">状态</button>
     <!-- 物品状态 -->
-    <text style="position: relative;left: -720rpx;top: 55rpx;margin: 0px;" wx:if="{{item.audit == -1}}">审核中...</text>
-    <text style="position: relative;left: -720rpx;top: 55rpx;margin: 0px;" wx:if="{{item.audit == 1}}">已上架</text>
-    <text style="position: relative;left: -720rpx;top: 55rpx;margin: 0px;" wx:if="{{item.audit == -2}}">未通过</text>
+    <text class="good_state" wx:if="{{item.audit == -1}}">审核中...</text>
+    <text class="good_state" wx:if="{{item.audit == 1}}">已上架</text>
+    <text class="good_state" wx:if="{{item.audit == -2}}">未通过</text>
   </view>
   <!-- <view>获取到的索引:{{index}}</view> -->
   <!-- 分割线 -->
   <view class="horizon"></view>
   </block>
 <!-- 列表状态 -->
-  <view wx:if="{{empty == 1}}" style="position: relative;top: 300rpx;"><van-empty
+  <view wx:if="{{empty == 1}}" class="liststate"><van-empty
   class="custom-image"
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"
   description="暂无更多"
@@ -38,7 +38,5 @@
 <text>1.物品状态分为"已上架","审核中","未通过"。</text>
 <text>2.普通用户最多上传5件物品（无论状态）,已卖出的物品可以通过操作在本页列表移除（目前功能尚未实现）</text>
 <text>3.重新编辑物品上传需要再次审核（功能尚未实现）</text> -->
-
 </view>
-
 <!-- 物品的状态选择可分为：上架，已卖出，删除，重新编辑上传 -->

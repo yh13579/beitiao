@@ -9,7 +9,7 @@
     label="性别"
     placeholder="选择性别"
     value="{{gender}}"
-    bind:change="getgender"
+    bind:change="getgender" 
     disabled
   />
   </view>
@@ -44,7 +44,7 @@ disabled
 <van-field  value="{{signature}}" label="个性签名" placeholder="做一个有个性的人吧..." border="{{ true }}" bind:change="getsignature"/>
 
 <!-- 提交按钮 -->
-<van-button color="#1989FA" round type="primary" style="position: relative;left: 185rpx;top: 500rpx;" catchtap="submit">保存</van-button>
+<van-button color="#1989FA" round type="primary" class="van_button_submit" catchtap="submit">保存</van-button>
 
 
 

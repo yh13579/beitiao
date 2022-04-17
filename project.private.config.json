@@ -53,7 +53,7 @@
                 {
                     "name": "pages/information/information",
                     "pathName": "pages/index/index",
-                    "query": "nicknamedetail=%E7%83%88%E9%A3%8E",
+                    "query": "",
                     "launchMode": "default",
                     "scene": null
                 },

@@ -25,7 +25,6 @@
         "enablePullDownRefresh": true
     },
     "sitemapLocation": "sitemap.json",
-    "style": "v2",
     "usingComponents": {
         "van-field": "@vant/weapp/field/index",
         "van-picker": "@vant/weapp/picker/index",

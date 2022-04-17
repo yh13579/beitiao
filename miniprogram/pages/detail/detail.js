@@ -1,3 +1,6 @@
+import {
+    getUserProfile
+  } from "../../utils/utils"
 Page({
     /**  
      * 页面的初始数据
@@ -19,15 +22,17 @@ Page({
         this.getId(options.id)
     },
     Private_messages(){
-        let shopkeeper_nickname = this.data.nickName 
-        let shopkeeper_avatarUrl = this.data.avatarUrl
-        let shopkeeper_goodname = this.data.goodname
-        let shopkeeper_goodprice = this.data.goodprice
-        let shopkeeper_gooddetail = this.data.gooddetail
-        console.log(shopkeeper_goodname)
-        wx.navigateTo({
-        url: '../Private_messages/Private_messages?shopkeeper_nickname=' + shopkeeper_nickname +'&shopkeeper_goodname=' + shopkeeper_goodname +'&shopkeeper_goodprice=' + shopkeeper_goodprice +'&shopkeeper_gooddetail=' + shopkeeper_gooddetail + '&shopkeeper_avatarUrl=' +shopkeeper_avatarUrl
-    })
+        getUserProfile().then(res => {
+            let shopkeeper_nickname = this.data.nickName 
+            let shopkeeper_avatarUrl = this.data.avatarUrl
+            let shopkeeper_goodname = this.data.goodname
+            let shopkeeper_goodprice = this.data.goodprice
+            let shopkeeper_gooddetail = this.data.gooddetail
+            wx.navigateTo({
+            url: '../Private_messages/Private_messages?shopkeeper_nickname=' + shopkeeper_nickname +'&shopkeeper_goodname=' + shopkeeper_goodname +'&shopkeeper_goodprice=' + shopkeeper_goodprice +'&shopkeeper_gooddetail=' + shopkeeper_gooddetail + '&shopkeeper_avatarUrl=' +shopkeeper_avatarUrl
+        })
+        })
+      
     },
     phone(event){
     wx.makePhoneCall({
@@ -36,7 +41,8 @@ Page({
         console.log("拨打电话成功！")      
       },      
       fail: function (e) {         
-        console.log(e)      
+        console.log(e)     
+        console.log("用户取消") 
       }
     })
   },

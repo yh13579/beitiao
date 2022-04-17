@@ -1,1 +1,29 @@
-/* pages/guanyu/guanyu.wxss */
+.text_detail{
+    font-size: large;
+}
+.image{
+    width: 100%;
+}
+.text_detaildown{
+    font-size: large;
+}
+.like_step{
+    display: flex;
+}
+.like{
+    width: 70.5px; 
+    height: 70.5px;
+    position: relative;
+    left: 20%;
+}
+.step{
+    width: 70.5px; 
+    height: 70.5px;
+    position: relative;
+    left: 40%;
+}
+.text_detailbottom{
+    text-align: center;
+    position: relative;
+    top: 200rpx;
+}

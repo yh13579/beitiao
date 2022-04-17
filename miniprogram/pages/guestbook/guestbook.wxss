@@ -1,1 +1,26 @@
 /* pages/guestbook/guestbook.wxss */
+.avatar{
+    background-image:url({{item.userAvatarUrl}});
+}
+.comment{
+    position: relative;
+    left: 150rpx;
+}
+.publish_view{
+    display: flex;
+    position:fixed;
+    bottom:10rpx;
+    width: 750rpx;
+    left: 10rpx;
+}
+.publish_detail{
+    width: 70%;
+    border: 3px solid black;
+    border-radius:10px;
+    box-sizing: border-box; 
+}
+.button_publish{
+    color: rgb(114, 72, 18);
+    width: 120%;
+    font-size: x-large;
+}

@@ -1,4 +1,8 @@
 /* pages/information/information.wxss */
-
+ .van_button_submit{
+    position: relative;
+    left: 185rpx;
+    top: 500rpx;
+ }
   
   

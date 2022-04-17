@@ -4,7 +4,7 @@
     <view class="cu-item shadow">
       <view class="cu-list menu-avatar">
         <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url({{item.userAvatarUrl}});">
+          <view class="cu-avatar round lg" class="avatar">
           </view>
           <view class="content flex-sub">
             <view>{{item.userNickName}}</view>
@@ -16,15 +16,15 @@
       </view>
 
       <view class="details">
-        <rich-text nodes="{{item.comment}}" style="position: relative;left: 150rpx;"></rich-text>
+        <rich-text nodes="{{item.comment}}" class="comment"></rich-text>
       </view>
     </view>
   </view>
 </block>
 
 <!-- 发表评论和发表按钮 -->
-<view style="display: flex;position:fixed;bottom:10rpx;width: 750rpx;left: 10rpx;">
-<view style="width: 70%;border: 3px solid black;border-radius:10px;box-sizing: border-box; ">
+<view class="publish_view">
+<view class="publish_detail">
   <van-cell-group>
   <van-field
     value="{{ comment }}"  
@@ -35,6 +35,6 @@
 </van-cell-group>
 </view>
 <view>
-  <button style="color: rgb(114, 72, 18);width: 120%;font-size: x-large;" catchtap="comment">发表</button>
+  <button class="button_publish" catchtap="comment">发表</button>
 </view>
 </view>

@@ -1,3 +1,25 @@
 page{
     background-color: rgb(255,248,244);
    }
+   .text_uploadimg{
+    font-size: x-large;
+    position: relative;
+    left: 32rpx;
+    top: 25rpx;
+   }
+   .uploadimg{
+    width: 275rpx;
+    height: 275rpx;
+    position: relative;
+    left: 30rpx;
+    top: 80rpx;
+   }
+   .buttonview{
+    height: 340rpx;
+   }
+   .button_value{
+    color: rgb(114, 72, 18);
+    font-size: x-large;
+    position: relative;
+    top: 180rpx;
+   }

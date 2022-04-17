@@ -19,7 +19,7 @@
 		<image class="avatar" src="{{chat.avatar}}"></image>
 	</view>
 	<view class="right">
-		<view class="nickname" style="color: #878787;">{{chat.nickname}}</view>
+		<view class="nickname" class="nickname">{{chat.nickname}}</view>
 		<view class="content">
       {{chat.content}}
 		</view>

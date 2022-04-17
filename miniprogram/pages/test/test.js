@@ -1,4 +1,3 @@
-// pages/navto/navto.js
 Page({
 
     /**

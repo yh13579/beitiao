@@ -1,10 +1,7 @@
-<!-- 二手物品基本信息：（文字） -->
-<text style="font-size: x-large;position: relative;left: 32rpx;top: 18rpx;">二手物品基本信息：</text>  
-
-<view>
+<view> 
 <!-- 物品名称 -->
 <van-cell-group inset>
-  <van-field label="物品名称:" placeholder="输入物品名称" value="{{goodname}}" bind:change="getgoodname"/>
+  <van-field label="物品名称:" placeholder="请输入物品名称" value="{{goodname}}" bind:change="getgoodname"/>
 </van-cell-group>
 
 <!-- 物品分类 -->
@@ -49,13 +46,13 @@
 
 <!-- 上传图片（文字） -->
 <view>
-<text style="font-size: x-large;position: relative;left: 32rpx;top: 25rpx;">上传图片:</text>
+<text class="text_uploadimg">上传图片:</text>
 </view>
 <!-- 上传图片（图片） -->
 <view> 
-  <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" style="width: 275rpx;height: 275rpx;position: relative;left: 30rpx;top: 80rpx;"></image>  
+  <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" class="uploadimg"></image>  
 </view>
 <!-- 发布按钮 -->
-<view style="height: 340rpx;">
-  <button style="color: rgb(114, 72, 18);font-size: x-large;position: relative;top: 180rpx;" catchtap="uploadGood">确认发布</button>
+<view class="buttonview"> 
+  <button class="button_value" catchtap="uploadGood">确认发布</button>
 </view>

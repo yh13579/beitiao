@@ -1,4 +1,3 @@
-/* pages/chat/chat.wxss */
 .avatar{
     width: 100rpx;
     height: 100rpx;
@@ -88,6 +87,9 @@ button{
   }
   .blank{
       height: 200rpx;
+  }
+  .nickname{
+    color: #878787;
   }
   
   

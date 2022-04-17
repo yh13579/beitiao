@@ -1,4 +1,3 @@
-let app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -12,12 +11,12 @@ Page({
     shopkeeper_goodname:'',
     shopkeeper_goodprice:'',
     shopkeeper_gooddetail:'',
+    currentid:'',
     //此处的chatlists必然需要在数据库进行查找
     
     invalue:''     //输入框内容
   },
   sendMsg:function(event){      //在这里准备先判断用户授权
-    console.log(this.data.chatlists.length)
     if(this.data.invalue == 0){
         console.log("没有输入内容")
         wx.showModal({
@@ -36,11 +35,48 @@ Page({
     this.setData({
       chatlists:arr,
       invalue:''
-    });
-
-    // 把聊天内容发送到服务器，处理完成后返回，再把返回的数据放到chatlist里面
-
+    })
+    if(this.data.chatlists.length == 4){
+        wx.cloud.database().collection("message")
+        .add({
+          data:{
+            chatlists:this.data.chatlists,
+            current:1
+          }
+        })
+        this.getcurrentid()
+    }
+    else if(this.data.chatlists.length > 4 ){
+        wx.cloud.database().collection("message")
+        .doc(this.data.currentid)
+        .update({
+            data:{
+                chatlists:this.data.chatlists
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
   },
+  getcurrentid(){
+    wx.cloud.callFunction({
+        name: 'login',
+      })
+      .then(res => {
+        wx.cloud.database().collection("message")
+        .where({
+            openid:res.result.openid,
+            current:1
+        }).get()
+        .then(res => {
+            this.setData({
+            currentid:res.data[0]._id,
+            })
+          })
+      })
+  },
+
   getInput:function(e){
     this.setData({invalue:e.detail.value});
   },
@@ -112,7 +148,22 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if(this.data.currentid.length == 0){
+        console.log("用户没有评论")
+      }
+      else{
+        console.log("用户写了评论")
+        wx.cloud.database().collection("message")
+        .doc(this.data.currentid)
+        .update({
+            data:{
+                current:0 
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        })
+      }
   },
 
   /**

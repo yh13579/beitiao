@@ -70,8 +70,6 @@ page{
   border-radius:10rpx;
   background: rgba(236, 28, 28, 0.801);
 }
-
- 
 .slide-image{
   width:80%;
   height:100%;
@@ -80,6 +78,7 @@ page{
   overflow: hidden;
   position: absolute;
   left: 40rpx;
+  transition: all 1s;
 }
 .slide-active{
   transform: scale(1,1);
@@ -157,6 +156,17 @@ page{
     left: 8rpx;
     top: 375rpx;
     font-size: 33rpx;
+}
+.view_all{
+    overflow-x:hidden;
+    overflow-y:scroll
+}
+.lunbotu{
+    position:relative;
+    left: -33rpx;
+}
+.lbt_image{
+    transition: all 1s
 }
 
 
