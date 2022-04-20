@@ -1,13 +1,15 @@
 import {
   getUserProfile
 } from "../../utils/utils" 
-Page({
+Page({ 
     /**
      * 页面的初始数据 
      */
     data: { 
+        columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
+        state: '',
         tempFilePaths: "",    //要上传的文件的小程序临时文件路径
-        imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/newadd.jpg",
+        imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
         show:false,    
         columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
         fileId: "",
@@ -15,22 +17,9 @@ Page({
         phone:'',
         gooddetail:'',
         goodprice:'',
-        category:'',
+        category:'生活用品',
         ownlistlength:''
     },
-  showPopup(e){      //点击选择，打开弹出层（选择器）
-    this.hideKeyBorder()
-    this.setData({show:true})
-      },
-   onClose() {//点击空白处开闭弹出层（选择器）及选择器左上角的取消
-      this.setData({ show: false });
-    },
-   onConfirm(e){    //选择器右上角的确定，点击确定获取值
-     this.setData({
-       category:e.detail.value,
-       show:false
-     })
-   },
     getPhoto() { 
         wx.chooseImage({
           count: 1,
@@ -47,10 +36,6 @@ Page({
       },
       getgoodname(e){
         this.data.goodname = e.detail
-      },
-      getcategory(e){
-        this.hideKeyBorder()
-        this.data.category = e.detail
       },
       getPhone(e) {
         if (e.detail.length == 11) {
@@ -74,7 +59,9 @@ Page({
         active : 1
       })
       let admin = wx.getStorageSync('admin')
-      this.setData({admin:admin})
+      this.setData({
+          admin:admin
+        })
     },
 
     /**
@@ -125,18 +112,11 @@ Page({
     onShareAppMessage: function () {
 
     },
-    hideKeyBorder() {
-      wx.hideKeyboard({
-        success: (res) => {
-          console.log(res)
-        },
-      })
-    },
     longpress(){
-      if(this.data.imgUrl != "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/newadd.jpg"){
+      if(this.data.imgUrl != "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg"){
         this.setData({
-          imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/newadd.jpg",
-          tempFilePaths:''
+          imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
+          tempFilePaths:'',
         })
         console.log("长按删除图片")
       }
@@ -154,7 +134,7 @@ Page({
         })
         wx.cloud.uploadFile({
           cloudPath: timestamp.toString(),
-          filePath: temFile,
+          filePath: temFile, 
         })
         .then(res => {
           let avatarUrl = wx.getStorageSync("avatarUrl")
@@ -182,12 +162,12 @@ Page({
                   content: '上传成功',
                 })
                 this.setData({
-                  imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/newadd.jpg",
+                  imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
                   tempFilePaths: "", 
                   goodname:'',
                   gooddetail:'',
                   goodprice:'',
-                  category:''
+                  category:this.data.category
                 })
               })
               .catch(err => {
@@ -220,10 +200,10 @@ Page({
                 content: '普通用户最多上传10件物品' 
               })
             }
-            else if(this.data.goodname.length > 15 || this.data.goodprice >= 10000 || this.data.goodprice.length > 7){
+            else if(this.data.goodprice >= 1000 || this.data.goodprice.length >= 7){
               wx.showModal({
                 title: '提示',
-                content: '物品名称过长或售价不科学' 
+                content: '物品售价不科学' 
               })
             }
          else {
@@ -249,5 +229,13 @@ Page({
               console.log(err)
           })
         })
+  },
+  columndetail(event){ 
+    let index = event.currentTarget.dataset.index
+    let column = this.data.columns[index]
+    this.setData({
+        state: event.currentTarget.dataset.index,
+        category:column
+      });
   },
 })

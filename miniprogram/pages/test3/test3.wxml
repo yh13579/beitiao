@@ -1,0 +1,5 @@
+<view class="iconusecont-div {{state==index?'active-tag':''}}" bindtap="select_use" wx:for="{{columns}}" data-key='{{index}}'>
+  <view class="flex-item"> 
+    <rich-text class='use_name'>{{item.columns_detail}}</rich-text>
+  </view>
+</view>

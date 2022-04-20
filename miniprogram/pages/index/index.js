@@ -3,12 +3,12 @@ import {
 } from "../../utils/utils"
 const db = wx.cloud.database();  
 Page({
-  /**
+  /** 
    * 页面的初始数据
    */
     data: {
-        idx:0,
-        menu:{
+        index:0,
+        menu:{ 
             imgUrls:[
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/dailyuse.png',
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/book.png',
@@ -118,7 +118,7 @@ Page({
     this.setData({value: e.detail,});
   },
 
-  admin(){
+  admin(){    //后续优化，如果已经是管理员了，就提示已经是管理员身份
     wx.cloud.database().collection("admin")
           .add({
             data:{
@@ -208,6 +208,8 @@ Page({
             this.setData({
               goodsList:old_data.concat(res.data),
             })  
+            // var s = new Set(this.data.goodsList)
+            // console.log(s)
       })
       .catch(err => {
         console.log(err)

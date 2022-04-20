@@ -1,8 +1,20 @@
 /* pages/information/information.wxss */
- .van_button_submit{
+page{
+    background-color: rgb(255,248,244);
+   }
+.submit{
+    background-color: #FFA066;
+    width: 90%;
     position: relative;
-    left: 185rpx;
     top: 500rpx;
- }
+    border-radius: 25rpx;
+    color: white;
+    height: 120rpx;
+    font-size: 50rpx;
+}
+.line{
+    background-color: #F1E9E7;
+    height: 3rpx;
+}
   
   

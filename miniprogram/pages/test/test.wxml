@@ -1,8 +1,20 @@
+<view class="navs">
+  <view class="{{index=='0' ? 'choose' : 'noChoose'}}" bindtap="changeColor" data-index="0">我的订单</view>
+  <view class="{{index=='1' ? 'choose' : 'noChoose'}}" bindtap="changeColor" data-index="1">服务项目</view>
+  <view class="{{index=='2' ? 'choose' : 'noChoose'}}" bindtap="changeColor" data-index="2">运营结算</view>
+</view>
 
-<scroll-view class="scroll" scroll-y>
-<view wx:for="{{ left }}" bindtap="scroll" data-id="{{index}}">{{index}}-{{ item }}</view>
-</scroll-view>
+<view style="height: 300rpx;background-color: white;"></view>
+<!-- 物品分类 -->
+<view class="choicecate">
+    <text class="text_uploadimg">分类</text>
+    <view class="line_blank"></view>
+    <view class="columnslist" wx:for="{{columns}}" wx:key="index" > 
+    <button wx:if="{{style == 0}}" style="background-color: {{score}};"  bindtap="columndetail" data-index = "{{index}}" >{{columns[index]}}</button>
+</view>
+<view class="columnslist" wx:for="{{columns}}" wx:key="index" > 
+    <button  wx:if="{{style == 1}}" style="background-color: {{score}};" bindtap="columndetail" data-index = "{{index}}">{{columns[index]}}</button>
+</view>
+</view>
 
-<scroll-view class="content" scroll-y scroll-into-view="{{ intoindex }}" scroll-with-animation> 
-<view wx:for="{{ content }}" id="text{{index}}">{{index}}-{{ item }}</view>
-</scroll-view>
+

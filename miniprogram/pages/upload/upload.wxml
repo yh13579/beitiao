@@ -1,11 +1,9 @@
 <view> 
 <!-- 物品名称 -->
-<van-cell-group inset>
-  <van-field label="物品名称:" placeholder="请输入物品名称" value="{{goodname}}" bind:change="getgoodname"/>
-</van-cell-group>
-
+  <van-field  placeholder="请输入物品名称" value="{{goodname}}"  maxlength="15"    show-word-limit bind:change="getgoodname"/>
+  <view class="line"></view>
 <!-- 物品分类 -->
-<view bindtap="showPopup">
+<!-- <view bindtap="showPopup">
    <van-field
     label="物品分类:"
     placeholder="选择物品的类别"
@@ -13,46 +11,57 @@
     bind:change="getcategory"
     disabled
   />
-  </view>
+  </view> -->
   <!-- 物品分类弹出选择框 -->
-  <van-popup show="{{ show }}" bind:close="onClose"  position="bottom"
+  <!-- <van-popup show="{{ show }}" bind:close="onClose"  position="bottom"
   custom-style="height: 50%">
     <van-picker title="物品分类" show-toolbar columns="{{ columns }}"  bind:cancel="onClose"
   bind:confirm="onConfirm"/>
-</van-popup>
-<!-- 物品售价 -->
-<van-cell-group inset> 
-  <van-field label="物品售价:" placeholder="输入合适的售价" value="{{goodprice}}" bind:change="getgoodprice" />
-</van-cell-group>
+</van-popup> -->
+
 <!-- 详细描述 -->
 <van-cell-group inset >
-  <van-field
+  <van-field 
     v-model="message"
     rows="2"
     autosize
-    label="详细描述:"
     type="textarea"
     maxlength="50"
-    placeholder="请详细描述物品,以便于售出..."
+    placeholder="简单描述一下物品的情况"
     value="{{gooddetail}}" bind:change="getgooddetil"
     show-word-limit
   />
 </van-cell-group>
+<view class="line"></view>
 <!-- 联系电话 -->
-<van-field value="{{ phone}}" label="联系电话:" placeholder="请输入正确的电话号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
+<van-field value="{{ phone}}" placeholder="请输入正确的手机号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
 </view>
-
-
-
-<!-- 上传图片（文字） -->
-<view>
-<text class="text_uploadimg">上传图片:</text>
-</view>
-<!-- 上传图片（图片） -->
-<view> 
+<view class="line"></view>
+<!-- 上传图片-->
+<view class="uploadimg_view">
+<text class="text_uploadimg">物品图片</text>
   <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" class="uploadimg"></image>  
+ 
 </view>
+<view class="line"></view>
+<!-- 物品分类 -->
+<view class="choicecate">
+    <text class="text_uploadimg">分类</text>
+    <view class="line_blank"></view>
+    <view class="columnslist" wx:for="{{columns}}" wx:key="index"> 
+    <button  class="choicebutton {{state==index?'selectbutton':''}}" bindtap="columndetail" data-index = "{{index}}">{{columns[index]}}</button>
+</view>
+<view class="line_blank"></view>
+</view>
+<view class="line"></view>
+<!-- 物品售价 -->
+<van-cell-group inset> 
+  <van-field label="售价" placeholder="0.00(不大于1000元)" value="{{goodprice}}" bind:change="getgoodprice" />
+</van-cell-group>
+<view class="line"></view>
 <!-- 发布按钮 -->
 <view class="buttonview"> 
   <button class="button_value" catchtap="uploadGood">确认发布</button>
 </view>
+
+

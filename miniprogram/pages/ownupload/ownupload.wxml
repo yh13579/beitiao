@@ -1,3 +1,8 @@
+<view style="display: flex;flex-direction: row;">
+<button class="button">已上架</button>
+<button class="button">审核中</button>
+<button class="button">未通过</button>
+</view>
 <view>
   <block wx:for="{{goodsList}}" wx:key="index">
   <view data-id="{{item._id}}">

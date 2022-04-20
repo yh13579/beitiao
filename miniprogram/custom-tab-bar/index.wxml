@@ -1,7 +1,6 @@
   <van-tabbar active="{{ active }}" bind:change="onChange">
     <van-tabbar-item  icon="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/home0.png">首页</van-tabbar-item>
     <van-tabbar-item  icon="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/publish.png">发布</van-tabbar-item>
-    <van-tabbar-item  icon="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/message.png">消息</van-tabbar-item>
     <van-tabbar-item  icon="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/owncenter.png">个人中心</van-tabbar-item>
   </van-tabbar>
  

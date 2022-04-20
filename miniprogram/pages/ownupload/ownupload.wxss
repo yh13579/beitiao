@@ -1,4 +1,7 @@
-  .author-date{
+page{
+    background-color: #FFF8F4;
+   }
+ .author-date{
     width: 700rpx;
     display: flex;
     flex-direction: row;
@@ -106,4 +109,9 @@
   .liststate{
     position: relative;
     top: 300rpx;
+  }
+  .button{
+    background-color: #FFA168;
+    width: 220rpx;
+    border-radius: 25rpx;
   }

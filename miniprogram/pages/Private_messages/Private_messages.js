@@ -6,14 +6,11 @@ Page({
     customernickname:'',        //顾客微信名称
     customeravatar:'',          //顾客微信头像
     shopkeeper_nickname:'',     //传递值，商家的昵称
-    shopkeeper_nickname:'',
     shopkeeper_avatarUrl:'',
     shopkeeper_goodname:'',
     shopkeeper_goodprice:'',
     shopkeeper_gooddetail:'',
     currentid:'',
-    //此处的chatlists必然需要在数据库进行查找
-    
     invalue:''     //输入框内容
   },
   sendMsg:function(event){      //在这里准备先判断用户授权

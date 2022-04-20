@@ -14,7 +14,7 @@
         "pages/classify/classify",
         "pages/test2/test2",
         "pages/Private_messages/Private_messages",
-        "pages/message/message"
+        "pages/test3/test3"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -45,10 +45,8 @@
                 "pagePath": "pages/index/index"
             },
             {
-                "pagePath": "pages/upload/upload"
-            },
-            {
-                "pagePath": "pages/message/message"
+                "pagePath": "pages/upload/upload",
+                "isSpecial":true
             },
             {
                 "pagePath": "pages/mine/mine"

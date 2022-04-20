@@ -17,10 +17,7 @@ Component({
 		  "pagePath": "/pages/index/index"
 		},
 		{
-		  "pagePath": "/pages/upload/upload" 
-        },
-        {
-            "pagePath":"/pages/message/message"
+          "pagePath": "/pages/upload/upload"
         },
 		{
 		  "pagePath": "/pages/mine/mine"

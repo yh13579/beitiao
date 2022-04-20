@@ -11,7 +11,7 @@ Page({
    */
   onLoad: function() {
     this.getTabBar().setData({
-      active : 3
+      active : 2
     })
   },
   /**

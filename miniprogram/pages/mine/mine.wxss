@@ -6,10 +6,13 @@ page{
   flex-direction: row;
 }
 .title {
+  background-color: #FFF8F4;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 15px;
   font-size: 15px;
+  position: relative;
+  left: 25rpx;
 }
 
 .detail2 {
@@ -26,11 +29,12 @@ page{
   opacity: 0.2;
 }
 .cell_group{
-    background-color: white;
+    background-color: #FFF8F4;
     display: flex;
     flex-direction: row;
 }
 .avatarurl{
+    border-radius: 50%;
     width: 125rpx;
     height: 125rpx;
     position: relative;
@@ -47,4 +51,11 @@ page{
 }
 .cell_detail{
     background-color: white;
+}
+.img{
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: 12rpx;
+    left: -25rpx;
 }
