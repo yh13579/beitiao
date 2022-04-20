@@ -45,8 +45,7 @@
                 "pagePath": "pages/index/index"
             },
             {
-                "pagePath": "pages/upload/upload",
-                "isSpecial":true
+                "pagePath": "pages/upload/upload"
             },
             {
                 "pagePath": "pages/mine/mine"
