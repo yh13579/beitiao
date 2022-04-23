@@ -1,131 +1,64 @@
-page{
+page{             
   background-color: rgb(255,248,244);
-  overflow-x:hidden;
-  overflow-y:scroll;
  }
-.background{  
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background-size: 100% 100%;
-  z-index: -1;
-}
-.icons{
-  position: absolute; 
-  right: 20px;
-  top:5px; 
-}
-
-.menu-wrp {
+.menu-wrp {             
   width:100%;
-  margin-top:20rpx;
+  margin-top:30rpx;
 }
-.menu-wrp:after{
+.menu-wrp:after{       
     content:"";
     display:block;
     clear:both;
 }
- 
-.menu-list{
+.menu-list{             
     float:left;
     width:25%;
     box-sizing: border-box;
-    padding-bottom:10px;
+    padding-bottom:15rpx;
 }
- 
-.menu-img{
+.menu-img{         
     width:90rpx;
-    height:80rpx;
+    height:90rpx;
     display:block;
     margin:0 auto;
     margin-bottom:15rpx;
 }
-.menu-desc{
+.menu-desc{         
     background-color:rgb(255,248,244);
     color:#333333;
     width:100%;
     text-align: center;
     display:block;
-    font-size:15px;
+    font-size:30rpx;
 }
-.lb_swiper{
-  width: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  padding: 5%;
-}
-
-
-.lb_swiper .wx-swiper-dot{
-  width: 8rpx;
-  height: 8rpx;
-  border-radius:3rpx;
-  background: #ccc;
-}
-.lb_swiper .wx-swiper-dot-active{
-  width: 26rpx;
-  border-radius:10rpx;
-  background: rgba(236, 28, 28, 0.801);
-}
-.slide-image{
-  width:80%;
-  height:100%;
-  transform: scale(0.6,0.6);
-  border-radius:10rpx;
-  overflow: hidden;
-  position: absolute;
-  left: 40rpx;
-  transition: all 1s;
-}
-.slide-active{
-  transform: scale(1,1);
-}
-.goodslist{
+.goodslist{           
     float:left;
     width:50%;
-    box-sizing: border-box;
-    padding-bottom:480rpx;
-    width: 375rpx;
     height: 450rpx;
   }
-.shenhe{
-  font-variant: small-caps;
-	margin: 0;
-	padding: 0;
-	display: inline-flex;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	color: var(--white);
-	white-space: nowrap;
-  position: fixed;
-  right: 15px;
-  bottom: 70px; 
-	width: 99rpx;
-	height: 99rpx;
-	background-size: cover;
-	background-position: center;
-	vertical-align: middle;
-	font-size: 1.5em;
+.audit{              
+    position:fixed;
+    right: 30rpx;
+    bottom: 145rpx; 
+	width: 100rpx;
+	height: 100rpx;
 }
-.counter {
+.counter {           
     background-color: rgba(255, 136, 68);
     height: 280rpx;
     border-bottom-left-radius:50% 40%;
     border-bottom-right-radius:50% 40%;
 }
-.blank{
+.blank{             
     height: 40rpx;
 }
-.nomore-text{
+.nomore-text{       
     height: 250rpx;
     width: 100%;
     text-align: center;
 }
-.goodname{
-    font-size: large;
+.goodname{         
+    font-size: 35rpx;
     position: absolute;
     left: 10rpx;
     bottom: 60rpx;
@@ -135,62 +68,83 @@ page{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.image{
-    width: 300rpx;
+.image{      
+    width: 330rpx;
     height: 310rpx;
     position: relative;
     border-radius: 20rpx 20rpx 0rpx 0rpx;
 }
-
-.card{
+.card{         
   background-color: white;
-  width: 300rpx;
+  width: 330rpx;
   height: 420rpx;
   position: relative;
-  left: 37.5rpx;
+  left: 22.5rpx;
   border-radius: 20rpx;
 }
-.goodprice{
+.goodprice{        
     color: #FA4A12;
     position: absolute;
     left: 8rpx;
     top: 375rpx;
     font-size: 33rpx;
+    font-weight: 600;
 }
-.view_all{
+.view_all{        
     overflow-x:hidden;
-    overflow-y:scroll
+    overflow-y:scroll;
 }
-.lunbotu{
-    position:relative;
-    left: -33rpx;
-}
-.lbt_image{
-    transition: all 1s
-}
-.van-search{
+.van-search{       
     background-color: #FF8844;
-    position: absolute;
-    top: 115rpx;
-    left: 50rpx;
+    position: relative;
+    bottom: 20rpx;
+    margin-left: 37.5rpx;
     width: 90%;
 }
-.van-cell{
+.van-cell{        
     height: 80rpx;
-    padding: 22rpx 5rpx 0 0;
 }
-.van-field__control{
-    margin-top:10rpx;
-}
-.van-icon-search{
-    position: relative;
+.van-icon-search{   
     top: 12rpx;
-    font-size: 50rpx;
 }
-.image_btfont{
-    height: 130rpx;
+.image_btfont{    
+    height: 125rpx;
     margin-top:5rpx;
-    margin-left:15rpx;
+    margin-left:28rpx;
     transform: rotate3d(1,1,1,18deg);
     width: 300rpx;
+}
+.lb_swiper{    
+    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+    padding: 5%;
+  }
+  .lb_swiper .wx-swiper-dot{  
+    width: 8rpx;
+    height: 8rpx;
+    border-radius:3rpx;
+    background: #ccc;
+  }
+  .lb_swiper .wx-swiper-dot-active{  
+    width: 16rpx;
+    border-radius:10rpx;
+    background: #FF8844;
+  }
+  .slide-image{  
+    width:80%;
+    height:100%;
+    border-radius:10rpx;
+    overflow: hidden;
+    position: absolute;
+    left: 44rpx;
+  }
+  .slide-active{    
+    transform: scale(1,1);
+  }
+  .lunbotu{           
+    position:relative;
+    left: -45rpx;
 }

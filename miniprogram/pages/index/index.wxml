@@ -1,47 +1,43 @@
 <view class="view_all">
+
+<!-- 顶部图形和北跳艺术字以及搜索框 -->
 <view class="counter">
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image>
+    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image>
+        <van-search
+          value="{{ value }}"  
+          shape='round'
+          placeholder="请输入搜索关键词"
+          bind:change="search_content"
+          bind:search="onSearch">
+        </van-search>
 </view> 
-<!-- 搜索框 -->
-<van-search
-  value="{{ value }}"  
-  shape='round'
-  placeholder="请输入搜索关键词"
-  background="#00BFFE"
-  use-action-slot
-  bind:change="onChange"
-  bind:search="onSearch"
->
-  <!-- <view slot="action" bind:tap="onClick">搜索</view> -->
-</van-search>
+
 
 <!-- 分类框 -->
 <view class="menu-wrp">
-  <!--设定一个item项后，遍历输出-->
   <view class="menu-list" wx:for="{{menu.imgUrls}}" wx:key="index" data-idx = "{{index}}" bindtap="classify">
-    <image class="menu-img" src="{{item}}"  />
+      <image class="menu-img" src="{{item}}"  />
     <view class="menu-desc">{{menu.descs[index]}}</view>
   </view>
 </view>
+
+
 <!-- 轮播图 -->
-<view> 
   <view class="lb_swiper">
     <swiper class="lunbotu" indicator-dots="true" circular="true"
      current="{{bannerCurrent}}" bindchange="bannerChange"
       autoplay="true" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{background}}" wx:key="*this">
         <swiper-item>
-          <image mode="widthFix" bindload='imgH' src="{{item.url}}" class="slide-image slide-active" ></image>
+          <image src="{{item.url}}" class="slide-image slide-active" ></image>
         </swiper-item>
       </block>
     </swiper>
   </view>
-</view>
 <view class="blank"></view>
 
 
 <!-- 遍历物品，尚待优化 -->
-<view>
   <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
     <view class="card" bindtap="detail" data-id="{{item._id}}">
        <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
@@ -49,13 +45,15 @@
      <text class="goodprice">{{item.goodprice}}</text>
     </view>
   </view>
-</view>
 
 
+<!-- 审核页入口（仅管理员可见） -->
 <view wx:if="{{admin == 1}}">
-     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="shenhe" bindtap="audit"></image>
+     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="audit" bindtap="audit"></image>
     </view>
 </view>
 
+
+<!-- 暂无更多物品 -->
 <text class="nomore-text">暂无更多</text>
 
