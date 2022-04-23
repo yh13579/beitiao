@@ -1,24 +1,23 @@
-page{
+page{      
     background-color: rgb(255,248,244);
-    overflow-x:hidden;
-    overflow-y:scroll;
    }
-   .text_uploadimg{
+
+   .text_uploadimg{    
     font-size: 35rpx;
     position: relative;
     left: 32rpx;
    }
-   .uploadimg{
+   .uploadimg{    
     width: 175rpx;
     height: 175rpx;
     position: relative;
     left: 30rpx;
     top: 8rpx;
    }
-   .buttonview{
+   .buttonview{   
     height: 400rpx;
    }
-   .button_value{
+   .button_value{  
     width:670rpx ;
     background-color: #FE9F67;
     color: white;
@@ -26,28 +25,28 @@ page{
     position: relative;
     top: 80rpx;
    }
-   .uploadimg_view{
+   .uploadimg_view{   
     display: flex;
     flex-direction: column;
     background-color: #FEF9F5;
     height: 240rpx;
    }
-   .line{
+   .line{     
        background-color: #F1E9E7;
        height: 3rpx;
    }
-   .choicecate{
+   .choicecate{      
     background-color: #FEF9F5;
     height: 217rpx;
    }
-   .choicebutton{
+   .choicebutton{   
        background-color: #EDEDED;
        width: 180rpx; 
        font-size: 27rpx;
        height: 66rpx;
        border-radius: 60rpx;
    }
-   .line_blank{
+   .line_blank{   
        background-color: #FEF9F5;
        height: 15rpx;
    }
@@ -58,16 +57,16 @@ page{
        position: relative;
        top: -48rpx;
    }
-   .columnslist{
+   .columnslist{  
        float: left;
        width: 25%;
        box-sizing: border-box;
        padding-bottom: 10px;
    }
-  .selectbutton{
+  .selectbutton{   
       background-color: #81868E;
   }
-  .view_all{
+  .view_all{      
     overflow-x:hidden;
     overflow-y:scroll
 }

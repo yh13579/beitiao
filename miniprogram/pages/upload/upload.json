@@ -1,10 +1,6 @@
 {
   "usingComponents": { 
-    "van-cell-group":"../../miniprogram_npm/@vant/weapp/cell-group/index",
-    "van-cell":"../../miniprogram_npm/@vant/weapp/cell/index",
-    "van-popup": "../../miniprogram_npm/@vant/weapp/popup/index"
   },
-  "backgroundTextStyle":"dark",
   "enablePullDownRefresh": false,
-  "navigationBarTitleText": "发布物品"
+  "navigationBarTitleText": "发布物品"   
 }

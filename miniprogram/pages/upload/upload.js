@@ -10,8 +10,6 @@ Page({
         state: '',
         tempFilePaths: "",    //要上传的文件的小程序临时文件路径
         imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
-        show:false,    
-        fileId: "",
         goodname:'',
         phone:'',
         gooddetail:'',
@@ -62,54 +60,40 @@ Page({
           admin:admin
         })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
-
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
     },
-
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
     },
-
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
     },
-
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
     },
-
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
     },
     longpress(){
       if(this.data.imgUrl != "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg"){
@@ -142,7 +126,7 @@ Page({
               .add({
                 data: { 
                   userAvatarUrl: avatarUrl,  //用户头像
-                  userNickName: nickName,    //用户微信名
+                  userNickName: nickName,  //用户微信名
                   imgUrl: res.fileID,
                   createTime: timestamp, 
                   goodname:this.data.goodname,
@@ -158,7 +142,7 @@ Page({
                 wx.hideLoading() 
                 wx.showModal({
                   title: '提示',
-                  content: '上传成功',
+                  content: '上传成功,等待管理员审核完成即可上架',
                 })
                 this.setData({
                   imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
@@ -193,13 +177,14 @@ Page({
                 title: '提示',
                 content: '请上传完整信息' 
               })
-            }else if(this.data.ownlistlength > 10 && this.data.admin == 0){
+            }
+            else if(this.data.ownlistlength > 10 && this.data.admin == 0){
               wx.showModal({
                 title: '提示',
                 content: '普通用户最多上传10件物品' 
               })
             }
-            else if(this.data.goodprice >= 1000 || this.data.goodprice.length >= 7){
+            else if(this.data.goodprice > 1000 || this.data.goodprice.length >= 7 || isNaN(this.data.goodprice)){
               wx.showModal({
                 title: '提示',
                 content: '物品售价不科学' 
@@ -232,7 +217,7 @@ Page({
   columndetail(event){ 
     let index = event.currentTarget.dataset.index
     let column = this.data.columns[index]
-    this.setData({
+    this.setData({   
         state: event.currentTarget.dataset.index,
         category:column
       });
