@@ -70,7 +70,7 @@ Page({
         }
     },
     getcomment(e){
-        this.data.comment = e.detail
+        this.setData({comment:e.detail.value});
     },
     commentfind() {  
         let length = this.data.commentsList.length

@@ -110,7 +110,7 @@ Page({
       wx.showModal({
         title: '公告',
         content: this.data.gonggao,
-        showCancel:false
+        showCancel:false 
       })
     })
   },

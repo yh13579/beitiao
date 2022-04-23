@@ -3,7 +3,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
+  data: { 
     nickname:'',        //微信名称
     avatar:'',          //微信头像
     chatlists:[           //此处的chatlists必然需要在数据库进行查找
@@ -46,7 +46,7 @@ Page({
     // 把聊天内容发送到服务器，处理完成后返回，再把返回的数据放到chatlist里面
 
   },
-  getInput:function(e){
+  getInput:function(e){ 
     this.setData({invalue:e.detail.value});
   },
   /**

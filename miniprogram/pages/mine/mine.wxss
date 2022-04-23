@@ -50,7 +50,7 @@ page{
     overflow-x: hidden;
 }
 .cell_detail{
-    background-color: white;
+    background-color: rgb(255,248,244);
 }
 .img{
     width: 40rpx;

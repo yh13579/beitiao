@@ -2,7 +2,6 @@
 
 <view
   class="{{ utils.bem('search', { withaction: showAction || useActionSlot }) }} custom-class"
-  style="background: rgb(255, 248, 244)"
 >
   <view class="{{ utils.bem('search__content', [shape]) }}">
     <view class="van-search__label" wx:if="{{ label }}">{{ label }}</view>

@@ -1,31 +1,32 @@
-var idx
 Page({
     /**
      * 页面的初始数据
      */ 
     data: {
-        idx:0,
+        buttons:['已上架','审核中','未通过'],
+        state:'',
         goodsList:[],
-        empty:''
+        empty:'',
+        index:0,
+        auditdetail:1
     },
     /**
      * 生命周期函数--监听页面加载 
      */
     onLoad: function (options) {
         this.getmylist()
-    },
-    getmylist(){
+    },  
+    getmylist(){   //audit:1表示已上架，audit:-1表示审核中,audit：-2表示未通过
         wx.cloud.callFunction({
             name: 'login',
           })
           .then( res =>{
             let length = this.data.goodsList.length
-            let timestamp = Date.parse(new Date()) / 1000
             wx.cloud.database().collection('goods')
             .where({
                 openid:res.result.openid,
-               // timestamp:res.result.timestamp>1649612190,
-                audit:-1   //audit;-1表示审核中...  后期这里修改为读取所有（非管理员最大为5，管理员无上限）
+                audit:this.data.auditdetail, 
+            //（非管理员最大为5，管理员无上限）
             })
             .skip(length)
             .get()
@@ -45,61 +46,34 @@ Page({
           })
       
     },
-    accept(event){
-        console.log("点击同意")
-        console.log(event)
+    buttonsdetail(event){
+        let index = event.currentTarget.dataset.index
+        this.setData({
+            state:event.currentTarget.dataset.index,
+            index:event.currentTarget.dataset.index,
+        })
+        if(this.data.index == 1 ){
+           this.setData({
+               auditdetail:-1,
+               goodsList:[]
+           })
+           this.getmylist()
+        }
+        else if(this.data.index == 2){
+            this.setData({
+                auditdetail:-2,
+                goodsList:[]
+            })
+            this.getmylist()
+        }
+        else{
+            this.setData({
+                auditdetail:1,
+                goodsList:[]
+            })
+            this.getmylist()
+        }
     },
-    reject(event){
-        console.log("点击拒绝")
-    },
-    // accept(event){             //点击通过
-    //     let id = event.currentTarget.dataset.id
-    //     wx.cloud.database().collection("goods")
-    //     .doc(id)
-    //     .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
-    //         data:{
-    //             audit:1
-    //         }
-    //     })
-    //     .then(res => {   //实时更新数组
-    //         let idx = event.currentTarget.dataset.idx
-    //         var goodsList= this.data.goodsList;
-    //         goodsList.splice(idx,1)
-    //         this.setData({
-    //           goodsList: goodsList,
-    //         })
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-    // },
-    // reject(event){             //点击拒绝
-    //     let id = event.currentTarget.dataset.id
-    //     wx.cloud.database().collection("goods")
-    //     .doc(id)
-    //     .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
-    //         data:{  
-    //             audit:-2   
-    //         }
-    //     })
-    //     .then(res => {   //实时更新数组
-    //         let idx = event.currentTarget.dataset.idx
-    //         var goodsList= this.data.goodsList;
-    //         goodsList.splice(idx,1)
-    //         this.setData({
-    //           goodsList: goodsList,
-    //         })
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-    // },
-    // gotodetail(event){
-    //     let id = event.currentTarget.dataset.id
-    //     wx.navigateTo({
-    //         url: '../detail/detail?id='+id,
-    //     })
-    //   },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

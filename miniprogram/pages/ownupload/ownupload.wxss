@@ -20,7 +20,7 @@ page{
     font-weight: 300;
     margin-left: 20rpx;
     color: #666;
-  }
+  }  
   
   .const-text{
     font-size: 24rpx;
@@ -115,3 +115,66 @@ page{
     width: 220rpx;
     border-radius: 25rpx;
   }
+
+  .unbutton{
+    background-color:#FFBA9B;
+    width: 220rpx;
+    border-radius: 25rpx;
+    margin-top: 30rpx;
+  }
+  .buttonlist{
+      float: left;
+      width: 33.33%;
+      box-sizing: border-box;
+      padding-bottom: 10px;
+  }
+  .button_viewd{
+      display: flex;
+      flex-direction: row;
+  }
+  .ontouchbutton{
+      background-color: #FFA168;
+      width: 220rpx;
+      border-radius: 25rpx;
+      margin-top: 30rpx;
+  }
+
+  .card{
+    background-color: white;
+    width: 300rpx;
+    height: 420rpx;
+    position: relative;
+    left: 37.5rpx;
+    border-radius: 20rpx;
+  }
+  .goodslist{
+    float:left;
+    width:50%;
+    box-sizing: border-box;
+    padding-bottom:480rpx;
+    width: 375rpx;
+    height: 450rpx;
+  }
+  .image{
+    width: 300rpx;
+    height: 310rpx;
+    position: relative;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.goodname{
+    font-size: large;
+   position: absolute;
+    left: 10rpx;
+    top: 310rpx;
+    font-weight: 700;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.goodprice{
+    color: #FA4A12;
+    position: absolute;
+    left: 8rpx;
+    top: 375rpx;
+    font-size: 33rpx;
+}

@@ -1,47 +1,31 @@
-<view style="display: flex;flex-direction: row;">
-<button class="button">已上架</button>
-<button class="button">审核中</button>
-<button class="button">未通过</button>
+<!-- 顶部按钮 -->
+<view class="button_viewd">
+  <view class="buttonlist" wx:for="{{buttons}}" wx:key="index">
+    <button class="unbutton {{state==index?'ontouchbutton':''}}" bindtap="buttonsdetail" data-index="{{index}}">{{buttons[index]}}</button>
+  </view>   
 </view>
+
+
+ <!-- 遍历物品，尚待优化 -->
 <view>
-  <block wx:for="{{goodsList}}" wx:key="index">
-  <view data-id="{{item._id}}">
-  <!-- 物品名称 -->
-    <view class="goodname">
-    <text class="const-text">{{item.goodname}}</text>
-</view>
-<!-- 物品价格 -->
-<view class="goodprice">
-<text class="goodprice_text">{{item.goodprice}}</text>
-</view>
-<!-- 物品图片 -->
-    <view class="author-date">
-      <image class="avatar" src="{{item.imgUrl}}" mode="aspectFill"></image>
-      <text class="date">{{item.date}}</text> 
+  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
+    <view class="card" bindtap="detail" data-id="{{item._id}}">
+       <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
+      <text class="goodname">{{item.goodname}}</text>
+     <text class="goodprice">{{item.goodprice}}</text>
     </view>
   </view>
-  <!-- 按钮 -->
-  <view class="button_view" wx:key="{{index}}">
-    <button class="button_good" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">物品</button>
-    <button class="button_state" bindtap="reject" data-id="{{item._id}}" data-idx = "{{index}}">状态</button>
-    <!-- 物品状态 -->
-    <text class="good_state" wx:if="{{item.audit == -1}}">审核中...</text>
-    <text class="good_state" wx:if="{{item.audit == 1}}">已上架</text>
-    <text class="good_state" wx:if="{{item.audit == -2}}">未通过</text>
-  </view>
-  <!-- <view>获取到的索引:{{index}}</view> -->
-  <!-- 分割线 -->
-  <view class="horizon"></view>
-  </block>
+</view>
+
+
 <!-- 列表状态 -->
-  <view wx:if="{{empty == 1}}" class="liststate"><van-empty
+  <!-- <view wx:if="{{empty == 1}}" class="liststate"><van-empty
   class="custom-image"
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"
   description="暂无更多"
-/></view> 
+/></view>  -->
 <!-- <text>说明：</text>
 <text>1.物品状态分为"已上架","审核中","未通过"。</text>
 <text>2.普通用户最多上传5件物品（无论状态）,已卖出的物品可以通过操作在本页列表移除（目前功能尚未实现）</text>
 <text>3.重新编辑物品上传需要再次审核（功能尚未实现）</text> -->
-</view>
 <!-- 物品的状态选择可分为：上架，已卖出，删除，重新编辑上传 -->

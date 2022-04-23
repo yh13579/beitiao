@@ -1,5 +1,7 @@
 <view class="view_all">
-<view class="counter"></view> 
+<view class="counter">
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image>
+</view> 
 <!-- 搜索框 -->
 <van-search
   value="{{ value }}"  
@@ -10,7 +12,7 @@
   bind:change="onChange"
   bind:search="onSearch"
 >
-  <view slot="action" bind:tap="onClick">搜索</view>
+  <!-- <view slot="action" bind:tap="onClick">搜索</view> -->
 </van-search>
 
 <!-- 分类框 -->

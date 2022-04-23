@@ -22,19 +22,10 @@
   </view>
 </block>
 
-<!-- 发表评论和发表按钮 -->
-<view class="publish_view">
-<view class="publish_detail">
-  <van-cell-group>
-  <van-field
-    value="{{ comment }}"  
-    placeholder="给作者提点优化建议吧.."
-    border="{{ false }}"
-    bind:change="getcomment"
-  />
-</van-cell-group>
-</view>
-<view>
-  <button class="button_publish" catchtap="comment">发表</button>
-</view>
+<!-- 发送板 -->
+<view class="form"> 
+	<view>
+		<input  value="{{comment}}"  placeholder="给作者提点优化建议吧.." bindinput="getcomment" bindconfirm="comment"/>
+	</view>
+	<button bindtap="comment">发送</button>
 </view>

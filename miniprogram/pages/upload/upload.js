@@ -5,13 +5,12 @@ Page({
     /**
      * 页面的初始数据 
      */
-    data: { 
+    data: {   
         columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
         state: '',
         tempFilePaths: "",    //要上传的文件的小程序临时文件路径
         imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
         show:false,    
-        columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
         fileId: "",
         goodname:'',
         phone:'',

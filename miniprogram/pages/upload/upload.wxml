@@ -1,26 +1,8 @@
-<view> 
+<view class="view_all">
 <!-- 物品名称 -->
   <van-field  placeholder="请输入物品名称" value="{{goodname}}"  maxlength="15"    show-word-limit bind:change="getgoodname"/>
   <view class="line"></view>
-<!-- 物品分类 -->
-<!-- <view bindtap="showPopup">
-   <van-field
-    label="物品分类:"
-    placeholder="选择物品的类别"
-    value="{{category}}"
-    bind:change="getcategory"
-    disabled
-  />
-  </view> -->
-  <!-- 物品分类弹出选择框 -->
-  <!-- <van-popup show="{{ show }}" bind:close="onClose"  position="bottom"
-  custom-style="height: 50%">
-    <van-picker title="物品分类" show-toolbar columns="{{ columns }}"  bind:cancel="onClose"
-  bind:confirm="onConfirm"/>
-</van-popup> -->
-
 <!-- 详细描述 -->
-<van-cell-group inset >
   <van-field 
     v-model="message"
     rows="2"
@@ -31,20 +13,17 @@
     value="{{gooddetail}}" bind:change="getgooddetil"
     show-word-limit
   />
-</van-cell-group>
 <view class="line"></view>
 <!-- 联系电话 -->
 <van-field value="{{ phone}}" placeholder="请输入正确的手机号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
-</view>
 <view class="line"></view>
 <!-- 上传图片-->
 <view class="uploadimg_view">
 <text class="text_uploadimg">物品图片</text>
   <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" class="uploadimg"></image>  
- 
 </view>
 <view class="line"></view>
-<!-- 物品分类 -->
+<!-- 物品分类 --> 
 <view class="choicecate">
     <text class="text_uploadimg">分类</text>
     <view class="line_blank"></view>
@@ -55,13 +34,11 @@
 </view>
 <view class="line"></view>
 <!-- 物品售价 -->
-<van-cell-group inset> 
   <van-field label="售价" placeholder="0.00(不大于1000元)" value="{{goodprice}}" bind:change="getgoodprice" />
-</van-cell-group>
 <view class="line"></view>
 <!-- 发布按钮 -->
 <view class="buttonview"> 
   <button class="button_value" catchtap="uploadGood">确认发布</button>
 </view>
-
+</view>
 

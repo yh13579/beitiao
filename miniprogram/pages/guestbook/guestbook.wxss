@@ -1,7 +1,4 @@
 /* pages/guestbook/guestbook.wxss */
-.avatar{
-    background-image:url({{item.userAvatarUrl}});
-}
 .comment{
     position: relative;
     left: 150rpx;
@@ -23,4 +20,26 @@
     color: rgb(114, 72, 18);
     width: 120%;
     font-size: x-large;
+}
+.form{
+    position: fixed;
+    bottom: 0rpx;
+    background-color: #FFFFFF;
+    width: 750rpx;
+    display: flex;
+    height: 130rpx;
+    align-items: center;
+  }
+  .form input{
+    width: 560rpx;
+    background-color: #F2F2F2;
+    border-radius: 45rpx;
+    height: 80rpx;
+    line-height: 36px;
+    padding: 0  5px;
+  }
+  button{  
+    background-color: #FFA16B;
+    height: 80rpx;
+    color: white;
 }
