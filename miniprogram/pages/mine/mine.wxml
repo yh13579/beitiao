@@ -1,39 +1,54 @@
 <!-- 微信头像和昵称 --> 
 <van-cell-group class="cell_group">
-<image src="{{AvatarUrl}}" mode="aspectFill" class="avatarurl"></image> 
-<text class="nickname">{{wxname}}</text>
+  <image src="{{AvatarUrl}}" mode="aspectFill" class="avatarurl"></image> 
+    <text class="nickname">{{wxname}}</text>
 </van-cell-group>
-<view>
-<view class="line"></view>
+
+
 <!-- 个人信息 -->
-  <view class='item' bindtap="Information" class="cell_detail">
-    <view class="title"> <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/personal_information.png" class="img"></image>个人信息
-</view>
-  </view>
-  <view class="line"></view>
+<view class="line"></view>
+  <view class='item' bindtap="Information">
+    <view class="title">
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/personal_information.png" class="img">
+      </image>个人信息</view>
+    </view>
+
+
 <!-- 我发布的 -->
-  <view class="item"class="cell_detail" bindtap="ownupload">
-    <view class="title"> <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pubilsh.png" class="img"></image>我的发布
+<view class="line"></view>
+  <view class="item" bindtap="ownupload">
+    <view class="title">
+        <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pubilsh.png" class="img">
+        </image>我的发布</view>
     </view>
-  </view>
-  <view class="line"></view>
-  <!-- 我卖出的 -->
-  <view class="item" bindtap="sold" class="cell_detail">
-    <view class="title"> <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/trading.png" class="img"></image>我的交易
+ 
+
+
+  <!-- 我的交易 -->
+<view class="line"></view>
+  <view class="item" bindtap="sold">
+    <view class="title">
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/trading.png" class="img">
+      </image>我的交易</view>
     </view>
-  </view>
-  <view class="line"></view>
+ 
+
 
   <!-- 关于北跳 -->
-  <view class="item" bindtap="concerning"class="cell_detail">
-    <view class="title"> <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/about.png" class="img"></image>关于北跳
-    </view>
-  </view>
-  <view class="line"></view>
-   <!-- 留言板 -->
-  <view class="item" bindtap="guestbook"class="cell_detail">
-    <view class="title"> <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/leave_word.png" class="img"></image>留言板
-    </view>
-  </view>
-</view>
 <view class="line"></view>
+  <view class="item" bindtap="concerning">
+    <view class="title">
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/about.png" class="img">
+      </image>关于北跳</view>
+    </view>
+ 
+
+
+   <!-- 留言板 -->
+<view class="line"></view>
+  <view class="item" bindtap="guestbook">
+    <view class="title">
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/leave_word.png" class="img">
+      </image>留言板</view>
+    </view>
+<view class="line"></view> 

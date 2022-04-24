@@ -1,58 +1,48 @@
-page{
+page{  
     background-color: rgb(255,248,244);
    }
-.item {
+.item {        
   display: flex;
   flex-direction: row;
+  background-color: rgb(255,248,244);
 }
-.title {
+.title {         
   background-color: #FFF8F4;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-  font-size: 15px;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  padding-left: 30rpx;
+  font-size: 30rpx;
   position: relative;
   left: 25rpx;
 }
-
-.detail2 {
-  font-size: 15px;
-  position: absolute;
-  right: 10px;
-  height: 50px;
-  line-height: 50px;
-  color: #888;
-}
-
-.line {
+.line {         
   border: 4rpx solid #ccc;
-  opacity: 0.2;
+  opacity: 0.2; 
 }
-.cell_group{
+.cell_group{  
     background-color: #FFF8F4;
     display: flex;
     flex-direction: row;
 }
-.avatarurl{
+.avatarurl{        
     border-radius: 50%;
     width: 125rpx;
     height: 125rpx;
     position: relative;
     left: 10rpx;
 }
-.nickname{
+.nickname{        
     font-size: x-large;
     position: absolute;
     left: 210rpx;
     top: 35rpx;
     height: 90rpx;
-    width: 1000rpx;
-    overflow-x: hidden;
+    width: 520rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-.cell_detail{
-    background-color: rgb(255,248,244);
-}
-.img{
+.img{   
     width: 40rpx;
     height: 40rpx;
     position: relative;

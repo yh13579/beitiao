@@ -1,11 +1,10 @@
-/* pages/information/information.wxss */
 page{
     background-color: rgb(255,248,244);
    }
 .submit{
     background-color: #FFA066;
     width: 90%;
-    position: relative;
+    position: relative;   
     top: 500rpx;
     border-radius: 25rpx;
     color: white;

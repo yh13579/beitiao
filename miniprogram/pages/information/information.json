@@ -1,9 +1,6 @@
-
 {
-  "usingComponents": { 
-    "van-cell-group": "../../miniprogram_npm/@vant/weapp/cell-group/index",
+  "usingComponents": {    
     "van-popup": "../../miniprogram_npm/@vant/weapp/popup/index"
-    
   },
   "navigationBarTitleText": "个人信息",
   "enablePullDownRefresh": false  
