@@ -1,51 +1,54 @@
-/* pages/classify/classify.wxss */
 page{
     background-color: rgb(255,248,244);
    }
-   .goodslist{
+   .goodslist{           
     float:left;
     width:50%;
-    box-sizing: border-box;
-    padding-bottom:480rpx;
-    width: 375rpx;
     height: 450rpx;
   }
-  .blank{
+  .goodslist:after{       
+    content:"";
+    display:block;
+    clear:both;
+}
+.blank{
     height: 40rpx;
 }
 .nomore-text{
-    height: 250rpx;
+    height: 100rpx;
     width: 100%;
     text-align: center;
 }
-.goodname{
-    font-size: large;
-    position: relative;
+.goodname{         
+    font-size: 35rpx;
+    position: absolute;
     left: 10rpx;
-    bottom: 3rpx;
+    bottom: 60rpx;
     font-weight: 700;
+    width: 300rpx;
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.image{
-    width: 300rpx;
+.image{      
+    width: 330rpx;
     height: 310rpx;
     position: relative;
     border-radius: 20rpx 20rpx 0rpx 0rpx;
 }
-.card{
-  background-color: white;
-  width: 300rpx;
-  height: 420rpx;
-  position: relative;
-  left: 37.5rpx;
-  border-radius: 20rpx;
-}
-.goodprice{
+.card{         
+    background-color: white;
+    width: 330rpx;
+    height: 420rpx;
+    position: relative;
+    left: 22.5rpx;
+    border-radius: 20rpx;
+  }
+  .goodprice{        
     color: #FA4A12;
     position: absolute;
     left: 8rpx;
     top: 375rpx;
     font-size: 33rpx;
+    font-weight: 600;
 }

@@ -21,6 +21,7 @@
     </view>
   </view>
 </block>
+<view style="height: 300rpx;"></view>
 
 <!-- 发送板 -->
 <view class="form"> 

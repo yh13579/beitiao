@@ -1,9 +1,8 @@
-/* pages/detail/detail.wxss */
 page{
     background-color: white;
    }
 .message_phone{
-    display: flex;
+    display: flex; 
     flex-direction: row;
     position: relative;
     top: 167rpx;

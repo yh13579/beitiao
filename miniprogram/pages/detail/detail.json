@@ -1,5 +1,5 @@
 {
   "usingComponents": {},
   "navigationBarTitleText": "物品详情",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false 
 }

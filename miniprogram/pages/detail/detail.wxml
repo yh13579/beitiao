@@ -1,7 +1,5 @@
 <!-- 详情物品的图片 -->
-<view>
-    <image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" class="detail_image"></image> 
-</view>
+<image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" class="detail_image"></image> 
 
 
 <!-- 物品价格，名称，介绍 -->
@@ -10,10 +8,7 @@
 <text class="gooddetail">物品介绍 (备注) : {{gooddetail}}</text>
 
 <!-- 私信和电话按钮 -->
-<view class="message_phone">
-<button class="message_-phone" bindtap="Private_messages">私信</button>
-<button class="message_-phone" catchtap="phone" data-phone="{{phone}}">电话</button>
+<view class="message_phone"> 
+  <button class="message_-phone" bindtap="Private_messages">私信</button>
+  <button class="message_-phone" catchtap="phone" data-phone="{{phone}}">电话</button>
 </view>
-
-
-

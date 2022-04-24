@@ -2,7 +2,7 @@
 
 <!-- 顶部图形和北跳艺术字以及搜索框 -->
 <view class="counter">
-    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image>
+    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image> 
         <van-search
           value="{{ value }}"  
           shape='round'

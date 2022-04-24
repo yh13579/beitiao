@@ -32,7 +32,6 @@ Page({
             url: '../Private_messages/Private_messages?shopkeeper_nickname=' + shopkeeper_nickname +'&shopkeeper_goodname=' + shopkeeper_goodname +'&shopkeeper_goodprice=' + shopkeeper_goodprice +'&shopkeeper_gooddetail=' + shopkeeper_gooddetail + '&shopkeeper_avatarUrl=' +shopkeeper_avatarUrl
         })
         })
-      
     },
     phone(event){
     wx.makePhoneCall({
@@ -42,7 +41,7 @@ Page({
       },      
       fail: function (e) {         
         console.log(e)     
-        console.log("用户取消") 
+        console.log("用户取消")  
       }
     })
   },

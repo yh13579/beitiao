@@ -1,6 +1,7 @@
 <view class="blank"></view>
+
 <view>
-  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
+  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist">  
     <view class="card" bindtap="detail" data-id="{{item._id}}">
        <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
       <text class="goodname">{{item.goodname}}</text>
@@ -8,3 +9,5 @@
     </view>
   </view>
 </view>
+
+<text class="nomore-text">没有更多了..</text>

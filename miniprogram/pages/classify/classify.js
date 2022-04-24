@@ -1,6 +1,5 @@
 const db = wx.cloud.database();  
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -9,15 +8,12 @@ Page({
         goodsList: [],          //物品列表
         valuedetail: '',         //具体分类或搜索的内容
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
         let classify = options.classify
         let valuedetail = options.valuedetail
-        console.log("本页面收到值:"+valuedetail)
-        console.log("本页面收到值:"+classify)
         if(valuedetail == undefined){
             this.setData({
                 classify:classify, //此处用来显示页面名称
@@ -25,7 +21,7 @@ Page({
              })
              wx.setNavigationBarTitle({
                  title: this.data.classify 
-               })
+               }) 
                this.findgood()
         }
         else{
@@ -34,10 +30,7 @@ Page({
              })
              this.onSearch()
         }
-         
-
     },
-
     findgood(){            //读取数据库中的goods
         let length = this.data.goodsList.length
         db.collection('goods').where({
@@ -52,7 +45,6 @@ Page({
           })
         })
       },
-
       onSearch() {    //搜索功能(回车搜索)
         let db = wx.cloud.database()
         let _ = db.command
@@ -78,55 +70,37 @@ Page({
             }
           ])).orderBy('createTime','desc').get()
           .then(res => {
-            if(res.data.length > 0){
               this.setData({
-                goodsList:res.data
+                  goodsList:res.data
               })
-            }
-            else{ 
-              console.log('查询失败，没有相关数据', res)
-              this.setData({
-                goodsList:res.data
-              })
-            }
           })
     },
     detail(event){         //切换到物品详情页
         let id = event.currentTarget.dataset.id
-        console.log(id)
         wx.navigateTo({ 
           url: '../detail/detail?id=' + id,
         })
       },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
     },
-
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-
     },
-
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-
     },
-
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
@@ -134,10 +108,9 @@ Page({
         this.setData({
             goodsList:[]
         })
-       this.findgood()  
+      this.onSearch()
        wx.stopPullDownRefresh()
     },
-
     /**
      * 页面上拉触底事件的处理函数
      */
@@ -145,7 +118,6 @@ Page({
         let _ = db.command
         let length = this.data.goodsList.length
         let old_data = this.data.goodsList
-        let timestamp = Date.parse(new Date()) / 1000
         db.collection("goods").where(_.or([
           {   //createTime:timestamp,
               audit:1, 
@@ -179,11 +151,9 @@ Page({
           console.log(err)
         })
     },
-
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage() {
-
     }
 })
