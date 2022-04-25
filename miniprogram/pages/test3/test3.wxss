@@ -1,27 +1,105 @@
-.iconusecont-div {
-    display: inline-block;
-    width: 32%;
-    text-align: center;
+page{
+    background-color: #FFF8F4;
+   }
+  .goodprice{
+    width: 100%;
+    position: relative;
+    left: 195rpx;
+    top: 160rpx;
+  }
+  .button_view{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 420rpx;
+    top: -30rpx;
+  }
+  .liststate{
+    position: relative;
+    top: 300rpx;
+  }
+  .unbutton{
+    background-color:#FFBA9B;
+    width: 220rpx;
+    border-radius: 25rpx;
     margin-top: 30rpx;
   }
-  .flex-item {
-    display: inline-block;
-    width: 173rpx;
-    height: 78rpx;
-    font-size: 26rpx;
-    border: 2rpx solid #999;
-    text-align: center;
-    border-radius: 10rpx;
-    color: #000;
-    cursor: pointer;
-    line-height: 30rpx;
+  .buttonlist{
+      float: left;
+      width: 33.33%;
+      box-sizing: border-box;
+      padding-bottom: 10px;
   }
-  .use_name {
-    font-size: 34rpx;
-    line-height: 79rpx;
+  .buttonlist::after{
+    content: '';
+    clear: both;
+}
+  .button_viewd{
+      display: flex;
+      flex-direction: row;
   }
-  .active-tag .flex-item {
-    background: #03e2ff;
-    color: #fff;
-    border: 1rpx solid #fff;
+  .ontouchbutton{
+      background-color: #FFA168;
+      width: 220rpx;
+      border-radius: 25rpx;
+      margin-top: 30rpx;
   }
+
+  .card{         
+    background-color: white;
+    width: 330rpx;
+    height: 420rpx;
+    position: relative;
+    left: 22.5rpx;
+    border-radius: 20rpx;
+  }
+  .goodslist{           
+    float:left;
+    width:50%;
+    height: 450rpx;
+  }
+  .goodslist::after{
+      content: '';
+      clear: both;
+  }
+  .image{      
+    width: 330rpx;
+    height: 310rpx;
+    position: relative;
+    border-radius: 20rpx 20rpx 0rpx 0rpx;
+}
+.goodname{         
+    font-size: 35rpx;
+    position: absolute;
+    left: 10rpx;
+    top: 315rpx;
+    font-weight: 700;
+    width: 300rpx;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.goodprice{        
+    color: #FA4A12;
+    position: absolute;
+    left: 8rpx;
+    top: 375rpx;
+    font-size: 33rpx;
+    font-weight: 600;
+}
+.reject{
+    position: absolute;
+    left: 8rpx;
+    top: 320rpx;
+    font-size: 25rpx;
+    font-weight: 600;
+    height: 100rpx;
+    overflow-y: scroll;
+}
+.shibai{
+    width: 297rpx;
+    height: 174rpx;
+    position: absolute;
+    left: 16.5rpx;
+    top: 50rpx;
+}

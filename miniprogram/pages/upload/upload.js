@@ -195,7 +195,7 @@ Page({
         }
     },
     getownlist(){
-      wx.cloud.callFunction({
+      wx.cloud.callFunction({  
           name: 'login',
         })
         .then( res =>{

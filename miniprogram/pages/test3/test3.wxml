@@ -1,5 +1,33 @@
-<view class="iconusecont-div {{state==index?'active-tag':''}}" bindtap="select_use" wx:for="{{columns}}" data-key='{{index}}'>
-  <view class="flex-item"> 
-    <rich-text class='use_name'>{{item.columns_detail}}</rich-text>
+<!-- 顶部按钮 -->
+<view class="button_viewd">
+  <view class="buttonlist" wx:for="{{buttons}}" wx:key="index">
+    <button class="unbutton {{state==index? 'ontouchbutton':''}}" bindtap="buttonsdetail" data-index="{{index}}">{{buttons[index]}}</button>
+  </view>     
+</view>
+
+
+ <!-- 遍历物品，尚待优化 -->
+<view>
+  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
+    <view class="card" bindtap="detail" data-id="{{item._id}}"> 
+       <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
+       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shibai3.png" mode="aspectFill" class="shibai" wx:if="{{auditdetail == -2}}"></image>
+      <text class="goodname" wx:if="{{auditdetail == -1 || auditdetail == 1}}">{{item.goodname}}</text>
+     <text class="goodprice" wx:if="{{auditdetail == -1 || auditdetail == 1}}">{{item.goodprice}}</text>
+     <text class="reject" wx:if="{{auditdetail==-2}}">原因：{{item.reason}}</text>
+    </view>
   </view>
 </view>
+
+
+<!-- 列表状态 -->
+  <view wx:if="{{empty == 1}}" class="liststate"><van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无更多"
+/></view> 
+<!-- <text>说明：</text>
+<text>1.物品状态分为"已上架","审核中","未通过"。</text>
+<text>2.普通用户最多上传5件物品（无论状态）,已卖出的物品可以通过操作在本页列表移除（目前功能尚未实现）</text>
+<text>3.重新编辑物品上传需要再次审核（功能尚未实现）</text> -->
+<!-- 物品的状态选择可分为：上架，已卖出，删除，重新编辑上传 -->

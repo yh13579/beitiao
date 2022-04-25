@@ -60,7 +60,8 @@ Page({
         .doc(id)
         .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
             data:{  
-                audit:-2   
+                audit:-2,
+                reason:"此物品描述不规范"
             }
         })
         .then(res => {   //实时更新数组
