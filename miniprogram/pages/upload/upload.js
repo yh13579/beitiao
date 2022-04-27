@@ -1,6 +1,7 @@
 import {
   getUserProfile
-} from "../../utils/utils" 
+} from "../../utils/utils"  
+var demo = require("../../utils/utils_time")
 Page({ 
     /**
      * 页面的初始数据 
@@ -59,6 +60,7 @@ Page({
       this.setData({
           admin:admin
         })
+        console.log(demo.formatTime(new Date(),"Y-M-D"))
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -109,7 +111,7 @@ Page({
     },
     uploadImg(temFile) {
       let timestamp = Date.parse(new Date()) / 1000
-      let date = new Date().toLocaleDateString()
+      let date = demo.formatTime(new Date(),"Y-M-D")
       getUserProfile().then(res =>{ 
         wx.showLoading({
           title: '加载中',

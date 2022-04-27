@@ -103,3 +103,7 @@ page{
     left: 16.5rpx;
     top: 50rpx;
 }
+.blank{
+    height: 100rpx;
+    text-align: center;
+}
