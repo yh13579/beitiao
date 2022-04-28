@@ -18,10 +18,35 @@
   <!-- 按钮 -->
   <view class="button_view" wx:key="{{index}}">
     <button class="button_good" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">通过</button>
-    <button class="button_state" bindtap="reject" data-id="{{item._id}}" data-idx = "{{index}}">拒绝</button>
+    <button class="button_state" bindtap="reject_claim" data-id="{{item._id}}" data-idx = "{{index}}">拒绝</button>
   </view>
-  <!-- <view>获取到的索引:{{index}}</view> -->
   <!-- 分割线 -->
   <view class="horizon"></view>
   </block>
 </view>
+
+
+<!-- 点击拒绝时的弹窗 -->
+<block wx:if="{{showConfirm}}">
+      <view class='toast-box'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title'>
+                <text>拒绝上架</text>
+            </view>
+            <view class='toast-main'>
+                <view class='toast-input'>
+                    <input type='text' placeholder='请输入拒绝理由' bindinput='reason_input' ></input>
+                </view>
+            </view>
+            <view class='toast-button'>
+                <view class='button1'>
+                    <button bindtap='cancel'>取消</button>
+                </view>
+                <view class='button2'>
+                <button bindtap='reject'>确定</button>
+                </view>
+            </view>
+        </view>
+    </view>
+  </block>

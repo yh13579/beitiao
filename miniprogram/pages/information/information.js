@@ -127,7 +127,6 @@ Page({
     onShareAppMessage: function () {
     },
     showPopup(e){      //性别选择器
-      this.hideKeyBorder()
       this.setData({
           show:true
         })
@@ -144,7 +143,6 @@ Page({
      })
    },
    showPopupDepartment(e){
-     this.hideKeyBorder()
      this.setData({
          show2:true
         })
@@ -164,11 +162,9 @@ Page({
       this.data.signature = e.detail
     },
     getgender(e){
-      this.hideKeyBorder()
       this.data.gender = e.detail
     },
     getDepartment(e){
-      this.hideKeyBorder()
       this.data.department = e.detail
     },
     getclassroom(e){
@@ -181,13 +177,6 @@ Page({
         })
       }
       this.data.phone = e.detail
-    },
-    hideKeyBorder(){
-      wx.hideKeyboard({
-        success: (res) => {
-          console.log(res)
-        },
-      })
     },
     submit(){   
       getUserProfile().then(res => {

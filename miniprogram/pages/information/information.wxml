@@ -14,7 +14,8 @@
     label="性别"
     placeholder="选择性别"
     value="{{gender}}"
-    bind:change="getgender"/>
+    bind:change="getgender"
+    disabled/>
 </view>
 <view class="line"></view>
 
@@ -38,7 +39,8 @@
   label="院系"
   placeholder="选择院系"   
   value="{{department}}"
-  bind:change="getDepartment"/>
+  bind:change="getDepartment"
+  disabled/>
 </view>
 <view class="line"></view>
 

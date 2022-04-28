@@ -1,105 +1,81 @@
-page{
-    background-color: #FFF8F4;
-   }
-  .goodprice{
+.toast-box {
     width: 100%;
-    position: relative;
-    left: 195rpx;
-    top: 160rpx;
-  }
-  .button_view{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    left: 420rpx;
-    top: -30rpx;
-  }
-  .liststate{
-    position: relative;
-    top: 300rpx;
-  }
-  .unbutton{
-    background-color:#FFBA9B;
-    width: 220rpx;
-    border-radius: 25rpx;
-    margin-top: 30rpx;
-  }
-  .buttonlist{
-      float: left;
-      width: 33.33%;
-      box-sizing: border-box;
-      padding-bottom: 10px;
-  }
-  .buttonlist::after{
-    content: '';
-    clear: both;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
 }
-  .button_viewd{
-      display: flex;
-      flex-direction: row;
-  }
-  .ontouchbutton{
-      background-color: #FFA168;
-      width: 220rpx;
-      border-radius: 25rpx;
-      margin-top: 30rpx;
-  }
-
-  .card{         
+ 
+ 
+.toastbg {
+    opacity: 0.2;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+}
+ 
+.showToast {
+    position: absolute;
+    opacity: 1;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 40%;
+}
+ 
+.toast-title {
+    padding-left: 5%;
+    background-color: #2196f3;
+    color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-top-right-radius: 16rpx;
+    border-top-left-radius: 16rpx;
+    text-align: left;
+}
+ 
+.toast-main {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     background-color: white;
-    width: 330rpx;
-    height: 420rpx;
-    position: relative;
-    left: 22.5rpx;
-    border-radius: 20rpx;
-  }
-  .goodslist{           
-    float:left;
-    width:50%;
-    height: 450rpx;
-  }
-  .goodslist::after{
-      content: '';
-      clear: both;
-  }
-  .image{      
-    width: 330rpx;
-    height: 310rpx;
-    position: relative;
-    border-radius: 20rpx 20rpx 0rpx 0rpx;
+    text-align: left;
 }
-.goodname{         
-    font-size: 35rpx;
-    position: absolute;
-    left: 10rpx;
-    top: 315rpx;
-    font-weight: 700;
-    width: 300rpx;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+ 
+.toast-input {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 2rpx solid #ddd;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
-.goodprice{        
-    color: #FA4A12;
-    position: absolute;
-    left: 8rpx;
-    top: 375rpx;
-    font-size: 33rpx;
-    font-weight: 600;
+ 
+.toast-button {
+    display: flex;
 }
-.reject{
-    position: absolute;
-    left: 8rpx;
-    top: 320rpx;
-    font-size: 25rpx;
-    font-weight: 600;
-    height: 100rpx;
-    overflow-y: scroll;
+ 
+.button1 {
+    width: 50%;
 }
-.shibai{
-    width: 297rpx;
-    height: 174rpx;
-    position: absolute;
-    left: 16.5rpx;
-    top: 50rpx;
+ 
+.button2 {
+    width: 50%;
+}
+ 
+.button1 button {
+    width: 100%;
+    background-color: white;
+    color: red;
+    border-radius: 0px;
+    border-bottom-left-radius: 16rpx;
+}
+ 
+.button2 button{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+    border-bottom-right-radius: 16rpx;
 }

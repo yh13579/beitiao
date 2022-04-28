@@ -20,16 +20,17 @@ Page({
         this.getmylist()
     },  
     getmylist(){   
-//audit:1表示已上架，audit:-1表示审核中,audit：-2表示未通过
     wx.cloud.callFunction({
         name: 'login',
     })
     .then( res =>{ 
         let length = this.data.goodsList.length
+        let openid = wx.getStorageSync('openId')
+        console.log(openid)
         wx.cloud.database().collection('goods')
         .where({
-            openid:res.result.openid,
-            audit:this.data.auditdetail, 
+            _openid:openid,
+            audit:this.data.auditdetail,  
        //（非管理员上传物品数量最大为10，管理员无上限）
         })
     .orderBy('createTime','desc')
@@ -117,13 +118,15 @@ Page({
         else if(this.data.index == 1){
             this.setData({
                 goodsList:this.data.auditing,
-                auditdetail:-1
+                auditdetail:-1,
+                empty:''
             })
         }
         else if(this.data.index == 2){
             this.setData({
                 goodsList:this.data.nopassed,
-                auditdetail:-2
+                auditdetail:-2,
+                empty:''
             })
         }
     },
