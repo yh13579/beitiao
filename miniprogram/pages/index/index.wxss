@@ -31,7 +31,7 @@ page{
     display:block;
     font-size:30rpx;
 }
-.goodslist{           
+.goodslist{             
     float:left;
     width:50%;
     height: 450rpx;

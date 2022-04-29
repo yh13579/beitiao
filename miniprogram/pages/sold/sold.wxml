@@ -1,40 +1,20 @@
 <view>
-  <block wx:for="{{goodsList}}" wx:key="index">
-  <view data-id="{{item._id}}">
-  <!-- 物品名称 -->
-    <view class="goodname">
-    <text class="const-text">{{item.goodname}}</text>
+  <view wx:for="{{goodsList}}" wx:key="index" >
+    <view class="soldcard" data-id="{{item._id}}">
+      <text class="text_date">{{item.date}}</text>
+        <text class="text_goodname">{{item.goodname}}</text>
+          <image src="{{item.imgUrl}}" class="image_sold"></image>
+              <text class="text_price">{{item.goodprice}}</text>
+         <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/solded4.png" class="solded"></image>
+     <view class="line"></view>
+   </view>
 </view>
-<!-- 物品价格 -->
-<view class="goodprice">
-<text class="goodprice_text">{{item.goodprice}}</text>
 </view>
-<!-- 物品图片 -->
-    <view class="author-date">
-      <image class="avatar" src="{{item.imgUrl}}" mode="aspectFill"></image> 
-      <text class="date">{{item.date}}</text> 
-    </view>
-  </view>
-  <!-- 按钮 --> 
-  <view class="button_view" wx:key="{{index}}">
-    <button class="button_good" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">已经</button>
-    <button class="button_state" bindtap="reject" data-id="{{item._id}}" data-idx = "{{index}}">卖出</button>
-  </view>
-  <!-- <view>获取到的索引:{{index}}</view> -->
-  <!-- 分割线 -->
-  <view class="horizon"></view>
-  </block>
+
 <!-- 列表状态 -->
   <view wx:if="{{empty == 1}}" class="liststate"><van-empty
   class="custom-image"
   image="https://img.yzcdn.cn/vant/custom-empty-image.png"
   description="暂无更多"
 /></view>
-<!-- <text>说明：</text>
-<text>1.物品状态分为"已上架","审核中","未通过"。</text>
-<text>2.普通用户最多上传5件物品（无论状态）,已卖出的物品可以通过操作在本页列表移除（目前功能尚未实现）</text>
-<text>3.重新编辑物品上传需要再次审核（功能尚未实现）</text> -->
 
-</view>
-
-<!-- 物品的状态选择可分为：上架，已卖出，删除，重新编辑上传 -->

@@ -1,109 +1,44 @@
-.author-date{
-    width: 700rpx;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 20rpx;
-    margin-left: 30rpx;
-    justify-content: flex-start;
-  }
-  
-  .avatar{
-    width: 150rpx;height: 150rpx;
-  }
-  
-  .author{
-    font-size: 30rpx;
-    font-weight: 300;
-    margin-left: 20rpx;
-    color: #666;
-  }
-  
-  .const-text{
-    font-size: 24rpx;
-    color: #999;
-    margin-left: 20rpx;
-  }
-  
-  .date{
-    font-size: 24rpx;
-    margin-left: 30rpx;
-    color: #999;
+.image_sold{
+    width: 200rpx;
+    height: 200rpx;
     position: relative;
-    top: -53rpx;
-    left: -3rpx;
-  }
-  
-  .title{
-    margin-left: 40rpx;
-    font-size: 36rpx;
-    font-weight: 700;
-    margin-top: 30rpx;
-    color: #4b556c;
-    letter-spacing: 2px;
-  }
-  
-  .detail{
-    color: #666;
-    margin-left: 30rpx;
-    margin-top: 20rpx;
-    margin-right: 30rpx;
-    line-height: 44rpx;
-    letter-spacing: 2prx;
-  }
-  
-  .horizon{
-    width: 660rpx;
-    height: 1px;
-    background-color: #e5e5e5;
-  }
-  .goodname{
-    width: 100%;
-    position: relative;
-    left: 195rpx;
-    top: 130rpx;
-  }
-  .goodprice{
-    width: 100%;
-    position: relative;
-    left: 195rpx;
-    top: 160rpx;
-  }
-  .goodprice_text{
-    position: relative;
-    left: 22rpx;
-    font-size: large;
-    color: red;
-  }
-  .goodimg_text{
-    position: relative;
-    top: -53rpx;
-    left: -3rpx;
-  }
-  .button_view{
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    left: 420rpx;
-    top: -30rpx;
-  }
-  .button_good{
-    background-color: green;
-    width: 90px;
-    margin: 0px;
-  }
-  .button_state{
-    background-color: red;
-    width: 90px;
-    margin: 0px;
-  }
-  .good_state{
-    position: relative;
-    left: -720rpx;
-    top: 55rpx;
-    margin: 0px;
-  }
-  .liststate{
+    top: 45rpx;
+    left: 30rpx;
+}
+.van-empty{
     position: relative;
     top: 300rpx;
-  }
+}
+.line{
+    height: 4rpx;
+    background-color: #E9E3E0;
+    position: relative;
+    top: 67rpx;
+}
+.soldcard{
+    height: 280rpx;
+    position: relative;
+}
+.text_date{
+    position: absolute;
+    left: 10rpx;
+}
+.text_goodname{
+    position: absolute;
+    left: 245rpx;
+    top: 45rpx;
+}
+.text_price{
+    position: absolute;
+    left: 263rpx;
+    top: 175rpx;
+    font-size: 40rpx;
+    color: #BA0000;
+}
+.solded{
+    height: 154.8rpx;
+    width: 155.6rpx;
+    position: absolute;
+    left: 545rpx;
+    top: 100rpx;
+}

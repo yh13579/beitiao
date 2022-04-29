@@ -1,23 +1,20 @@
-<block wx:if="{{showConfirm}}">
-      <view class='toast-box'>
-        <view class='toastbg'></view>
-        <view class='showToast'>
-            <view class='toast-title'>
-                <text>拒绝上架</text>
-            </view>
-            <view class='toast-main'>
-                <view class='toast-input'>
-                    <input type='text' placeholder='请输入拒绝理由' bindinput='reason_input' ></input>
-                </view>
-            </view>
-            <view class='toast-button'>
-                <view class='button1'>
-                    <button catchtap='cancel'>取消</button>
-                </view>
-                <view class='button2'>
-                <button catchtap='reject_confirm'>确定</button>
-                </view>
-            </view>
-        </view>
-    </view>
-  </block>
+<view>
+  <view wx:for="{{goodsList}}" wx:key="index" >
+    <view class="soldcard" data-id="{{item._id}}">
+      <text class="text_date">{{item.date}}</text>
+        <text class="text_goodname">{{item.goodname}}</text>
+          <image src="{{item.imgUrl}}" class="image_sold"></image>
+              <text class="text_price">{{item.goodprice}}</text>
+         <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/solded4.png" class="solded"></image>
+     <view class="line"></view>
+   </view>
+</view>
+</view>
+
+<!-- 列表状态 -->
+  <view wx:if="{{empty == 1}}" class="liststate"><van-empty
+  class="custom-image"
+  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+  description="暂无更多"
+/></view>
+

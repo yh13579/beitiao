@@ -1,5 +1,4 @@
 {
-    "usingComponents": {} ,
-    "enablePullDownRefresh": false,
-    "navigationBarTitleText": "我的发布" 
+    "usingComponents": {},
+    "navigationBarTitleText": "我卖出的"
   }
