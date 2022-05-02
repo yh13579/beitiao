@@ -1,7 +1,8 @@
 <!-- 微信头像和昵称 --> 
 <van-cell-group class="cell_group">
-  <image src="{{AvatarUrl}}" mode="aspectFill" class="avatarurl"></image> 
+  <image src="{{AvatarUrl}}" mode="aspectFill" class="avatarurl"></image>   
     <text class="nickname">{{wxname}}</text>
+    <text class="shopcard" bindtap="shopcard">暂无商家名片>></text>
 </van-cell-group>
 
 

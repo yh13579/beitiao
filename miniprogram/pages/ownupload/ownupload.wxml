@@ -1,6 +1,6 @@
 <!-- 顶部按钮 -->
 <view class="button_viewd">
-  <view class="buttonlist" wx:for="{{buttons}}" wx:key="index"> 
+  <view class="buttonlist" wx:for="{{buttons}}" wx:key="index">   
     <button class="unbutton {{state==index?'ontouchbutton':''}}" bindtap="buttonsdetail" data-index="{{index}}">{{buttons[index]}}</button>
   </view>   
 </view>
@@ -9,7 +9,7 @@
  <!-- 遍历物品，尚待优化 -->
 <view>
   <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
-    <text>{{item.date}}</text>
+    <!-- <text>{{item.date}}</text> -->
     <view class="card" bindtap="detail" data-id="{{item._id}}"> 
        <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
          <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shibai3.png" mode="aspectFill" class="shibai" wx:if="{{auditdetail == -2 }}"></image>  

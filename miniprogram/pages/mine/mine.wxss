@@ -23,19 +23,21 @@ page{
     background-color: #FFF8F4;
     display: flex;
     flex-direction: row;
+    height: 190rpx;
 }
 .avatarurl{        
     border-radius: 50%;
-    width: 125rpx;
-    height: 125rpx;
-    position: relative;
-    left: 10rpx;
+    width: 142rpx;
+    height: 132rpx;
+    position: absolute;
+    left: 25rpx;
+    top: 29rpx;
 }
 .nickname{        
     font-size: x-large;
     position: absolute;
-    left: 210rpx;
-    top: 35rpx;
+    left: 229rpx;
+    top: 65rpx;
     height: 90rpx;
     width: 520rpx;
     overflow: hidden;
@@ -48,4 +50,10 @@ page{
     position: relative;
     top: 12rpx;
     left: -25rpx;
+}
+.shopcard{
+    position:absolute;
+    top: 125rpx;
+    right: 20rpx;
+    color: blue;
 }

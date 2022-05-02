@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "pages/updateRecordResult/index",
-                    "pathName": "pages/index/index",
+                    "pathName": "pages/mine/mine",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

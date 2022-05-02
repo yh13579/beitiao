@@ -104,7 +104,7 @@ page{
     position: relative;
     bottom: 20rpx;
     margin-left: 37.5rpx;
-    width: 90%;
+    width: 91%;
 }
 .van-cell{        
     height: 80rpx;

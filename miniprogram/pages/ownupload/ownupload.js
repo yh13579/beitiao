@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
     /**
      * 页面的初始数据
@@ -17,6 +18,13 @@ Page({
      * 生命周期函数--监听页面加载 
      */
     onLoad: function (options) {
+       //console.log(app.globalData.openid)
+        // let openid = wx.getStorageSync('openId')
+        // console.log(openid)
+        // wx.showModal({
+        //   title: '提示',
+        //   content:openid
+        // })
         this.getmylist()
     },  
     getmylist(){   
@@ -24,12 +32,11 @@ Page({
         name: 'login',
     })
     .then( res =>{ 
+        wx.setStorageSync('openId', res.result.userInfo.openId)
         let length = this.data.goodsList.length
-        let openid = wx.getStorageSync('openId')
-        console.log(openid)
         wx.cloud.database().collection('goods')
-        .where({
-            _openid:openid,
+        .where({  
+            _openid:res.result.userInfo.openId,  
             audit:this.data.auditdetail,  
        //（非管理员上传物品数量最大为10，管理员无上限）
         })
@@ -92,7 +99,8 @@ Page({
         if(this.data.index == 0 ){
            this.setData({
               goodsList:this.data.onselvelist,
-              auditdetail:1
+              auditdetail:1,
+              empty:''
            })
         }
         else if(this.data.index == 1 && this.data.auditing.length == 0){

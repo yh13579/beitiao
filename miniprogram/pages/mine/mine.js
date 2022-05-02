@@ -2,7 +2,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
+  data: {  
     AvatarUrl:'',
     wxname:''
   },
@@ -91,4 +91,9 @@ guestbook(){        //留言板界面
     url: '../guestbook/guestbook',  
   })
 },
+shopcard(){
+    wx.navigateTo({
+        url: '../shopcard/shopcard',  
+      })
+}
 })

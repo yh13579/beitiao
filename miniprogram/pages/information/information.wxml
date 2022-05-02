@@ -76,7 +76,7 @@
 
 
 <!-- 提交按钮 -->
-<button class="submit" bindtap="submit">保存信息</button>
+<button class="submit" bindtap="submit">保存信息</button>  
 
 
 

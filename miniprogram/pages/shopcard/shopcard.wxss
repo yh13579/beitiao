@@ -1,0 +1,23 @@
+.uploadimg{    
+    width: 600rpx;
+    height: 647rpx;
+    position: absolute;
+    left: 75rpx;
+    top: 270rpx;
+   }
+   .text_number{
+    text-indent: 2em;
+   }
+   .text_card{
+       font-size: 40rpx;
+   }
+   .submit{
+    background-color: #FFA066;
+    width: 60%;
+    position: relative;   
+    top: 888rpx;
+    border-radius: 25rpx;
+    color: white;
+    height: 120rpx;
+    font-size: 50rpx;
+}
