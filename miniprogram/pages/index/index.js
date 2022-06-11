@@ -68,9 +68,10 @@ Page({
       name: 'login',
     })
     .then(res => {
+       // console.log(res)
       wx.cloud.database().collection("admin")
         .where({
-          openid: res.result.openid
+         _openid:res.result.userInfo.openId
         })
         .get()
         .then(res => {

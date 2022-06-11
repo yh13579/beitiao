@@ -1,3 +1,6 @@
+<view class="view_all">
+
+
 <!-- 评论区 -->
 <block wx:for="{{commentsList}}" wx:key="index" >
   <view class="cu-card dynamic margin" data-id="{{item._id}}" data-idx = "{{index}}"bindlongpress="handleLongPress">
@@ -21,6 +24,9 @@
     </view>
   </view>
 </block>
+
+
+
 <view style="height: 300rpx;"></view>
 
 <!-- 发送板 -->
@@ -29,4 +35,5 @@
 		<input  value="{{comment}}"  placeholder="给作者提点优化建议吧.." bindinput="getcomment" bindconfirm="comment"/>
 	</view>
 	<button bindtap="comment">发送</button>
+  </view>
 </view>

@@ -4,7 +4,8 @@ Page({
    */
   data: {  
     AvatarUrl:'',
-    wxname:''
+    wxname:'',
+    name_avatar:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -31,15 +32,18 @@ Page({
     if(this.data.wxname.length == 0){
       this.setData({
         wxname:"尚未完善个人信息",
-        AvatarUrl:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg'
+        AvatarUrl:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg',
+        name_avatar:-1
       })
     }
     else{
       this.setData({
         wxname:wxname,
-        AvatarUrl:AvatarUrl
+        AvatarUrl:AvatarUrl,
+        name_avatar:1
       })
     }
+    console.log(this.data.name_avatar)
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -92,6 +96,13 @@ guestbook(){        //留言板界面
   })
 },
 shopcard(){
+    if(this.data.name_avatar == -1){
+        wx.showToast({
+            icon: "none",
+            title: "请先完善个人信息.."
+          })
+        return 
+    }
     wx.navigateTo({
         url: '../shopcard/shopcard',  
       })

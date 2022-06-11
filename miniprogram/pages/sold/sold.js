@@ -22,7 +22,7 @@ Page({
             let length = this.data.goodsList.length
             wx.cloud.database().collection('goods')
             .where({
-                openid:res.result.openid,
+                _openid:res.result.userInfo.openId,  
                 audit:2   //audit:2表示已卖出  
             })
             .skip(length)

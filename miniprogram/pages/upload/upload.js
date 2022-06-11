@@ -24,7 +24,7 @@ Page({
           sizeType: ['original', 'compressed'],
           sourceType: ['album', 'camera'],
           success: res => {
-            // tempFilePath可以作为img标签的src属性显示图片
+     // tempFilePath可以作为img标签的src属性显示图片
             this.data.tempFilePaths = res.tempFilePaths
             this.setData({
               imgUrl: res.tempFilePaths
@@ -60,7 +60,7 @@ Page({
       this.setData({
           admin:admin
         })
-        console.log(demo.formatTime(new Date(),"Y-M-D"))
+ //console.log(demo.formatTime(new Date(),"Y-M-D"))
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -203,7 +203,7 @@ Page({
         .then( res =>{
           wx.cloud.database().collection('goods')
           .where({
-              openid:res.result.openid,
+            _openid:res.result.userInfo.openId,  
           })
           .get()
           .then(res => {

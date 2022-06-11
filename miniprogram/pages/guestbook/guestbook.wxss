@@ -43,3 +43,7 @@
     height: 80rpx;
     color: white;
 }
+.view_all{        
+    overflow-x:hidden;
+    overflow-y:scroll;
+}

@@ -10,21 +10,17 @@ Page({
         onselvelist:[],
         auditing:[],
         nopassed:[],
-        empty:'',
+       // empty:'',
         index:0,
-        auditdetail:1
+        auditdetail:1,
+        index_on:true,
+        index_au:false,
+        index_no:false
     },
     /**
      * 生命周期函数--监听页面加载 
      */
     onLoad: function (options) {
-       //console.log(app.globalData.openid)
-        // let openid = wx.getStorageSync('openId')
-        // console.log(openid)
-        // wx.showModal({
-        //   title: '提示',
-        //   content:openid
-        // })
         this.getmylist()
     },  
     getmylist(){   
@@ -47,11 +43,11 @@ Page({
         this.setData({
             goodsList:this.data.goodsList.concat(res.data)
         })
-    if(this.data.goodsList.length == 0){
-        this.setData({
-            empty:1
-        })
-    }
+    // if(this.data.goodsList.length == 0){
+    //     this.setData({
+    //         empty:1
+    //     })
+    // }
     if(this.data.index == 0){
         console.log("获取已上架物品列表")
         this.setData({
@@ -86,7 +82,7 @@ Page({
         else{
             wx.showModal({
               title: '提示',
-              content:'只有上架的物品才能看到详情页',
+              content:'只有上架的物品才能跳转详情页',
               showCancel:false
             })
         }
@@ -100,23 +96,22 @@ Page({
            this.setData({
               goodsList:this.data.onselvelist,
               auditdetail:1,
-              empty:''
            })
         }
-        else if(this.data.index == 1 && this.data.auditing.length == 0){
+        else if(this.data.index == 1 && this.data.auditing.length == 0 && this.data.index_au == false){
             this.setData({
                 auditdetail:-1,
-                goodsList:[]
+                index_au:true
             })
             this.getmylist()
             this.setData({
                 goodsList:this.data.auditing
             })
         }
-        else if(this.data.index == 2 && this.data.nopassed.length == 0){
+        else if(this.data.index == 2 && this.data.nopassed.length == 0 && this.data.index_no == false){
             this.setData({
                 auditdetail:-2,
-                goodsList:[]
+                index_no:true
             })
             this.getmylist()
             this.setData({
@@ -127,14 +122,12 @@ Page({
             this.setData({
                 goodsList:this.data.auditing,
                 auditdetail:-1,
-                empty:''
             })
         }
         else if(this.data.index == 2){
             this.setData({
                 goodsList:this.data.nopassed,
                 auditdetail:-2,
-                empty:''
             })
         }
     },

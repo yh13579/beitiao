@@ -56,6 +56,14 @@ Page({
         })
     },
     reject(event){             //点击拒绝
+        if(this.data.reason.length == 0){
+            wx.showModal({
+                title: '提示',
+                content:'拒绝理由不能为空',
+                showCancel:false
+            })
+            return
+        }
         wx.cloud.database().collection("goods")
         .doc(this.data.good_id)
         .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
@@ -124,20 +132,6 @@ Page({
      */
     onShareAppMessage: function () {
     },
-    // reject_confirm(event){
-    //     if(this.data.reason.length == 0){
-    //        wx.showModal({
-    //          title: '提示',
-    //          content:'拒绝理由不能为空',
-    //          showCancel:false
-    //        })
-    //     }
-    //     else{
-    //         let id = event.
-    //         this.reject()
-    //     }
-       
-    // },
     cancel(){
         this.setData({
           showConfirm: false,

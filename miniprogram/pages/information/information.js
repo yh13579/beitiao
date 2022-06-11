@@ -35,7 +35,7 @@ Page({
        .then(res => {
        wx.cloud.database().collection("information")
        .where({
-         openid:res.result.openid
+        _openid:res.result.userInfo.openId,  
        })
        .get()
        .then(res =>{

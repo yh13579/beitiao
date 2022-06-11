@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "pages/updateRecordResult/index",
-                    "pathName": "pages/mine/mine",
+                    "pathName": "pages/shopcard/shopcard",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

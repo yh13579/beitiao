@@ -1,9 +1,12 @@
+page{  
+    background-color: white;
+   }
 .uploadimg{    
     width: 600rpx;
-    height: 647rpx;
-    position: absolute;
-    left: 75rpx;
-    top: 270rpx;
+    height: 747rpx;
+    position: relative;
+    left: 75rpx;  
+    top: 35rpx;
    }
    .text_number{
     text-indent: 2em;
@@ -15,7 +18,7 @@
     background-color: #FFA066;
     width: 60%;
     position: relative;   
-    top: 888rpx;
+    top: 100rpx;
     border-radius: 25rpx;
     color: white;
     height: 120rpx;

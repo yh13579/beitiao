@@ -9,6 +9,8 @@
 }
 .like_step{
     display: flex;
+    position: relative;
+    top: 100rpx;
 }
 .like{
     width: 70.5px; 
