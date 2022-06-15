@@ -1,44 +1,26 @@
-.image_sold{
-    width: 200rpx;
-    height: 200rpx;
+page{  
+    background-color: white;
+   }
+.uploadimg{    
+    width: 600rpx;
+    height: 747rpx;
     position: relative;
-    top: 45rpx;
-    left: 30rpx;
-}
-.van-empty{
-    position: relative;
-    top: 300rpx;
-}
-.line{
-    height: 4rpx;
-    background-color: #E9E3E0;
-    position: relative;
-    top: 67rpx;
-}
-.soldcard{
-    height: 280rpx;
-    position: relative;
-}
-.text_date{
-    position: absolute;
-    left: 10rpx;
-}
-.text_goodname{
-    position: absolute;
-    left: 245rpx;
-    top: 45rpx;
-}
-.text_price{
-    position: absolute;
-    left: 263rpx;
-    top: 175rpx;
-    font-size: 40rpx;
-    color: #BA0000;
-}
-.solded{
-    height: 154.8rpx;
-    width: 155.6rpx;
-    position: absolute;
-    left: 545rpx;
+    left: 75rpx;  
+    top: 35rpx;
+   }
+   .text_number{
+    text-indent: 2em;
+   }
+   .text_card{
+       font-size: 40rpx;
+   }
+   .submit{
+    background-color: #FFA066;
+    width: 60%;
+    position: relative;   
     top: 100rpx;
+    border-radius: 25rpx;
+    color: white;
+    height: 120rpx;
+    font-size: 50rpx;
 }

@@ -45,7 +45,7 @@ Page({
       }
     })
   },
-  bigImg() {
+  bigImg() { 
     wx.previewImage({
       urls: [this.data.imgUrl],
     })

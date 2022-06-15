@@ -42,7 +42,7 @@
                 },
                 {
                     "name": "pages/updateRecordResult/index",
-                    "pathName": "pages/shopcard/shopcard",
+                    "pathName": "pages/index/index",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

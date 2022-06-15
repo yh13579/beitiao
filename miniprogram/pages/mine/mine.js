@@ -5,7 +5,8 @@ Page({
   data: {  
     AvatarUrl:'',
     wxname:'',
-    name_avatar:''
+    name_avatar:'',
+    shopvalue:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -24,6 +25,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function(){
+    let shopvalue = wx.getStorageSync('shopvalue')
+    console.log("shop_value is",shopvalue) 
+    this.setData({
+        shopvalue:shopvalue
+    })
     let wxname = wx.getStorageSync('nickName')
     let AvatarUrl = wx.getStorageSync('avatarUrl')
     this.setData({
@@ -43,7 +49,7 @@ Page({
         name_avatar:1
       })
     }
-    console.log(this.data.name_avatar)
+    console.log("已授权，可以进入商家名片界面")
   },
   /**
    * 生命周期函数--监听页面隐藏
@@ -103,7 +109,7 @@ shopcard(){
           })
         return 
     }
-    wx.navigateTo({
+    wx.navigateTo({  
         url: '../shopcard/shopcard',  
       })
 }
