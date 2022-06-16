@@ -27,7 +27,7 @@
 
 
 
-<view style="height: 300rpx;"></view>
+<view class="blank"></view> 
 
 <!-- 发送板 -->
 <view class="form"> 

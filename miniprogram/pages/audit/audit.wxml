@@ -2,8 +2,8 @@
   <block wx:for="{{goodsList}}" wx:key="index">
   <view bindtap="gotodetail" data-id="{{item._id}}">
   <!-- 物品名称 --> 
-    <view class="goodname"> 
-    <text class="const-text">{{item.goodname}}</text>
+    <view class="goodname">  
+    <text class="const-text">{{item.goodname}}+{{item.category}}</text>   
 </view>
 <!-- 物品价格 -->
 <view class="goodprice">

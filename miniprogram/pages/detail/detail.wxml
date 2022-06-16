@@ -7,8 +7,8 @@
 <text class="goodname">{{goodname}}</text>
 <text class="gooddetail">物品介绍 (备注) : {{gooddetail}}</text>
 
-<!-- 私信和电话按钮 -->
+<!-- 商家名片和电话按钮 -->
 <view class="message_phone"> 
-  <button class="message_-phone" bindtap="Private_messages">私信</button>
-  <button class="message_-phone" catchtap="phone" data-phone="{{phone}}">电话</button>
+  <button class="message_-phone" bindtap="shop_card">商家名片</button>
+  <button class="message_-phone" bindtap="phone" data-phone="{{phone}}">电话</button>
 </view>

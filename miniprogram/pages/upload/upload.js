@@ -29,6 +29,10 @@ Page({
             this.setData({
               imgUrl: res.tempFilePaths
             })
+            wx.showToast({
+                icon: "none",
+                title: "长按可删除图片.."
+              })
           }
         })
       },
@@ -165,9 +169,9 @@ Page({
     },
     uploadGood(event) {
         this.getownlist()
-        if(this.data.phone.length != 11){
+        if(this.data.phone.length != 11 || this.data.phone[0] != 1){
           this.setData({
-            errorPhone: "请输入正确手机号"
+        errorPhone: "输入必须是11位数字开头为1的手机号"
           })
          }
         else if(this.data.gooddetail.length == 0 ||
@@ -196,7 +200,7 @@ Page({
           this.uploadImg(this.data.tempFilePaths[0]) 
         }
     },
-    getownlist(){
+    getownlist(){ 
       wx.cloud.callFunction({  
           name: 'login',
         })

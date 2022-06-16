@@ -1,4 +1,4 @@
-// pages/guestbook/guestbook.js
+// pages/guestbook/guestbook.js  
 import {
     getUserProfile
   } from "../../utils/utils" 

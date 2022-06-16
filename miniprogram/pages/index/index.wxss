@@ -95,7 +95,7 @@ page{
     font-size: 33rpx;
     font-weight: 600;
 }
-.view_all{        
+.view_all{         
     overflow-x:hidden;
     overflow-y:scroll;
 }

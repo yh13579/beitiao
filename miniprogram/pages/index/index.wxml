@@ -49,7 +49,7 @@
 
 <!-- 审核页入口（仅管理员可见） -->
 <view wx:if="{{admin == 1}}">
-     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe.jpg" mode="aspectFit" class="audit" bindtap="audit"></image>
+     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe_yh.png" mode="aspectFit" class="audit" bindtap="audit"></image>
     </view>
 </view>
 

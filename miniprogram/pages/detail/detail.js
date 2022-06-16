@@ -21,18 +21,14 @@ Page({
         this.data.detailid = options.id
         this.getId(options.id)
     },
-    Private_messages(){
-        getUserProfile().then(res => {
-            let shopkeeper_nickname = this.data.nickName 
-            let shopkeeper_avatarUrl = this.data.avatarUrl
-            let shopkeeper_goodname = this.data.goodname
-            let shopkeeper_goodprice = this.data.goodprice
-            let shopkeeper_gooddetail = this.data.gooddetail
-            wx.navigateTo({
-            url: '../Private_messages/Private_messages?shopkeeper_nickname=' + shopkeeper_nickname +'&shopkeeper_goodname=' + shopkeeper_goodname +'&shopkeeper_goodprice=' + shopkeeper_goodprice +'&shopkeeper_gooddetail=' + shopkeeper_gooddetail + '&shopkeeper_avatarUrl=' +shopkeeper_avatarUrl
-        })
-        })
+
+    shop_card(){
+        wx.showToast({
+            icon: "none",
+            title: "功能完善中.."
+          })
     },
+    
     phone(event){
     wx.makePhoneCall({
       phoneNumber: event.currentTarget.dataset.phone,

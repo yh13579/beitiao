@@ -18,7 +18,7 @@
 
 
 <!-- 联系电话 -->
-<van-field value="{{ phone}}"  type="number"  placeholder="请输入正确的手机号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
+<van-field value="{{ phone }}"  type="number"  placeholder="请输入正确的手机号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
 <view class="line"></view>
 
 
