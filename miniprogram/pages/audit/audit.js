@@ -2,7 +2,7 @@ Page({
     /**
      * 页面的初始数据
      */ 
-    data: {
+    data: { 
         idx:0,
         goodsList:[],
         showConfirm:false,

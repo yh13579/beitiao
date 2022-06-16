@@ -1,3 +1,4 @@
+
 <!-- 详情物品的图片 -->
 <image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" class="detail_image"></image> 
 
@@ -8,7 +9,7 @@
 <text class="gooddetail">物品介绍 (备注) : {{gooddetail}}</text>
 
 <!-- 商家名片和电话按钮 -->
-<view class="message_phone"> 
-  <button class="message_-phone" bindtap="shop_card">商家名片</button>
+<view class="message_phone_card"> 
+  <button class="message_-card" bindtap="shop_card">商家名片</button>
   <button class="message_-phone" bindtap="phone" data-phone="{{phone}}">电话</button>
 </view>

@@ -1,32 +1,19 @@
-<view>
-  <block wx:for="{{goodsList}}" wx:key="index">
-  <view bindtap="gotodetail" data-id="{{item._id}}">
-  <!-- 物品名称 --> 
-    <view class="goodname">  
-    <text class="const-text">{{item.goodname}}+{{item.category}}</text>   
-</view>
-<!-- 物品价格 -->
-<view class="goodprice">
-<text class="goodprice_text">{{item.goodprice}}</text>
-</view>
-<!-- 物品图片 -->
-    <view class="author-date">
-      <image class="avatar" src="{{item.imgUrl}}" mode="aspectFill"></image>
-      <text class="date">{{item.date}}</text> 
+<view wx:for="{{goodsList}}" wx:key="index">
+  <view class="auditcard" bindtap="gotodetail" data-id="{{item._id}}">
+   <text class="text_date">{{item.date}}</text>
+    <text class="text_category">{{item.category}}</text>
+     <text class="text_goodname">{{item.goodname}}</text>
+      <text class="text_gooddetail">{{item.gooddetail}}</text>
+       <text class="text_goodprice">{{item.goodprice}}</text>
+        <image src="{{item.imgUrl}}" class="img_imgurl" mode="aspectFill"></image>
+       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pass2.png" class="img_true" catchtap="accept" data-id="{{item._id}}" data-idx = "{{index}}"></image>
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/nopass2.png" class="img_flase" catchtap="reject_claim" data-id="{{item._id}}" data-idx = "{{index}}"></image>
+     <view class="line"></view>
     </view>
-  </view>
-  <!-- 按钮 -->
-  <view class="button_view" wx:key="{{index}}">
-    <button class="button_good" bindtap="accept" data-id="{{item._id}}" data-idx = "{{index}}">通过</button>
-    <button class="button_state" bindtap="reject_claim" data-id="{{item._id}}" data-idx = "{{index}}">拒绝</button>
-  </view>
-  <!-- 分割线 -->
-  <view class="horizon"></view>
-  </block>
 </view>
 
 
-<!-- 点击拒绝时的弹窗 -->
+<!-- 拒绝时的弹窗 -->
 <block wx:if="{{showConfirm}}">
       <view class='toast-box'>
         <view class='toastbg'></view>

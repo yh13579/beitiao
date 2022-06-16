@@ -1,9 +1,9 @@
 .image_sold{
     width: 200rpx;
     height: 200rpx;
-    position: relative;
+    position: relative; 
     top: 45rpx;
-    left: 30rpx;
+    left: 30rpx; 
 }
 .van-empty{
     position: relative;

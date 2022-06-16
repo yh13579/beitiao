@@ -51,6 +51,7 @@
     position: absolute;
     left: 131rpx;
     top: 570rpx;
+    font-size: 30rpx;
 }
 .image_UIdesign1{
     width: 80rpx;
@@ -70,6 +71,7 @@
     position: absolute;
     left: 131rpx;
     top: 660rpx;
+    font-size: 30rpx;
 }
 .image_guidance1{
     width: 80rpx;

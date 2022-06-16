@@ -112,7 +112,7 @@ page{
 .van-icon-search{   
     top: 12rpx;
 }
-.image_btfont{    
+.image_btfont{      
     height: 125rpx;
     margin-top:5rpx;
     margin-left:28rpx;
