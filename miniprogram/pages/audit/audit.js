@@ -8,7 +8,8 @@ Page({
         showConfirm:false,
         reason:'',
         good_id:'',
-        idxrj:''
+        idxrj:'',
+        show_shopcard:false
     },
     /**
      * 生命周期函数--监听页面加载
@@ -25,7 +26,7 @@ Page({
         .skip(length)
         .get()
         .then(res => {
-            this.setData({
+            this.setData({ 
         goodsList:this.data.goodsList.concat(res.data)
             })
         })
@@ -151,6 +152,16 @@ Page({
             showConfirm:true,
             good_id:id,
             idxrj:idx
+        })
+    },
+    shop_card(){
+       this.setData({
+           show_shopcard:true
+       })
+    },
+    close_card(){
+        this.setData({
+            show_shopcard:false
         })
     }
 })

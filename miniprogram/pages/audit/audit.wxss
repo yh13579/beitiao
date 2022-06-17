@@ -30,10 +30,10 @@
 }
 .img_imgurl{
     width: 250rpx;
-    height: 300rpx;
+    height: 250rpx;
     position: absolute;
     left: 30rpx;
-    top: 70rpx;
+    top: 35rpx;
 }
 .img_true{
     width: 120rpx;

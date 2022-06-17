@@ -1,7 +1,7 @@
 page{  
     background-color: white;
    }
-.uploadimg{    
+.uploadimg{     
     width: 600rpx;
     height: 747rpx;
     position: relative;

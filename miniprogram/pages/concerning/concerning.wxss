@@ -1,5 +1,6 @@
 .text_detail{
     font-size: large;
+    text-indent: 2em;
 }
 .image_thanks{
     width: 100%;
@@ -11,7 +12,7 @@
 .like_step{
     display: flex;
     position: relative;
-    top: 100rpx;
+    top: 50rpx;
 }
 .like{
     width: 70.5px; 
@@ -112,4 +113,15 @@
     position: absolute;
     left: 131rpx;
     top: 865rpx;
+}
+.text_modediu{
+    color: blue;
+    text-decoration-line: underline;
+}
+.img_modediu{
+    width: 150rpx;
+    height: 150rpx;
+    position: relative;
+    left: 550rpx;
+    top: -50rpx;
 }

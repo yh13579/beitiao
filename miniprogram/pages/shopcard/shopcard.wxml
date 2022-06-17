@@ -1,6 +1,6 @@
 <text class="text_card">商家名片说明：</text>
 <text class="text_number">1.为方便交易的进行,商家可在本页面上传自己的微信(或QQ)二维码作为除电话以外顾客能联系到的第二种方式。</text>
-<text class="text_number">2.上传的商家名片可修改,也可长按查看大图或者删除。</text>
+<text class="text_number">2.上传的商家名片可修改,也可长按查看大图或者删除。</text> 
 <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" class="uploadimg"></image>   
 
 <button class="submit" bindtap="submit">保存名片</button>  

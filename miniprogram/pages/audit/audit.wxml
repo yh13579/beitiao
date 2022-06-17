@@ -1,10 +1,11 @@
 <view wx:for="{{goodsList}}" wx:key="index">
   <view class="auditcard" bindtap="gotodetail" data-id="{{item._id}}">
-   <text class="text_date">{{item.date}}</text>
+   <text class="text_date">{{item.date}}</text> 
     <text class="text_category">{{item.category}}</text>
      <text class="text_goodname">{{item.goodname}}</text>
       <text class="text_gooddetail">{{item.gooddetail}}</text>
        <text class="text_goodprice">{{item.goodprice}}</text>
+         <text style="color: black;position: absolute;top: 300rpx;left: 40rpx;background-color: pink;font-size: 50rpx;" catchtap="shop_card">商家名片</text>
         <image src="{{item.imgUrl}}" class="img_imgurl" mode="aspectFill"></image>
        <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pass2.png" class="img_true" catchtap="accept" data-id="{{item._id}}" data-idx = "{{index}}"></image>
       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/nopass2.png" class="img_flase" catchtap="reject_claim" data-id="{{item._id}}" data-idx = "{{index}}"></image>
@@ -15,7 +16,7 @@
 
 <!-- 拒绝时的弹窗 -->
 <block wx:if="{{showConfirm}}">
-      <view class='toast-box'>
+      <view class='toast-box'> 
         <view class='toastbg'></view>
         <view class='showToast'>
             <view class='toast-title'>
@@ -37,3 +38,13 @@
         </view>
     </view>
   </block>
+
+<!-- 点击商家名片之后 -->
+  <view wx:if="{{show_shopcard}}" style="width: 620rpx;height: 810rpx;position: absolute;left: 65rpx;top: 120rpx;">
+   <view style="width: 620rpx; height: 60rpx; background-color:#FD928F;">
+     <text>商家名片</text>
+      </view>
+       <image src="http://tmp/XGujUvAjzG1Aafe47b9bd51a2cb8082e09fabb20ef00.jpg"  mode="aspectFill" style="width: 620rpx; height: 750rpx;position: relative;">
+      </image>
+     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/close.png" catchtap="close_card" style="width: 120rpx;height: 120rpx;position: absolute;right: 10rpx;top: 0rpx;"></image>
+  </view>

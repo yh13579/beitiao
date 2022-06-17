@@ -1,4 +1,4 @@
-<text  decode="true" class="text_detail">&ensp;&ensp;&ensp;&ensp;"北林跳蚤市场"是北林编程工作室开发的第二款微信小程序(第一款为“莫得丢”，用来做失物招领的，小程序可搜)。 北林跳蚤市场的初衷是作为二手物品交易的中间平台，方便二手物品的出售，目前仅限于北林校区的使用。</text>
+<view class="text_detail">"北林跳蚤市场"是北林编程工作室开发的第二款微信小程序(第一款为<text class="text_modediu" bindtap="goto_modediu">"莫得丢"</text>,用来做失物招领的,下方有小程序入口)。北林跳蚤市场的初衷是作为二手物品交易的中间平台,方便二手物品的出售,目前仅限于北林校区的使用。</view>
 
 <view class="thanks_imgall">
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/thanks.jpg" class="image_thanks"></image> 
@@ -23,6 +23,7 @@ weiliang、不正当游戏中的正当玩家</text>
 
 
 <text class="text_detaildown">觉得不错的点个赞吧...</text>
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/modediu.png" class="img_modediu" catchtap="goto_modediu"></image>
 <view class="like_step">
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/zan.png" class="like" bindtap="zan"></image>
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/cai.png" class="step" bindtap="cai"></image>

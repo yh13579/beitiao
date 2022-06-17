@@ -17,6 +17,12 @@ Page({
             title: "无效的操作"
           })
     },
+    goto_modediu(){
+        // console.log(666)
+        wx.navigateToMiniProgram({
+          appId: 'wx195ae5141b524323',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

@@ -12,7 +12,8 @@ Page({
         goodname:'',
         goodprice:'',
         nickName:'',
-        avatarUrl:''
+        avatarUrl:'',
+        show_shopcard:false
     },
     /**
      * 生命周期函数--监听页面加载
@@ -23,10 +24,14 @@ Page({
     },
 
     shop_card(){
-        wx.showToast({
-            icon: "none",
-            title: "功能完善中.."
-          })
+       this.setData({
+           show_shopcard:true
+       })
+    },
+    close_card(){
+        this.setData({
+            show_shopcard:false
+        })
     },
     
     phone(event){
