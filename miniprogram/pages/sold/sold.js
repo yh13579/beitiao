@@ -1,7 +1,6 @@
-var idx
 Page({
     /**
-     * 页面的初始数据 
+     * 页面的初始数据   
      */ 
     data: {
         idx:0,
@@ -43,61 +42,33 @@ Page({
           })
       
     },
-    accept(event){
-        console.log("点击同意")
-        console.log(event)
+    sold_longpress(event){ 
+        let id = event.currentTarget.dataset.id
+        let idx = event.currentTarget.dataset.idx
+        wx.showActionSheet({
+          itemList: ['删除'],
+          success:res => {
+              console.log("点击了删除")
+              var goodsList = this.data.goodsList
+              goodsList.splice(idx,1)
+              this.setData({
+                goodsList: goodsList,
+              })
+              wx.cloud.database().collection("goods")
+              .doc(id)
+              .remove()
+              .then(res => {
+                  console.log("数据库中删除成功",res)
+              })
+              .catch(res => {
+                  console.log("数据库中删除失败",res)
+              })
+          },
+          fail:function(res){
+              console.log("点击了取消")
+          }
+        })
     },
-    reject(event){
-        console.log("点击拒绝")
-    },
-    // accept(event){             //点击通过
-    //     let id = event.currentTarget.dataset.id
-    //     wx.cloud.database().collection("goods")
-    //     .doc(id)
-    //     .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
-    //         data:{
-    //             audit:1
-    //         }
-    //     })
-    //     .then(res => {   //实时更新数组
-    //         let idx = event.currentTarget.dataset.idx
-    //         var goodsList= this.data.goodsList;
-    //         goodsList.splice(idx,1)
-    //         this.setData({
-    //           goodsList: goodsList,
-    //         })
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-    // },
-    // reject(event){             //点击拒绝
-    //     let id = event.currentTarget.dataset.id
-    //     wx.cloud.database().collection("goods")
-    //     .doc(id)
-    //     .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
-    //         data:{  
-    //             audit:-2   
-    //         }
-    //     })
-    //     .then(res => {   //实时更新数组
-    //         let idx = event.currentTarget.dataset.idx
-    //         var goodsList= this.data.goodsList;
-    //         goodsList.splice(idx,1)
-    //         this.setData({
-    //           goodsList: goodsList,
-    //         })
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
-    // },
-    // gotodetail(event){
-    //     let id = event.currentTarget.dataset.id
-    //     wx.navigateTo({
-    //         url: '../detail/detail?id='+id,
-    //     })
-    //   },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

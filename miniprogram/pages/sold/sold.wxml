@@ -1,8 +1,8 @@
 <view wx:for="{{goodsList}}" wx:key="index" >
-    <view class="soldcard" data-id="{{item._id}}">
+    <view class="soldcard" data-id="{{item._id}}" data-idx = "{{index}}"bindlongpress="sold_longpress"> 
       <text class="text_date">{{item.date}}</text>
         <text class="text_goodname">{{item.goodname}}</text>
-          <image src="{{item.imgUrl}}" class="image_sold" mode="aspectFill"></image>
+          <image src="{{item.imgUrl}}" class="image_sold" mode="aspectFill"></image>  
               <text class="text_price">{{item.goodprice}}</text>
          <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/solded4.png" class="solded"></image>
      <view class="line"></view>

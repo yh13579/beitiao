@@ -55,7 +55,7 @@
                 },
                 {
                     "name": "pages/information/information",
-                    "pathName": "pages/audit/audit",
+                    "pathName": "pages/ownupload/ownupload",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

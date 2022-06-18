@@ -17,7 +17,7 @@ page{
     background-color: #FE9F67;
     width: 300rpx;
     right: 25rpx;
-}
+} 
 .goodprice{
     color: #FA4A12;
     font-size: xx-large;
@@ -40,5 +40,29 @@ page{
 .detail_image{
     width: 100%;
     height:700rpx
+}
+.show_shopcard{
+    width: 620rpx;
+    height: 810rpx;
+    position: absolute;
+    left: 65rpx;
+    top: 120rpx;
+}
+.card_pinkpart{
+    width: 620rpx;
+    height: 60rpx;
+    background-color:#FD928F;
+}
+.shopkeeper_card{
+    width: 620rpx; 
+    height: 750rpx;
+    position: relative;
+}
+.close_card{
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    right: 10rpx;
+    top: 0rpx;
 }
 

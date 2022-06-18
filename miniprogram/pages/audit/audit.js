@@ -2,14 +2,16 @@ Page({
     /**
      * 页面的初始数据
      */ 
-    data: { 
+    data: {  
         idx:0,
         goodsList:[],
         showConfirm:false,
         reason:'',
         good_id:'',
         idxrj:'',
-        show_shopcard:false
+        show_shopcard:false,
+        shopcard_img:'',
+        sk_openid:''
     },
     /**
      * 生命周期函数--监听页面加载
@@ -154,14 +156,42 @@ Page({
             idxrj:idx
         })
     },
-    shop_card(){
-       this.setData({
-           show_shopcard:true
-       })
+    shop_card(event){
+        let id = event.currentTarget.dataset.id
+        //console.log(id)
+        wx.cloud.database().collection("goods")
+        .doc(id)
+        .get()
+        .then(res => {
+            //console.log(res.data._openid)
+            this.setData({
+                sk_openid:res.data._openid
+            })  
+            wx.cloud.database().collection("information")
+            .where({
+                _openid:this.data.sk_openid
+            })
+            .get()
+            .then(res =>{
+                //console.log(res.data[0].shop_card)
+                if(res.data[0].shop_card == undefined || res.data[0].shop_card == ""){
+                    this.setData({
+                        shopcard_img:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/haveno2.jpg",
+                        show_shopcard:true
+                    })
+                }
+                else{
+                    this.setData({
+                        shopcard_img:res.data[0].shop_card,
+                        show_shopcard:true
+                    })
+                }
+            })
+        })
     },
     close_card(){
         this.setData({
-            show_shopcard:false
+            show_shopcard:false   
         })
     }
 })

@@ -1,7 +1,7 @@
 const app = getApp();
 Page({
     /**
-     * 页面的初始数据
+     * 页面的初始数据 
      */ 
     data: {
         buttons:['已上架','审核中','未通过'],
@@ -130,6 +130,56 @@ Page({
                 auditdetail:-2,
             })
         }
+    },
+    choose(){
+       if(this.data.state == 0){
+           wx.showActionSheet({
+             itemList: ['标记为卖出物品','删除'],
+             success:res => {
+                 if(res.tapIndex == 0){
+                    console.log("点击的是标记为卖出物品")
+                 }
+                else{
+                    console.log("点击的是删除")
+                }
+             },
+             fail:function(){
+                console.log("点击了取消")
+             }
+           })
+       }
+       else if(this.data.state == 1){
+        wx.showActionSheet({
+            itemList: ['修改物品信息','删除'],
+            success:res => {
+                if(res.tapIndex == 0){
+                   console.log("点击的是修改物品信息")
+                }
+               else{
+                   console.log("点击的是删除")
+               }
+            },
+            fail:function(){
+               console.log("点击了取消")
+            }
+          })
+       }
+       else{
+        wx.showActionSheet({
+            itemList: ['重新编辑物品信息','删除'],
+            success:res => {
+                if(res.tapIndex == 0){
+                   console.log("点击的是重新编辑物品信息")
+                }
+               else{
+                   console.log("点击的是删除")
+               }
+            },
+            fail:function(){
+               console.log("点击了取消")
+            }
+          })
+       }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

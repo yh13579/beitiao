@@ -1,7 +1,7 @@
 .text_date{
     position: absolute;
-    left: 40rpx;
     top: 10rpx;
+    left: 300rpx;
 }
 .text_category{
     position: absolute;
@@ -33,7 +33,7 @@
     height: 250rpx;
     position: absolute;
     left: 30rpx;
-    top: 35rpx;
+    top: 35rpx; 
 }
 .img_true{
     width: 120rpx;
@@ -139,4 +139,37 @@
     color: black;
     border-radius: 0rpx;
     border-bottom-right-radius: 16rpx;
+}
+/*以下为商家名片CSS*/
+.show_shopcard{
+    width: 620rpx;
+    height: 810rpx;
+    position: absolute;
+    left: 65rpx;
+    top: 120rpx;
+}
+.card_pinkpart{
+    width: 620rpx;
+    height: 60rpx;
+    background-color:#FD928F;
+}
+.shopkeeper_card{
+    width: 620rpx; 
+    height: 750rpx;
+    position: relative;
+}
+.close_card{
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    right: 10rpx;
+    top: 0rpx;
+}
+.text_shopcard{
+    color: black;
+    position: absolute;
+    top: 300rpx;
+    left: 40rpx;
+    background-color: pink;
+    font-size: 50rpx; 
 }

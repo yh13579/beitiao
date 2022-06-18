@@ -1,7 +1,7 @@
 <!-- 顶部按钮 -->
 <view class="button_viewd">
   <view class="buttonlist" wx:for="{{buttons}}" wx:key="index">   
-    <button class="unbutton {{state==index?'ontouchbutton':''}}" bindtap="buttonsdetail" data-index="{{index}}">{{buttons[index]}}</button>
+    <button class="unbutton {{state==index?'ontouchbutton':''}}" bindtap="buttonsdetail" data-index="{{index}}">{{buttons[index]}}</button> 
   </view>   
 </view>
 
@@ -16,6 +16,7 @@
       <text class="goodname" wx:if="{{auditdetail == -1 || auditdetail == 1}}">{{item.goodname}}</text>
      <text class="goodprice" wx:if="{{auditdetail == -1 || auditdetail == 1}}">{{item.goodprice}}</text>
      <text class="reject" wx:if="{{auditdetail==-2}}">原因：{{item.reason}}</text>
+     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/choose.png" style="width: 50rpx;height: 50rpx;position: absolute;bottom: 0rpx;right: 25rpx;" catchtap="choose"></image>
     </view>
   </view>
 </view>
