@@ -189,7 +189,7 @@ Page({
             else if(this.data.ownlistlength > 10 && this.data.admin == 0){
               wx.showModal({
                 title: '提示',
-                content: '普通用户最多上传10件物品' 
+                content: '普通用户最多上传10件物品("已上架","审核中","未通过","已卖出"物品的总和)' 
               })
             }
             else if(this.data.goodprice > 1000 || this.data.goodprice.length >= 7 || isNaN(this.data.goodprice)){

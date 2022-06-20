@@ -108,9 +108,9 @@ page{
     text-align: center;
 }
 .choose{
-    width: 50rpx;
-    height: 50rpx;
+    width: 70rpx;
+    height: 70rpx;
     position: absolute;
     bottom: 0rpx;
-    right: 25rpx;
+    right: 15rpx;
 }

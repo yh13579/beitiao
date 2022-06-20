@@ -15,7 +15,12 @@ Page({
         index_on:true,
         index_au:false,
         index_no:false,
-        idx:0
+        idx:0,
+        goodname:'',
+        gooddetail:'',
+        phone:'',
+        imgUrl:'',
+        goodprice:''
     },
     /**
      * 生命周期函数--监听页面加载 
@@ -211,13 +216,15 @@ Page({
                 if(res.tapIndex == 0){
                    console.log("点击的是修改物品信息")
                    console.log(event)
-                  // let goodname = "测试代码123"
-                //    wx.switchTab({
-                //     url: '../upload/upload?goodname' + goodname, 
-                //   })
-               wx.switchTab({
-                 url: '../upload/upload',
-               })
+                   wx.cloud.database().collection("goods")
+                   .doc(id)
+                   .get()
+                   .then(res => {
+                       let id_audit = event.currentTarget.dataset.id
+                       wx.navigateTo({  
+                        url: '../test/test?id_audit=' + id_audit   
+                      })
+                   })
                 }
                else{
                    console.log("点击的是删除")
@@ -251,6 +258,15 @@ Page({
             success:res => {
                 if(res.tapIndex == 0){
                    console.log("点击的是重新编辑物品信息")
+                   wx.cloud.database().collection("goods")
+                   .doc(id)
+                   .get()
+                   .then(res => {
+                       let id_audit = event.currentTarget.dataset.id
+                       wx.navigateTo({  
+                        url: '../test/test?id_audit=' + id_audit   
+                      })
+                   })
                 }
                else{
                    console.log("点击的是删除")

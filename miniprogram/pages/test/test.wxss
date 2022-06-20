@@ -1,32 +1,74 @@
-.choose{
-    background-color: #508BEF;
-    color: #FFFFFF;
-  }
-  .noChoose{
-    background-color: white;
-    color: #000000;
-  }
-  .choicecate{
+page{      
+    background-color: rgb(255,248,244);
+   }
+
+   .text_uploadimg{    
+    font-size: 35rpx;
+    position: relative;
+    left: 32rpx;
+   }
+   .uploadimg{    
+    width: 175rpx;
+    height: 175rpx;
+    position: relative;
+    left: 30rpx;
+    top: 8rpx;
+   }
+   .buttonview{   
+    height: 400rpx;
+   }
+   .button_value{  
+    width:670rpx ;
+    background-color: #FE9F67;
+    color: white;
+    font-size: x-large;
+    position: relative;
+    top: 80rpx;
+   }
+   .uploadimg_view{   
+    display: flex;
+    flex-direction: column;
+    background-color: #FEF9F5;
+    height: 240rpx;
+   }
+   .line{     
+       background-color: #F1E9E7;
+       height: 3rpx;
+   }
+   .choicecate{      
     background-color: #FEF9F5;
     height: 217rpx;
    }
-   .columnslist{
-    float: left;
-    width: 25%;
-    box-sizing: border-box;
-    padding-bottom: 10px;
-}
-.choicebutton{
-    background-color: #EDEDED;
-    width: 160rpx;
-    font-size: 27rpx;
-    height: 66rpx;
-    border-radius: 60rpx;
-}
-.score{
-    width:335rpx;
-    border-radius:10rpx 0rpx 0rpx 10rpx;
+   .choicebutton{   
+       background-color: #EDEDED;
+       width: 180rpx; 
+       font-size: 27rpx;
+       height: 66rpx;
+       border-radius: 60rpx;
+   }
+   .line_blank{   
+       background-color: #FEF9F5;
+       height: 15rpx;
+   }
+   .van-cell{  
+       background-color: #FEF9F5;
+   }
+   .van-field__word-limit{
+       position: relative;
+       top: -48rpx;
+   }
+   .columnslist{  
+       float: left;
+       width: 25%;
+       box-sizing: border-box;
+       padding-bottom: 10px;
+   }
+  .selectbutton{   
+      background-color: #81868E;
   }
-  .score text{
-    color: #FCB216;
-  }
+  .view_all{      
+    overflow-x:hidden;
+    overflow-y:scroll
+}
+ 
+ 

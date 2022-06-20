@@ -1,20 +1,57 @@
-<view class="navs">
-  <view class="{{index=='0' ? 'choose' : 'noChoose'}}" bindtap="changeColor" data-index="0">我的订单</view>
-  <view class="{{index=='1' ? 'choose' : 'noChoose'}}" bindtap="changeColor" data-index="1">服务项目</view>
-  <view class="{{index=='2' ? 'choose' : 'noChoose'}}" bindtap="changeColor" data-index="2">运营结算</view>
-</view>
+<view class="view_all">
 
-<view style="height: 300rpx;background-color: white;"></view>
-<!-- 物品分类 -->
+<!-- 物品名称 -->
+  <van-field  placeholder="请输入物品名称" value="{{goodname}}"  maxlength="15"    show-word-limit bind:change="getgoodname"/>
+  <view class="line"></view>
+
+
+<!-- 详细描述 -->
+  <van-field 
+    autosize
+    type="textarea"
+    maxlength="50"
+    placeholder="简单描述一下物品的情况"
+    value="{{gooddetail}}" bind:change="getgooddetil"
+    show-word-limit
+  />
+<view class="line"></view>
+
+
+<!-- 联系电话 -->
+<van-field value="{{ phone }}"  type="number"  placeholder="请输入正确的手机号码"  bind:change="getPhone" error-message="{{errorPhone}}"/>
+<view class="line"></view>
+
+
+<!-- 上传图片-->
+<view class="uploadimg_view">
+  <text class="text_uploadimg">物品图片</text>
+    <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" class="uploadimg"></image>  
+</view>
+<view class="line"></view>
+
+
+<!-- 物品分类 --> 
 <view class="choicecate">
     <text class="text_uploadimg">分类</text>
+      <view class="line_blank"></view>
+        <view class="columnslist" wx:for="{{columns}}" wx:key="index">    
+          <button  class="choicebutton {{state==index?'selectbutton':''}}" bindtap="columndetail" data-index = "{{index}}">{{columns[index]}}</button>
+      </view>
     <view class="line_blank"></view>
-    <view class="columnslist" wx:for="{{columns}}" wx:key="index" > 
-    <button wx:if="{{style == 0}}" style="background-color: {{score}};"  bindtap="columndetail" data-index = "{{index}}" >{{columns[index]}}</button>
-</view>
-<view class="columnslist" wx:for="{{columns}}" wx:key="index" > 
-    <button  wx:if="{{style == 1}}" style="background-color: {{score}};" bindtap="columndetail" data-index = "{{index}}">{{columns[index]}}</button>
-</view>
+  </view>
+<view class="line"></view>
+
+
+<!-- 物品售价 -->
+  <van-field label="售价"  type="digit" placeholder="0.00(不大于1000元)" value="{{goodprice}}" bind:change="getgoodprice" />
+<view class="line"></view>
+
+
+<!-- 发布按钮 -->
+<view class="buttonview"> 
+  <button class="button_value" catchtap="uploadGood">确认发布</button>
 </view>
 
+
+</view>
 
