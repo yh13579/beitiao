@@ -144,7 +144,7 @@
 .show_shopcard{
     width: 620rpx;
     height: 810rpx;
-    position: absolute;
+    position: fixed;
     left: 65rpx;
     top: 120rpx;
 }

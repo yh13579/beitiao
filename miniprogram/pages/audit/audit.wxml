@@ -8,7 +8,7 @@
          <text class="text_shopcard" catchtap="shop_card" data-id="{{item._id}}">商家名片</text>
         <image src="{{item.imgUrl}}" class="img_imgurl" mode="aspectFill"></image>
        <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pass2.png" class="img_true" catchtap="accept" data-id="{{item._id}}" data-idx = "{{index}}"></image>
-      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/nopass2.png" class="img_flase" catchtap="reject_claim" data-id="{{item._id}}" data-idx = "{{index}}"></image>
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/nopass2.png" class="img_flase" catchtap="reject_claim" data-id="{{item._id}}" data-idx = "{{index}}"></image> 
      <view class="line"></view>
     </view>
 </view>

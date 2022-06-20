@@ -9,18 +9,17 @@
  <!-- 遍历物品，尚待优化 -->
 <view>
   <view wx:for="{{goodsList}}" wx:key="index" class="goodslist"> 
-    <!-- <text>{{item.date}}</text> -->
     <view class="card" bindtap="detail" data-id="{{item._id}}"> 
        <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
          <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shibai3.png" mode="aspectFill" class="shibai" wx:if="{{auditdetail == -2 }}"></image>  
       <text class="goodname" wx:if="{{auditdetail == -1 || auditdetail == 1}}">{{item.goodname}}</text>
      <text class="goodprice" wx:if="{{auditdetail == -1 || auditdetail == 1}}">{{item.goodprice}}</text>
      <text class="reject" wx:if="{{auditdetail==-2}}">原因：{{item.reason}}</text>
-     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/choose.png" style="width: 50rpx;height: 50rpx;position: absolute;bottom: 0rpx;right: 25rpx;" catchtap="choose"></image>
+     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/choose.png" class="choose" catchtap="choose" data-id="{{item._id}}" data-idx = "{{index}}"></image> 
     </view>
   </view>
 </view>
-<text wx:if="{{empty != 1}}" class="blank"></text>
+<text class="blank"></text>
 
 
 <!-- 列表状态 -->

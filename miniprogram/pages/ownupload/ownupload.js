@@ -1,4 +1,3 @@
-const app = getApp();
 Page({
     /**
      * 页面的初始数据 
@@ -15,7 +14,8 @@ Page({
         auditdetail:1,
         index_on:true,
         index_au:false,
-        index_no:false
+        index_no:false,
+        idx:0
     },
     /**
      * 生命周期函数--监听页面加载 
@@ -23,6 +23,7 @@ Page({
     onLoad: function (options) {
         this.getmylist()
     },  
+
     getmylist(){   
     wx.cloud.callFunction({
         name: 'login',
@@ -72,6 +73,7 @@ Page({
             })
           })
     },
+
     detail(event){         //切换到物品详情页
         let id = event.currentTarget.dataset.id
         if(this.data.auditdetail == 1){
@@ -87,6 +89,7 @@ Page({
             })
         }
       },
+
     buttonsdetail(event){
         this.setData({
             state:event.currentTarget.dataset.index,
@@ -97,6 +100,9 @@ Page({
               goodsList:this.data.onselvelist,
               auditdetail:1,
            })
+           if(this.data.onselvelist.length <1){
+            this.show_none()
+          }
         }
         else if(this.data.index == 1 && this.data.auditing.length == 0 && this.data.index_au == false){
             this.setData({
@@ -123,24 +129,72 @@ Page({
                 goodsList:this.data.auditing,
                 auditdetail:-1,
             })
+            if(this.data.auditing.length <1){
+              this.show_none()
+            }
         }
         else if(this.data.index == 2){
             this.setData({
                 goodsList:this.data.nopassed,
                 auditdetail:-2,
             })
+            if(this.data.nopassed.length <1){
+                this.show_none()
+            }
         }
     },
-    choose(){
-       if(this.data.state == 0){
+
+
+
+    choose(event){ 
+       let id = event.currentTarget.dataset.id
+       let idx = event.currentTarget.dataset.idx 
+
+       if(this.data.state == 0){    //已上架
            wx.showActionSheet({
              itemList: ['标记为卖出物品','删除'],
              success:res => {
                  if(res.tapIndex == 0){
                     console.log("点击的是标记为卖出物品")
+                    var onselvelist = this.data.onselvelist
+                    onselvelist.splice(idx,1)
+                    this.setData({
+                        goodsList:onselvelist,
+                    })
+                    wx.cloud.database().collection("goods")
+                    .doc(id)
+                    .update({
+                        data:{ 
+                            audit:2
+                        }
+                    })
+                    .then(res => {
+                        console.log("successed,good sold")
+                        wx.showModal({
+                            title: '操作成功',
+                            content: '该物品标记为已卖出' ,
+                            showCancel:false
+                          })
+                    })
                  }
                 else{
                     console.log("点击的是删除")
+                    console.log(id)
+                    console.log("物品",idx)
+                    var onselvelist = this.data.onselvelist
+                    onselvelist.splice(idx,1)
+                    this.setData({
+                        goodsList:onselvelist,
+                    })
+                    wx.cloud.database().collection("goods")
+                    .doc(id)
+                    .remove()
+                    .then(res => {
+                        console.log("数据库中删除成功",res)
+                    })
+                    .catch(res => {
+                        console.log("数据库中删除失败",res)
+                    })
                 }
              },
              fail:function(){
@@ -148,15 +202,40 @@ Page({
              }
            })
        }
-       else if(this.data.state == 1){
+
+
+       else if(this.data.state == 1){    //审核中
         wx.showActionSheet({
             itemList: ['修改物品信息','删除'],
             success:res => {
                 if(res.tapIndex == 0){
                    console.log("点击的是修改物品信息")
+                   console.log(event)
+                  // let goodname = "测试代码123"
+                //    wx.switchTab({
+                //     url: '../upload/upload?goodname' + goodname, 
+                //   })
+               wx.switchTab({
+                 url: '../upload/upload',
+               })
                 }
                else{
                    console.log("点击的是删除")
+                   console.log(id)
+                   var auditing = this.data.auditing
+                    auditing.splice(idx,1)
+                    this.setData({
+                        goodsList:auditing,
+                    })
+                    wx.cloud.database().collection("goods")
+                    .doc(id)
+                    .remove()
+                    .then(res => {
+                        console.log("数据库中删除成功",res)
+                    })
+                    .catch(res => {
+                        console.log("数据库中删除失败",res)
+                    })
                }
             },
             fail:function(){
@@ -164,7 +243,9 @@ Page({
             }
           })
        }
-       else{
+
+
+       else{              //未通过
         wx.showActionSheet({
             itemList: ['重新编辑物品信息','删除'],
             success:res => {
@@ -173,6 +254,22 @@ Page({
                 }
                else{
                    console.log("点击的是删除")
+                   console.log(id)
+                   console.log("物品",idx)
+                   var nopassed = this.data.nopassed
+                   nopassed.splice(idx,1)
+                   this.setData({
+                    goodsList:nopassed,
+                   })
+                   wx.cloud.database().collection("goods")
+                   .doc(id)
+                   .remove()
+                   .then(res => {
+                       console.log("数据库中删除成功",res)
+                   })
+                   .catch(res => {
+                       console.log("数据库中删除失败",res)
+                   })
                }
             },
             fail:function(){
@@ -180,6 +277,14 @@ Page({
             }
           })
        }
+    },
+
+
+    show_none(){
+        wx.showToast({
+            icon: "none",
+            title: "没有更多了.."
+          })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

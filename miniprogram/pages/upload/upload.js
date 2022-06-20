@@ -57,6 +57,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) { 
+      console.log(options)
       this.getTabBar().setData({
         active : 1
       })
@@ -181,7 +182,8 @@ Page({
             this.data.category.length == 0){
               wx.showModal({
                 title: '提示',
-                content: '请上传完整信息' 
+                content: '请上传完整信息' ,
+                showCancel:false
               })
             }
             else if(this.data.ownlistlength > 10 && this.data.admin == 0){
