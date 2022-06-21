@@ -30,7 +30,7 @@ page{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.image{      
+.image_img{      
     width: 330rpx;
     height: 310rpx;
     position: relative;

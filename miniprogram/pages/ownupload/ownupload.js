@@ -1,3 +1,4 @@
+var demo = require("../../utils/utils_time")
 Page({
     /**
      * 页面的初始数据 
@@ -166,11 +167,13 @@ Page({
                     this.setData({
                         goodsList:onselvelist,
                     })
+                    let date = demo.formatTime(new Date(),"Y-M-D")
                     wx.cloud.database().collection("goods")
                     .doc(id)
                     .update({
                         data:{ 
-                            audit:2
+                            audit:2,
+                            date:date
                         }
                     })
                     .then(res => {

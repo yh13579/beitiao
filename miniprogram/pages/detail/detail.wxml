@@ -5,7 +5,7 @@
 
 <!-- 物品价格，名称，介绍 -->
 <text class="goodprice">{{goodprice}}</text>
-<text class="goodname">{{goodname}}</text>
+<text class="goodname">{{goodname}}</text> 
 <text class="gooddetail">物品介绍 (备注) : {{gooddetail}}</text>
 
 <!-- 商家名片和电话按钮 -->

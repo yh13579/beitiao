@@ -41,8 +41,8 @@ page{
     position: relative;
 }
 .comment_userimage{
-    height: 150rpx;
-    width: 150rpx;
+    height: 132rpx;
+    width: 142rpx;  
     border-radius: 50%;
     position: absolute;
     left: 20rpx;

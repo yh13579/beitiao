@@ -4,8 +4,8 @@ page{
 .message_phone_card{
     display: flex; 
     flex-direction: row;
-    position: fixed;
-    bottom: 60rpx;
+    position: relative;
+    top: 120rpx;
     width: 100%;
 }
 .message_-card{

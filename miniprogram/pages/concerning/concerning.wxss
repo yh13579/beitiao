@@ -1,5 +1,5 @@
 .text_detail{
-    font-size: large;
+    font-size: large;  
     text-indent: 2em;
 }
 .image_thanks{

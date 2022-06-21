@@ -1,4 +1,4 @@
-.text_date{
+.text_date{ 
     position: absolute;
     top: 10rpx;
     left: 300rpx;
