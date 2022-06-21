@@ -55,7 +55,7 @@
                 },
                 {
                     "name": "pages/information/information",
-                    "pathName": "pages/ownupload/ownupload",
+                    "pathName": "pages/guestbook/guestbook",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "留言板"
+  "navigationBarTitleText": "留言板",
+  "enablePullDownRefresh": false
 }

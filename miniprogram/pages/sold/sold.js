@@ -47,7 +47,7 @@ Page({
         let idx = event.currentTarget.dataset.idx
         wx.showActionSheet({
           itemList: ['删除'],
-          success:res => {
+          success:res => {  
               console.log("点击了删除")
               var goodsList = this.data.goodsList
               goodsList.splice(idx,1)

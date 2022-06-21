@@ -1,39 +1,25 @@
 <view class="view_all">
 
-
 <!-- 评论区 -->
-<block wx:for="{{commentsList}}" wx:key="index" >
-  <view class="cu-card dynamic margin" data-id="{{item._id}}" data-idx = "{{index}}"bindlongpress="handleLongPress">
-    <view class="cu-item shadow">
-      <view class="cu-list menu-avatar">
-        <view class="cu-item">
-          <view class="cu-avatar round lg" class="avatar">
-          </view>
-          <view class="content flex-sub">
-            <view>{{item.userNickName}}</view>
-            <view class="text-gray text-sm flex justify-between">
-              {{item.date}}
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <view class="details">
-        <rich-text nodes="{{item.comment}}" class="comment"></rich-text>
-      </view>
-    </view>
+<view wx:for="{{commentsList}}" wx:key="index">
+  <view data-id="{{item._id}}" data-idx="{{index}}" bindlongpress="handLongPress" class="view_comment_detail"> 
+    <image src="{{item.userAvatarUrl}}" class="comment_userimage"></image>
+      <text class="comment_date">{{item.date}}</text>
+        <text class="comment_username">{{item.userNickName}}</text>
+      <text class="comment_textdetail">{{item.comment}}</text>   
+    <view class="line"></view> 
   </view>
-</block>
-
-
+</view>
 
 <view class="blank"></view> 
+
 
 <!-- 发送板 -->
 <view class="form"> 
 	<view>
 		<input  value="{{comment}}"  placeholder="给作者提点优化建议吧.." bindinput="getcomment" bindconfirm="comment"/>
 	</view>
-	<button bindtap="comment">发送</button>
+	<button class="button_view" bindtap="comment">发送</button>
   </view>
+
 </view>

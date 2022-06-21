@@ -1,26 +1,9 @@
 /* pages/guestbook/guestbook.wxss */
-.comment{
-    position: relative;
-    left: 150rpx;
-}
-.publish_view{
-    display: flex;
-    position:fixed;
-    bottom:10rpx;
-    width: 750rpx;
-    left: 10rpx;
-}
-.publish_detail{
-    width: 70%;
-    border: 3px solid black;
-    border-radius:10px;
-    box-sizing: border-box; 
-}
-.button_publish{
-    color: rgb(114, 72, 18);
-    width: 120%;
-    font-size: x-large;
-}
+page{             
+    background-color: #FFFFFF;
+   }
+
+
 .form{
     position: fixed;
     bottom: 0rpx;
@@ -38,7 +21,9 @@
     line-height: 36px;
     padding: 0  5px;
   }
-  button{  
+
+
+  .button_view{  
     background-color: #FFA16B;
     height: 80rpx;
     color: white;
@@ -49,4 +34,41 @@
 }
 .blank{
     height: 200rpx;
+}
+
+.view_comment_detail{
+    height: 280rpx;
+    position: relative;
+}
+.comment_userimage{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    position: absolute;
+    left: 20rpx;
+    top: 20rpx;
+}
+.comment_date{
+    position: absolute;
+    top: 220rpx;
+    left: 10rpx;
+    font-size: 25rpx;
+}
+.comment_username{
+    position: absolute;
+    left: 200rpx;
+    top: 30rpx;
+    font-size: large;
+}
+.comment_textdetail{
+    position: absolute;
+    left: 250rpx;
+    top: 80rpx;
+    font-size: 30rpx;
+}
+.line{
+    height: 4rpx;
+    background-color: gray;
+    position: relative;
+    top:275rpx;
 }

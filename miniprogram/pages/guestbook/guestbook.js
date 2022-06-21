@@ -1,8 +1,8 @@
 // pages/guestbook/guestbook.js  
+var demo = require("../../utils/utils_time")
 import {
-    getUserProfile
+    getUserProfile  
   } from "../../utils/utils" 
-var idx
 Page({
 
     /**
@@ -21,11 +21,19 @@ Page({
             showCancel:false,
           })
         }
+        else if(this.data.comment.length>50){
+            console.log(this.data.comment.length)
+            wx.showModal({
+                title: '提示',
+                content:'评论内容过长',
+                showCancel:false,
+              })
+        }
         else{
           console.log("检测到输入内容")
           getUserProfile().then(res => {
               let timestamp = Date.parse(new Date()) / 1000
-              let date = new Date().toLocaleDateString()
+              let date = demo.formatTime(new Date(),"Y-M-D h:m")
               let commentObj = {
                 comment: this.data.comment,
                 userAvatarUrl: res.avatarUrl,
@@ -50,7 +58,7 @@ Page({
                     createTime:timestamp
                   }
                 })
-                .then(res =>{
+                .then(res =>{ 
                   wx.showModal({
                     title: '提示',
                     content:'评论成功！',
@@ -85,15 +93,20 @@ Page({
             })
           })
       },
-      handleLongPress(e) {
+      handLongPress(e) {
         let id = e.currentTarget.dataset.id
-        console.log(id)
+        let idx = e.currentTarget.dataset.idx
         console.log(this.data.admin)
         if(this.data.admin == 1){
           wx.showModal({
             title: '删除该评论？',
-            success(res){
+            success:res  => {
               if(res.confirm){
+                var commentsList = this.data.commentsList
+                commentsList.splice(idx,1)
+                this.setData({
+                  commentsList: commentsList,
+                })
                 wx.cloud.database().collection("comment")
                 .doc(id)
                 .remove()
@@ -123,6 +136,7 @@ Page({
         this.setData({
           admin: admin
         })
+        console.log(demo.formatTime(new Date(),"Y-M-D h:m"))
     },
 
     /**

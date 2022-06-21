@@ -1,5 +1,5 @@
 <view wx:for="{{goodsList}}" wx:key="index">
-  <view class="auditcard" bindtap="gotodetail" data-id="{{item._id}}">
+  <view class="auditcard" bindtap="gotodetail" data-id="{{item._id}}">   
    <text class="text_date">{{item.date}}</text> 
     <text class="text_category">{{item.category}}</text>
      <text class="text_goodname">{{item.goodname}}</text>
