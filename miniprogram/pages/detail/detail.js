@@ -1,6 +1,3 @@
-import {
-    getUserProfile
-  } from "../../utils/utils"
 Page({
     /**  
      * 页面的初始数据
@@ -27,12 +24,10 @@ Page({
 
     shop_card(event){
         let id  = this.data.detailid
-        //console.log(id)
         wx.cloud.database().collection("goods")
         .doc(id)
         .get()
         .then(res => {
-            //console.log(res.data._openid)
             this.setData({
                 sk_openid:res.data._openid
             })
@@ -42,7 +37,6 @@ Page({
             })
             .get()
             .then(res =>{
-                //console.log(res.data[0].shop_card)
                 if(res.data[0].shop_card == undefined || res.data[0].shop_card == ""){
                     this.setData({
                         shopcard_img:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/haveno2.jpg",
@@ -101,7 +95,7 @@ Page({
      */
     onUnload: function () {
     },
-    getId(id) {     // 根据id查询数据库good 
+    getId(id) {   
         wx.cloud.database().collection("goods")
           .doc(id)
           .get()

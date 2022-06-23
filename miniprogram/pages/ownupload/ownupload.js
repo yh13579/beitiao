@@ -10,7 +10,6 @@ Page({
         onselvelist:[],
         auditing:[],
         nopassed:[],
-       // empty:'',
         index:0,
         auditdetail:1,
         index_on:true,
@@ -50,11 +49,6 @@ Page({
         this.setData({
             goodsList:this.data.goodsList.concat(res.data)
         })
-    // if(this.data.goodsList.length == 0){
-    //     this.setData({
-    //         empty:1
-    //     })
-    // }
     if(this.data.index == 0){
         console.log("获取已上架物品列表")
         this.setData({
@@ -80,7 +74,7 @@ Page({
           })
     },
 
-    detail(event){         //切换到物品详情页
+    detail(event){        
         let id = event.currentTarget.dataset.id
         if(this.data.auditdetail == 1){
             wx.navigateTo({ 
@@ -257,10 +251,10 @@ Page({
 
        else{              //未通过
         wx.showActionSheet({
-            itemList: ['重新编辑物品信息','删除'],
+            itemList: ['重新上传审核','删除'],
             success:res => {
                 if(res.tapIndex == 0){
-                   console.log("点击的是重新编辑物品信息")
+                   console.log("点击的是重新上传审核")
                    wx.cloud.database().collection("goods")
                    .doc(id)
                    .get()

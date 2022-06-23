@@ -1,3 +1,4 @@
+<!-- 遍历物品 -->
 <view wx:for="{{goodsList}}" wx:key="index" >
     <view class="soldcard" data-id="{{item._id}}" data-idx = "{{index}}"bindlongpress="sold_longpress"> 
       <text class="text_date">{{item.date}}</text>

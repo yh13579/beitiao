@@ -1,4 +1,6 @@
-// pages/shopcard/shopcard.js
+import {
+    getUserProfile
+  } from "../../utils/utils"  
 Page({
     /**
      * 页面的初始数据
@@ -38,7 +40,7 @@ Page({
                   console.log("点击的是删除图片")
                   this.setData({
                     imgUrl:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shopcardadd.jpg",
-                    tempFilePaths:''
+                    tempFilePaths:''  
                   })
                   wx.setStorageSync('shopvalue',0)
                   wx.setStorageSync('shop_card','')
@@ -73,6 +75,11 @@ Page({
                        .then(res => {
                         wx.setStorageSync('shopvalue',this.data.shopvalue)
                         wx.setStorageSync('shop_card',this.data.tempFilePaths[0])
+                        wx.showModal({
+                            title: '提示',
+                            content: '你的商家名片已删除',
+                            showCancel:false
+                          })
                        })
                     })
                 })
@@ -135,36 +142,49 @@ Page({
                         shopvalue:1
                     })
                     console.log("现在的shopvalue是：",this.data.shopvalue)
-                    this.find()
+                    this.uploadImg(this.data.tempFilePaths[0]) 
                 })
             })
       },
-      find(){  
-          console.log("根据上传的商家名片，存储到数据库")
-          wx.cloud.database().collection("information")
-          .doc(this.data.shopcardid)
-          .update({
-              data:{
-                  shop_card:this.data.tempFilePaths[0],
-                  shopvalue:this.data.shopvalue
-              }
+
+      uploadImg(temFile){
+        let timestamp = Date.parse(new Date()) / 1000
+        getUserProfile().then(res =>{ 
+          wx.cloud.uploadFile({
+            cloudPath: timestamp.toString(),
+            filePath: temFile, 
           })
           .then(res => {
-            wx.showModal({
-                title: '提示',
-                content:'保存成功！',
-                showCancel:false,
-                success(res){
-                  console.log("保存成功，页面跳转")
-                  wx.switchTab({
-                    url: '../mine/mine',
-                  })
+            console.log("根据上传的商家名片，存储到数据库")
+            wx.cloud.database().collection("information")
+            .doc(this.data.shopcardid)
+            .update({
+                data:{
+                    shop_card:res.fileID,
+                    shopvalue:this.data.shopvalue
                 }
+            })
+            .then(res => {
+        wx.setStorageSync('shopvalue',this.data.shopvalue)
+        wx.setStorageSync('shop_card',this.data.tempFilePaths[0])
+        wx.showModal({
+            title: '提示',
+            content:'保存成功！',
+            showCancel:false,
+            success(res){
+              console.log("保存成功，页面跳转")
+              wx.switchTab({
+                url: '../mine/mine',
               })
-            wx.setStorageSync('shopvalue',this.data.shopvalue)
-            wx.setStorageSync('shop_card',this.data.tempFilePaths[0])
+            }
           })
+        })  
+          }).catch(err => {
+            console.log(err)
+          })
+        })
       },
+
     /**
      * 生命周期函数--监听页面加载
      */

@@ -5,8 +5,8 @@ Page({
      */
     data: {
         classify:'',
-        goodsList: [],          //物品列表
-        valuedetail: '',         //具体分类或搜索的内容
+        goodsList: [],          
+        valuedetail: '',    
     },
     /**
      * 生命周期函数--监听页面加载
@@ -16,7 +16,7 @@ Page({
         let valuedetail = options.valuedetail
         if(valuedetail == undefined){
             this.setData({
-                classify:classify, //此处用来显示页面名称
+                classify:classify, 
                 valuedetail:classify 
              })
              wx.setNavigationBarTitle({
@@ -31,7 +31,7 @@ Page({
              this.onSearch()
         }
     },
-    findgood(){            //读取数据库中的goods
+    findgood(){         
         let length = this.data.goodsList.length
         db.collection('goods').where({
           audit:1,
@@ -45,24 +45,24 @@ Page({
           })
         })
       },
-      onSearch() {    //搜索功能(回车搜索)
+      onSearch() {    
         let db = wx.cloud.database()
         let _ = db.command
         db.collection('goods')
-          .where(_.or([     //audit:1表示上架的物品（审核通过的）
-            { audit:1,  //物品名称
-              goodname: db.RegExp({ //使用正则查询，实现对搜索的模糊查询
+          .where(_.or([     
+            { audit:1,  
+              goodname: db.RegExp({ 
                 regexp: this.data.valuedetail,
-                options: 'i', //大小写不区分
+                options: 'i', 
               }),
             },
-            { audit:1,  //物品详情
+            { audit:1,  
               gooddetail: db.RegExp({
                 regexp: this.data.valuedetail,
                 options: 'i',
               }),
             },
-             { audit:1,  //物品种类
+             { audit:1,  
               category: db.RegExp({
                 regexp: this.data.valuedetail,
                 options: 'i',
@@ -75,7 +75,7 @@ Page({
               })
           })
     },
-    detail(event){         //切换到物品详情页
+    detail(event){         
         let id = event.currentTarget.dataset.id
         wx.navigateTo({ 
           url: '../detail/detail?id=' + id,
@@ -119,28 +119,27 @@ Page({
         let length = this.data.goodsList.length
         let old_data = this.data.goodsList
         db.collection("goods").where(_.or([
-          {   //createTime:timestamp,
-              audit:1, 
-              //物品名称
-            goodname: db.RegExp({ //使用正则查询，实现对搜索的模糊查询
+          {   
+            audit:1, 
+            goodname: db.RegExp({ 
               regexp: this.data.valuedetail,
-              options: 'i', //大小写不区分
+              options: 'i', 
             }),
           },
-          {  audit:1,   //物品详情
+          {  audit:1,   
             gooddetail: db.RegExp({
               regexp: this.data.valuedetail,
               options: 'i',
             }),
           },
-          {   audit:1,  //物品种类
+          {   audit:1,  
             category: db.RegExp({
               regexp: this.data.valuedetail,
               options: 'i',
             }),
           }
-        ])).orderBy('createTime','desc').skip(length)  
-        //跳过已读取的数据
+        ])).orderBy('createTime','desc')
+        .skip(length)  
         .get()
         .then(res => { 
               this.setData({

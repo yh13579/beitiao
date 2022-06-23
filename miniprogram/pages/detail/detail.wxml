@@ -2,7 +2,6 @@
 <!-- 详情物品的图片 -->
 <image src="{{imgUrl}}" catchtap="bigImg" mode="aspectFill" class="detail_image"></image> 
 
-
 <!-- 物品价格，名称，介绍 -->
 <text class="goodprice">{{goodprice}}</text>
 <text class="goodname">{{goodname}}</text> 
@@ -13,8 +12,6 @@
   <button class="message_-card" bindtap="shop_card">商家名片</button>
   <button class="message_-phone" bindtap="phone" data-phone="{{phone}}">电话</button>
 </view>
-
-
 
 <!-- 点击商家名片之后 -->
 <view wx:if="{{show_shopcard}}" class="show_shopcard">

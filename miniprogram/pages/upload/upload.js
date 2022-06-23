@@ -64,7 +64,6 @@ Page({
       this.setData({
           admin:admin
         })
- //console.log(demo.formatTime(new Date(),"Y-M-D"))
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -120,7 +119,7 @@ Page({
         wx.showLoading({
           title: '加载中',
           mask: true
-        })
+        })   
         wx.cloud.uploadFile({
           cloudPath: timestamp.toString(),
           filePath: temFile, 
@@ -131,8 +130,8 @@ Page({
           wx.cloud.database().collection('goods')
               .add({
                 data: { 
-                  userAvatarUrl: avatarUrl,  //用户头像
-                  userNickName: nickName,  //用户微信名
+                  userAvatarUrl: avatarUrl,  
+                  userNickName: nickName,  
                   imgUrl: res.fileID,
                   createTime: timestamp, 
                   goodname:this.data.goodname,
@@ -142,6 +141,7 @@ Page({
                   phone:this.data.phone,
                   date:date,
                   audit:-1,
+                  state:this.data.state
                 }
               })
               .then(res => {
@@ -149,6 +149,7 @@ Page({
                 wx.showModal({
                   title: '提示',
                   content: '上传成功,等待管理员审核完成即可上架',
+                  showCancel:false,
                 })
                 this.setData({
                   imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",

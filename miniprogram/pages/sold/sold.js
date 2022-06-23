@@ -4,7 +4,7 @@ Page({
      */ 
     data: {
         idx:0,
-        goodsList:[],
+        goodsList:[],  
         empty:''
     },
     /**

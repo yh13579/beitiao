@@ -7,7 +7,6 @@
   error-message="{{errorPhone}}"/>   
 <view class="line"></view>
 
-
 <!-- 性别 -->
 <view bindtap="showPopup">
    <van-field
@@ -18,7 +17,6 @@
     disabled/>
 </view>
 <view class="line"></view>
-
 
 <!-- 性别弹出选择器 -->
 <van-popup 
@@ -32,7 +30,6 @@
     bind:confirm="onConfirm"/>
 </van-popup>
 
-
 <!-- 院系 -->
 <view bindtap="showPopupDepartment">
   <van-field
@@ -43,7 +40,6 @@
   disabled/>
 </view>
 <view class="line"></view>
-
 
 <!-- 院系弹出选择器 -->
 <van-popup 
@@ -57,7 +53,6 @@
     bind:confirm="onConfirm2"/>
 </van-popup>
 
-
 <!-- 班级 -->
 <van-field 
   label="班级" 
@@ -66,14 +61,12 @@
   bind:change="getclassroom"/>
 <view class="line"></view>
 
-
 <!-- 个性签名 -->
 <van-field  
   value="{{signature}}" 
   label="个性签名" 
   placeholder="做一个有个性的人吧..." bind:change="getsignature"/>
 <view class="line"></view>
-
 
 <!-- 提交按钮 -->
 <button class="submit" bindtap="submit">保存信息</button>  

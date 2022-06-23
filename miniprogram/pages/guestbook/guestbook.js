@@ -1,4 +1,3 @@
-// pages/guestbook/guestbook.js  
 var demo = require("../../utils/utils_time")
 import {
     getUserProfile  
@@ -50,8 +49,8 @@ Page({
                 wx.cloud.database().collection("comment")
                 .add({
                   data:{
-                    userAvatarUrl: res.avatarUrl,  //用户头像
-                    userNickName: res.nickName,    //用户微信名
+                    userAvatarUrl: res.avatarUrl,  
+                    userNickName: res.nickName,    
                     detailid:this.data.detailid,
                     comment:this.data.comment,
                     date:date,

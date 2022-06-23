@@ -12,7 +12,6 @@
         </van-search>
 </view> 
 
-
 <!-- 分类框 -->
 <view class="menu-wrp">
   <view class="menu-list" wx:for="{{menu.imgUrls}}" wx:key="index" data-idx = "{{index}}" bindtap="classify">
@@ -20,7 +19,6 @@
     <view class="menu-desc">{{menu.descs[index]}}</view>
   </view>
 </view>
-
 
 <!-- 轮播图 -->
   <view class="lb_swiper">
@@ -36,8 +34,7 @@
   </view>
 <view class="blank"></view>
 
-
-<!-- 遍历物品，尚待优化 -->
+<!-- 遍历物品 -->
   <view wx:for="{{goodsList}}" wx:key="index" class="goodslist">   
     <view class="card" bindtap="detail" data-id="{{item._id}}">
        <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
@@ -46,13 +43,11 @@
     </view>
   </view>
 
-
 <!-- 审核页入口（仅管理员可见） -->
 <view wx:if="{{admin == 1}}">
      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shenhe_yh.png" mode="aspectFit" class="audit" bindtap="audit"></image>
     </view>
 </view>
-
 
 <!-- 暂无更多物品 -->
 <text class="nomore-text">暂无更多</text>

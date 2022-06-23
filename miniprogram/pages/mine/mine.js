@@ -76,27 +76,27 @@ Page({
    */
   onShareAppMessage: function() {
   },
-Information() {       //个人信息界面
+Information() {       
   wx.navigateTo({
     url: '../information/information',
   })
   },
-  ownupload(){        //我的发布界面
+  ownupload(){        
     wx.navigateTo({
       url: '../ownupload/ownupload',   
     })
   },
-  sold(){             //我的交易界面
+  sold(){             
     wx.navigateTo({
       url: '../sold/sold',   
     })
   },
-concerning() {       //关于北跳界面
+concerning() {       
   wx.navigateTo({
     url: '../concerning/concerning',
   })
 },
-guestbook(){        //留言板界面
+guestbook(){        
   wx.navigateTo({
     url: '../guestbook/guestbook',  
   })

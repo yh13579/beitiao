@@ -6,7 +6,6 @@
     <text wx:if="{{shopvalue == 1}}" class="shopcard_exist" bindtap="shopcard">我的名片>></text> 
 </van-cell-group>
 
-
 <!-- 个人信息 -->
 <view class="line"></view>
   <view class='item' bindtap="Information">
@@ -14,7 +13,6 @@
       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/personal_information.png" class="img">
       </image>个人信息</view>
     </view>
-
 
 <!-- 我发布的 -->
 <view class="line"></view>
@@ -24,8 +22,6 @@
         </image>我的发布</view>
     </view>
  
-
-
   <!-- 我的交易 -->
 <view class="line"></view>
   <view class="item" bindtap="sold">
@@ -34,8 +30,6 @@
       </image>我的交易</view>
     </view>
  
-
-
   <!-- 关于北跳 -->
 <view class="line"></view>
   <view class="item" bindtap="concerning">
@@ -44,8 +38,6 @@
       </image>关于北跳</view>
     </view>
  
-
-
    <!-- 留言板 -->
 <view class="line"></view>
   <view class="item" bindtap="guestbook">

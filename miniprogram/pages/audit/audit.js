@@ -28,15 +28,15 @@ Page({
         .skip(length)
         .get()
         .then(res => {
-            this.setData({ 
+        this.setData({ 
         goodsList:this.data.goodsList.concat(res.data)
-            })
+         })
         })
         .catch(err => {
             console.log(err)
         })
     },
-    accept(event){             //点击通过
+    accept(event){            
         let id = event.currentTarget.dataset.id
         wx.cloud.database().collection("goods")
         .doc(id)  
@@ -46,7 +46,7 @@ Page({
                 audit:1
             }
         })
-        .then(res => {   //实时更新数组
+        .then(res => { 
             let idx = event.currentTarget.dataset.idx
             var goodsList= this.data.goodsList;
             goodsList.splice(idx,1)
@@ -58,7 +58,7 @@ Page({
             console.log(err)
         })
     },
-    reject(event){             //点击拒绝
+    reject(event){            
         if(this.data.reason.length == 0){
             wx.showModal({
                 title: '提示',
@@ -69,13 +69,14 @@ Page({
         }
         wx.cloud.database().collection("goods")
         .doc(this.data.good_id)
-        .update({//1表示上架（审核通过），-1表示审核中，-2表示审核未通过
+        .update({
+            //1表示上架（审核通过），-1表示审核中，-2表示审核未通过
             data:{  
                 audit:-2,
                 reason:this.data.reason
             }
         })
-        .then(res => {   //实时更新数组(审核通过或拒绝后，实现数组的实时更新)
+        .then(res => {   
             var goodsList= this.data.goodsList;
             goodsList.splice(this.data.idxrj,1)
             this.setData({
@@ -158,12 +159,10 @@ Page({
     },
     shop_card(event){
         let id = event.currentTarget.dataset.id
-        //console.log(id)
         wx.cloud.database().collection("goods")
         .doc(id)
         .get()
         .then(res => {
-            //console.log(res.data._openid)
             this.setData({
                 sk_openid:res.data._openid
             })  
@@ -173,7 +172,6 @@ Page({
             })
             .get()
             .then(res =>{
-                //console.log(res.data[0].shop_card)
                 if(res.data[0].shop_card == undefined || res.data[0].shop_card == ""){
                     this.setData({
                         shopcard_img:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/haveno2.jpg",

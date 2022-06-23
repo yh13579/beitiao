@@ -45,7 +45,7 @@ Page({
     this.getTabBar().setData({      //设置tabbar的值
       active : 0 
     })
-  this.findgood()   //考虑是否findgood也能写进缓存
+  this.findgood()   
   //this.announcement()  //动态公告，后续保留此行功能，不要误删
   },
  
@@ -68,7 +68,6 @@ Page({
       name: 'login',
     })
     .then(res => {
-       // console.log(res)
       wx.cloud.database().collection("admin")
         .where({
          _openid:res.result.userInfo.openId
@@ -213,8 +212,8 @@ Page({
             options: 'i',
           }),
         }
-      ])).orderBy('createTime','desc').skip(length)  
-      //跳过已读取的数据
+      ])).orderBy('createTime','desc')
+      .skip(length)  
       .get()
       .then(res => { 
             this.setData({
@@ -230,7 +229,7 @@ Page({
    */
   onShareAppMessage: function () {
   },
-  detail(event){         //切换到物品详情页
+  detail(event){         
     let id = event.currentTarget.dataset.id
     wx.navigateTo({ 
       url: '../detail/detail?id=' + id,
@@ -255,7 +254,7 @@ durationChange(e) {    //持续时间  指换图轮播时的切换速度
       duration: e.detail.value
     }) 
 },
-audit(){         //管理员审核界面
+audit(){         
   wx.navigateTo({
     url: '../audit/audit',
   })
@@ -267,7 +266,7 @@ classify(event){
       url: '../classify/classify?classify='+classify, 
     })
 },
-onSearch(){     //手机上点击自带的搜索或者电脑回车键
+onSearch(){    
     let valuedetail = this.data.value
     if(valuedetail == "btsailorC405YYDS"){
         this.admin()

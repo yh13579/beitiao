@@ -207,13 +207,13 @@ Page({
           .doc(this.data.ownid)
           .update({
             data:{
-              userAvatarUrl: res.avatarUrl,  //用户头像
-              userNickName: res.nickName,  //用户微信名
-              phone: this.data.phone,        //手机号
-              signature:this.data.signature,  //个性签名
-              gender:this.data.gender,       //性别
-              department:this.data.department, //院系
-              classroom:this.data.classroom    //班级
+              userAvatarUrl: res.avatarUrl,  
+              userNickName: res.nickName,  
+              phone: this.data.phone,        
+              signature:this.data.signature,  
+              gender:this.data.gender,       
+              department:this.data.department, 
+              classroom:this.data.classroom    
             }
           })
           .then(res =>{
@@ -243,13 +243,13 @@ Page({
     wx.cloud.database().collection("information")
           .add({
             data:{
-              userAvatarUrl: res.avatarUrl,  //用户头像
-              userNickName: res.nickName,  //用户微信名
-              phone: this.data.phone,        //手机号
-              signature:this.data.signature,  //个性签名
-              gender:this.data.gender,       //性别
-              department:this.data.department, //院系
-              classroom:this.data.classroom,    //班级
+              userAvatarUrl: res.avatarUrl,  
+              userNickName: res.nickName,  
+              phone: this.data.phone,        
+              signature:this.data.signature,  
+              gender:this.data.gender,       
+              department:this.data.department, 
+              classroom:this.data.classroom,    
             }
           })
           .then(res =>{

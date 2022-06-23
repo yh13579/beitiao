@@ -8,15 +8,14 @@ import {
        */
       data: {   
           columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
-          state: '',
+          state: -1,
           tempFilePaths: "",    //要上传的文件的小程序临时文件路径
-          //imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
           imgUrl:'',
           goodname:'',
           phone:'',
           gooddetail:'',
           goodprice:'',
-          category:'生活用品',
+          category:'',
           ownlistlength:'',
           id_audit:''
       },
@@ -26,6 +25,7 @@ import {
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success: res => {
+                console.log(res)
        // tempFilePath可以作为img标签的src属性显示图片
               this.data.tempFilePaths = res.tempFilePaths
               this.setData({
@@ -59,27 +59,27 @@ import {
        * 生命周期函数--监听页面加载
        */
       onLoad: function (options) { 
-        console.log(options)
         this.getgood_detail(options.id_audit)
         let admin = wx.getStorageSync('admin')
         this.setData({
             admin:admin,
             id_audit:options.id_audit
         })
-   //console.log(demo.formatTime(new Date(),"Y-M-D"))
       },
       getgood_detail(id){
           wx.cloud.database().collection("goods")
           .doc(id)
           .get()
           .then(res => {
-              this.setData({
+              this.setData({  
                   imgUrl:res.data.imgUrl,
                   goodname:res.data.goodname,
                   gooddetail:res.data.gooddetail,
                   phone:res.data.phone,
                   goodprice:res.data.goodprice.slice(1),
-                  tempFilePaths:res.data.imgUrl
+                  tempFilePaths:res.data.imgUrl,
+                  state:res.data.state,
+                  category:res.data.category
               })
           })
       },
@@ -145,7 +145,7 @@ import {
             .doc(this.data.id_audit)
                 .update({
                   data: { 
-                    imgUrl: this.data.tempFilePaths,
+                    imgUrl: res.fileID,
                     createTime: timestamp, 
                     goodname:this.data.goodname,
                     gooddetail:this.data.gooddetail,
@@ -163,9 +163,9 @@ import {
                     content: '修改成功,等待管理员审核..',
                     showCancel:false,
                     success(res){
-                        wx.navigateTo({  
-                            url: '../ownupload/ownupload'   
-                          })
+                        wx.navigateBack({
+                            delta:1
+                        })
                     }
                   })
                 })
@@ -200,10 +200,10 @@ import {
               else if(this.data.ownlistlength > 10 && this.data.admin == 0){
                 wx.showModal({
                   title: '提示',
-                  content: '普通用户最多上传10件物品' 
+                  content: '普通用户最多上传10件物品("已上架","审核中","未通过","已卖出"物品的总和)' 
                 })
               }
-              else if(this.data.goodprice > 1000 || this.data.goodprice.length >= 7 || isNaN(this.data.goodprice)){
+              else if(this.data.goodprice > 1000 || this.data.goodprice.length >= 7 || isNaN(this.data.goodprice)){   
                 wx.showModal({
                   title: '提示',
                   content: '物品售价不科学' 

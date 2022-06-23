@@ -1,4 +1,3 @@
-//关于北林跳蚤市场
 Page({
     /**
      * 页面的初始数据
@@ -18,7 +17,6 @@ Page({
           })
     },
     goto_modediu(){
-        // console.log(666)
         wx.navigateToMiniProgram({
           appId: 'wx195ae5141b524323',
         })
