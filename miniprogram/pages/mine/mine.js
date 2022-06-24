@@ -1,3 +1,6 @@
+import {
+    getUserProfile
+  } from "../../utils/utils"  
 Page({
   /**
    * 页面的初始数据
@@ -37,7 +40,7 @@ Page({
     })
     if(this.data.wxname.length == 0){
       this.setData({
-        wxname:"尚未完善个人信息",
+        wxname:"尚未完善个人信息", 
         AvatarUrl:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg',
         name_avatar:-1
       })
@@ -112,5 +115,12 @@ shopcard(){
     wx.navigateTo({  
         url: '../shopcard/shopcard',  
       })
+},
+refresh(){
+    wx.setStorageSync('avatarUrl','')
+    wx.setStorageSync('nickName', '')
+    getUserProfile().then(res => {
+        this.onShow()
+    })
 }
 })

@@ -29,7 +29,6 @@ Page({
               })
         }
         else{
-          console.log("检测到输入内容")
           getUserProfile().then(res => {
               let timestamp = Date.parse(new Date()) / 1000
               let date = demo.formatTime(new Date(),"Y-M-D h:m")

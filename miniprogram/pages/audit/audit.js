@@ -141,7 +141,6 @@ Page({
           showConfirm: false,
           reason:''
         });
-        console.log("用户取消")
       },
     reason_input(e) {  
        this.setData({

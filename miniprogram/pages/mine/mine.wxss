@@ -63,3 +63,10 @@ page{
     right: 20rpx;
     color: black;
 }
+.refresh{
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+}

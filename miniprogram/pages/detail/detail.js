@@ -64,8 +64,7 @@ Page({
       success: function () {        
         console.log("拨打电话成功！")      
       },      
-      fail: function (e) {         
-        console.log(e)     
+      fail: function (e) {            
         console.log("用户取消")  
       }
     })

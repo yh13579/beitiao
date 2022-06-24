@@ -155,7 +155,6 @@ Page({
             filePath: temFile, 
           })
           .then(res => {
-            console.log("根据上传的商家名片，存储到数据库")
             wx.cloud.database().collection("information")
             .doc(this.data.shopcardid)
             .update({

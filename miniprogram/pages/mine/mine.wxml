@@ -2,6 +2,7 @@
 <van-cell-group class="cell_group">
   <image src="{{AvatarUrl}}" mode="aspectFill" class="avatarurl"></image>   
     <text class="nickname">{{wxname}}</text>
+    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/refresh.png" class="refresh" catchtap="refresh"></image> 
     <text wx:if="{{shopvalue == 0}}" class="shopcard" bindtap="shopcard">暂无商家名片>></text> 
     <text wx:if="{{shopvalue == 1}}" class="shopcard_exist" bindtap="shopcard">我的名片>></text> 
 </van-cell-group>
