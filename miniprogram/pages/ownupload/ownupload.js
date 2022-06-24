@@ -3,7 +3,7 @@ Page({
     /**
      * 页面的初始数据 
      */ 
-    data: {
+    data: {  
         buttons:['已上架','审核中','未通过'],
         state:'',
         goodsList:[],
@@ -49,7 +49,7 @@ Page({
         this.setData({
             goodsList:this.data.goodsList.concat(res.data)
         })
-    if(this.data.index == 0){
+    if(this.data.index == 0){  
         console.log("获取已上架物品列表")
         this.setData({
           onselvelist:this.data.goodsList
@@ -171,7 +171,6 @@ Page({
                         }
                     })
                     .then(res => {
-                        console.log("successed,good sold")
                         wx.showModal({
                             title: '操作成功',
                             content: '该物品标记为已卖出' ,
@@ -181,8 +180,6 @@ Page({
                  }
                 else{
                     console.log("点击的是删除")
-                    console.log(id)
-                    console.log("物品",idx)
                     var onselvelist = this.data.onselvelist
                     onselvelist.splice(idx,1)
                     this.setData({
@@ -212,7 +209,6 @@ Page({
             success:res => {
                 if(res.tapIndex == 0){
                    console.log("点击的是修改物品信息")
-                   console.log(event)
                    wx.cloud.database().collection("goods")
                    .doc(id)
                    .get()
@@ -225,7 +221,6 @@ Page({
                 }
                else{
                    console.log("点击的是删除")
-                   console.log(id)
                    var auditing = this.data.auditing
                     auditing.splice(idx,1)
                     this.setData({
@@ -259,16 +254,23 @@ Page({
                    .doc(id)
                    .get()
                    .then(res => {
-                       let id_audit = event.currentTarget.dataset.id
-                       wx.navigateTo({  
-                        url: '../test/test?id_audit=' + id_audit   
-                      })
+                       if(res.data.reject_count>=2){
+                           wx.showModal({
+                             title: '提示',
+                             content:'该物品已被拒绝上架2次，无法再次上传审核，请自行删除',
+                             showCancel:false
+                           })
+                       }
+                       else{
+                        let id_audit = event.currentTarget.dataset.id
+                           wx.navigateTo({  
+                            url: '../test/test?id_audit=' + id_audit   
+                          })
+                       }
                    })
                 }
                else{
                    console.log("点击的是删除")
-                   console.log(id)
-                   console.log("物品",idx)
                    var nopassed = this.data.nopassed
                    nopassed.splice(idx,1)
                    this.setData({

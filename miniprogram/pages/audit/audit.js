@@ -11,7 +11,8 @@ Page({
         idxrj:'',
         show_shopcard:false,
         shopcard_img:'',
-        sk_openid:''
+        sk_openid:'',
+        reject_count:''
     },
     /**
      * 生命周期函数--监听页面加载
@@ -58,8 +59,8 @@ Page({
             console.log(err)
         })
     },
-    reject(event){            
-        if(this.data.reason.length == 0){
+    reject(event){ 
+        if(this.data.reason.length == 0){ 
             wx.showModal({
                 title: '提示',
                 content:'拒绝理由不能为空',
@@ -67,27 +68,39 @@ Page({
             })
             return
         }
+
         wx.cloud.database().collection("goods")
         .doc(this.data.good_id)
-        .update({
-            //1表示上架（审核通过），-1表示审核中，-2表示审核未通过
-            data:{  
-                audit:-2,
-                reason:this.data.reason
-            }
-        })
-        .then(res => {   
-            var goodsList= this.data.goodsList;
-            goodsList.splice(this.data.idxrj,1)
+        .get()
+        .then( res => {
             this.setData({
-              goodsList: goodsList,
-              showConfirm:false,
-              reason:''
+                reject_count:res.data.reject_count+1
             })
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            wx.cloud.database().collection("goods")
+            .doc(this.data.good_id) 
+            .update({
+             //1表示上架（审核通过），-1表示审核中，-2表示审核未通过
+                data:{  
+                    audit:-2,
+                    reason:this.data.reason,
+                    reject_count:this.data.reject_count
+                }
+            })
+            .then(res => {   
+                var goodsList= this.data.goodsList;
+                goodsList.splice(this.data.idxrj,1)
+                this.setData({
+                  goodsList: goodsList,
+                  showConfirm:false,
+                  reason:'',
+                  reject_count:''
+                })
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        })  
+
     },
     gotodetail(event){
         let id = event.currentTarget.dataset.id
@@ -139,7 +152,8 @@ Page({
     cancel(){
         this.setData({
           showConfirm: false,
-          reason:''
+          reason:'',
+          reject_count:''
         });
       },
     reason_input(e) {  

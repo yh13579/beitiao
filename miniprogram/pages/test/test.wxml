@@ -21,7 +21,7 @@
 
 <!-- 上传图片-->
 <view class="uploadimg_view">
-  <text class="text_uploadimg">物品图片</text>
+  <text class="text_uploadimg">物品图片</text>  
     <image catchtap="getPhoto" bindlongpress="longpress" src="{{imgUrl}}" mode="aspectFill" class="uploadimg"></image>  
 </view>
 <view class="line"></view>

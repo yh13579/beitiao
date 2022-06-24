@@ -20,22 +20,10 @@ import {
           id_audit:''
       },
       getPhoto() { 
-          wx.chooseImage({
-            count: 1,
-            sizeType: ['original', 'compressed'],
-            sourceType: ['album', 'camera'],
-            success: res => {
-                console.log(res)
-       // tempFilePath可以作为img标签的src属性显示图片
-              this.data.tempFilePaths = res.tempFilePaths
-              this.setData({
-                imgUrl: res.tempFilePaths
-              })
-              wx.showToast({
-                  icon: "none",
-                  title: "长按可删除图片.."
-                })
-            }
+          wx.showModal({
+            title: '提示',
+            content:'在本页面进行修改和重新上传时，图片不能更换',
+            showCancel:false
           })
         },
         getgoodname(e){
@@ -119,18 +107,13 @@ import {
       onShareAppMessage: function () {
       },
 
-      longpress(){
-        if(this.data.imgUrl != "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg"){
-          this.setData({
-            imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
-            tempFilePaths:'',
+       longpress(){
+        wx.showModal({
+            title: '提示',
+            content:'本页面图片不能长按删除',
+            showCancel:false
           })
-          console.log("长按删除图片")
-        }
-        else{
-          console.log("尚未上传图片")
-        }
-      },
+       },
 
       uploadImg(temFile) {
         let timestamp = Date.parse(new Date()) / 1000
@@ -145,7 +128,7 @@ import {
             .doc(this.data.id_audit)
                 .update({
                   data: { 
-                    imgUrl: res.fileID,
+                    imgUrl: res.fileID,  
                     createTime: timestamp, 
                     goodname:this.data.goodname,
                     gooddetail:this.data.gooddetail,
@@ -154,6 +137,7 @@ import {
                     phone:this.data.phone,
                     date:date,
                     audit:-1,
+                    state:this.data.state
                   }
                 })
                 .then(res => {
@@ -164,7 +148,7 @@ import {
                     showCancel:false,
                     success(res){
                         wx.navigateBack({
-                            delta:1
+                            delta:2
                         })
                     }
                   })

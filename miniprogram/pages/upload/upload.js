@@ -141,7 +141,8 @@ Page({
                   phone:this.data.phone,
                   date:date,
                   audit:-1,
-                  state:this.data.state
+                  state:this.data.state,
+                  reject_count:0
                 }
               })
               .then(res => {
@@ -197,6 +198,9 @@ Page({
               wx.showModal({
                 title: '提示',
                 content: '物品售价不科学' 
+              })
+              this.setData({
+                  goodprice:''
               })
             }
          else {
