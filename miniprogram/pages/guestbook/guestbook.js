@@ -13,10 +13,10 @@ Page({
         idx:0
     },
     comment(){
-        if(this.data.comment.length == 0){
+        if(this.data.comment.replace(/\s+/g, '').length == 0){
           wx.showModal({
             title: '提示',
-            content:'评论不能为空',
+            content:'评论不能为空',  
             showCancel:false,
           })
         }
@@ -94,7 +94,6 @@ Page({
       handLongPress(e) {
         let id = e.currentTarget.dataset.id
         let idx = e.currentTarget.dataset.idx
-        console.log(this.data.admin)
         if(this.data.admin == 1){
           wx.showModal({
             title: '删除该评论？',
@@ -134,7 +133,6 @@ Page({
         this.setData({
           admin: admin
         })
-        console.log(demo.formatTime(new Date(),"Y-M-D h:m"))
     },
 
     /**

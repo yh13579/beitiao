@@ -29,7 +29,6 @@ Page({
    */
   onShow: function(){
     let shopvalue = wx.getStorageSync('shopvalue')
-    console.log("shop_value is",shopvalue) 
     this.setData({
         shopvalue:shopvalue
     })
@@ -52,7 +51,6 @@ Page({
         name_avatar:1
       })
     }
-    console.log("已授权，可以进入商家名片界面")
   },
   /**
    * 生命周期函数--监听页面隐藏

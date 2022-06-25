@@ -18,6 +18,6 @@
    <view class="card_pinkpart"> 
      <text>商家名片</text>
       </view>  
-       <image src="{{shopcard_img}}"  mode="aspectFill" class="shopkeeper_card"></image>
+       <image src="{{shopcard_img}}"  mode="aspectFill" class="shopkeeper_card" show-menu-by-longpress="true"></image>
      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/close.png" catchtap="close_card" class="close_card"></image>
   </view>
