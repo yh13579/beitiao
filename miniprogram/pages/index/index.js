@@ -1,8 +1,8 @@
 const db = wx.cloud.database();  
 Page({
     data:{ 
-        menu:{           //分类框的图片和描述
-            imgUrls:[    //分类框图片
+        menu:{           
+            imgUrls:[    
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/dailyuse.png',
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/book.png',
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/food.png',
@@ -12,7 +12,7 @@ Page({
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/medicine.png',
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/other.png'
             ],
-            descs:[   //分类框详情描述
+            descs:[   
                 '生活用品',
                 '学习用品',
                 '休闲食品',
@@ -24,9 +24,9 @@ Page({
             ]
       },
       background: [     
-//轮播图图片，由云开发数据库中调用,（暂时没有实现动态修改）
-      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/keji.jpg'}, 
-      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/keji2.jpg'}, 
+        //轮播图图片
+      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt1.jpg'}, 
+      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt2.jpg'}, 
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/keji3.jpg'},
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yinghua1.jpg'}, 
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yinghua2.jpg'}
@@ -34,7 +34,7 @@ Page({
       interval: 5000,     //间歇：5000  →  5秒轮播一张
       duration: 1000,    //持续时间 指换图轮播时的切换速度
       bannerCurrent: 0,   //初始轮播的图片
-      goodsList: [],      //物品列表
+      goodsList: [],      
       value: '',         //搜索框里的内容
       announcement:''        //公告
     }, 
@@ -49,7 +49,7 @@ Page({
   //this.announcement()  //动态公告，后续保留此行功能，不要误删
   },
  
-  findgood(){            //读取数据库中的goods
+  findgood(){            
     let length = this.data.goodsList.length
     db.collection('goods').where({
       audit:1

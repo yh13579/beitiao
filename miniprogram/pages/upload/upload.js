@@ -18,24 +18,27 @@ Page({
         category:'',
         ownlistlength:''
     },
+
     getPhoto() { 
-        wx.chooseImage({
+        wx.chooseMedia({ 
           count: 1,
+          mediaType:['image'],
+          sourceType:['album', 'camera'],
           sizeType: ['original', 'compressed'],
-          sourceType: ['album', 'camera'],
           success: res => {
-     // tempFilePath可以作为img标签的src属性显示图片
-            this.data.tempFilePaths = res.tempFilePaths
-            this.setData({
-              imgUrl: res.tempFilePaths
-            })
-            wx.showToast({
-                icon: "none",
-                title: "长按可删除图片.."
-              })
-          }
+            // tempFilePath可以作为img标签的src属性显示图片
+            this.data.tempFilePaths = res.tempFiles[0].tempFilePath
+                   this.setData({
+                     imgUrl: res.tempFiles[0].tempFilePath
+                   })
+                   wx.showToast({
+                       icon: "none",
+                       title: "长按可删除图片.."
+                     })
+                 }
         })
       },
+
       getgoodname(e){
         this.data.goodname = e.detail
       },
@@ -112,7 +115,7 @@ Page({
         console.log("尚未上传图片")
       }
     },
-    uploadImg(temFile) {
+    uploadImg() {
       let timestamp = Date.parse(new Date()) / 1000
       let date = demo.formatTime(new Date(),"Y-M-D")
       getUserProfile().then(res =>{ 
@@ -122,7 +125,7 @@ Page({
         })   
         wx.cloud.uploadFile({
           cloudPath: timestamp.toString(),
-          filePath: temFile, 
+          filePath:this.data.tempFilePaths
         })
         .then(res => {
           let avatarUrl = wx.getStorageSync("avatarUrl")

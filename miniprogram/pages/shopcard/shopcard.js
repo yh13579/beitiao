@@ -6,24 +6,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-        imgUrl:'',
-        tempFilePaths:'',
+        imgUrl:"",
+        tempFilePaths:"",
         shopcardid:'',
         shopvalue:''
     },
-    getPhoto() { 
-        wx.chooseImage({
-          count: 1,
-          sizeType: ['original', 'compressed'],
-          sourceType: ['album', 'camera'],
-          success: res => {
-            // tempFilePath可以作为img标签的src属性显示图片
-            this.data.tempFilePaths = res.tempFilePaths
-            this.setData({
-              imgUrl: res.tempFilePaths
-            })
-          }
-        })
+    getPhoto() {
+        wx.chooseMedia({ 
+            count: 1,
+            mediaType:['image'],
+            sourceType:['album', 'camera'],
+            sizeType: ['original', 'compressed'],
+            success: res => {
+              // tempFilePath可以作为img标签的src属性显示图片
+              this.data.tempFilePaths = res.tempFiles[0].tempFilePath
+                     this.setData({
+                       imgUrl: res.tempFiles[0].tempFilePath
+                     })
+                   }
+          })
       },
 
       longpress(){
@@ -128,7 +129,6 @@ Page({
                 name:"login",
             })
             .then(res => {
-                console.log(res.result.userInfo.openId)
                 wx.cloud.database().collection("information")
                 .where({
                     _openid:res.result.userInfo.openId,
@@ -136,12 +136,10 @@ Page({
                 .get()
                 .then(res =>{
                     let shopcardid = res.data[0]._id
-                    console.log(shopcardid)
                     this.setData({
                         shopcardid:shopcardid,
                         shopvalue:1
                     })
-                    console.log("现在的shopvalue是：",this.data.shopvalue)
                     this.uploadImg(this.data.tempFilePaths[0]) 
                 })
             })
@@ -152,7 +150,7 @@ Page({
         getUserProfile().then(res =>{ 
           wx.cloud.uploadFile({
             cloudPath: timestamp.toString(),
-            filePath: temFile, 
+            filePath: this.data.tempFilePaths, 
           })
           .then(res => {
             wx.cloud.database().collection("information")
@@ -165,7 +163,7 @@ Page({
             })
             .then(res => {
         wx.setStorageSync('shopvalue',this.data.shopvalue)
-        wx.setStorageSync('shop_card',this.data.tempFilePaths[0])
+        wx.setStorageSync('shop_card',this.data.tempFilePaths)
         wx.showModal({
             title: '提示',
             content:'保存成功！',
