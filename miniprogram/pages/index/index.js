@@ -27,9 +27,9 @@ Page({
         //轮播图图片
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt1.jpg'}, 
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt2.jpg'}, 
-      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/keji3.jpg'},
-      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yinghua1.jpg'}, 
-      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yinghua2.jpg'}
+      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt3.jpg'},
+      {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt4.jpg'}
+    
     ],
       interval: 5000,     //间歇：5000  →  5秒轮播一张
       duration: 1000,    //持续时间 指换图轮播时的切换速度
@@ -107,6 +107,21 @@ Page({
       })
     })
   },
+
+  getunaudit(){
+      wx.cloud.database().collection('goods')
+      .where({
+          audit:-1
+      })
+      .get()
+      .then( res => {
+          this.setData({
+              unauditlength:res.data.length
+          })
+      })
+  },
+
+
   search_content(e) {    //搜索框编辑内容
     this.setData({
         value: e.detail
@@ -151,6 +166,9 @@ Page({
       this.setData({
           admin:admin
         })
+        if(admin == 1){
+            this.getunaudit()
+        }
     }
     else{
       this.findadmin()

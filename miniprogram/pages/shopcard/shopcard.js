@@ -125,16 +125,24 @@ Page({
               })
               return
         }
-            wx.cloud.callFunction({
+            wx.cloud.callFunction({    
                 name:"login",
             })
             .then(res => {
+
+                wx.showLoading({
+                    title: '加载中',
+                    mask: true
+                  })   
+
+
                 wx.cloud.database().collection("information")
                 .where({
                     _openid:res.result.userInfo.openId,
                 })
                 .get()
                 .then(res =>{
+                   
                     let shopcardid = res.data[0]._id
                     this.setData({
                         shopcardid:shopcardid,
@@ -164,6 +172,7 @@ Page({
             .then(res => {
         wx.setStorageSync('shopvalue',this.data.shopvalue)
         wx.setStorageSync('shop_card',this.data.tempFilePaths)
+        wx.hideLoading() 
         wx.showModal({
             title: '提示',
             content:'保存成功！',

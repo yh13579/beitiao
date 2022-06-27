@@ -153,3 +153,12 @@ page{
     position:relative;
     left: -45rpx;
 }
+.message-count {
+    font-size: 40rpx;   
+    background-color: #ff5029;
+    color: #fff;
+    border-radius: 25%;
+    position: fixed;
+    right: 25rpx;
+    bottom: 205rpx;
+  }
