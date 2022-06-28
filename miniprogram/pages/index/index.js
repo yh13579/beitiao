@@ -194,7 +194,7 @@ Page({
           goodsList:[]
       })
      this.findgood()  
-     wx.stopPullDownRefresh()
+     wx.stopPullDownRefresh() 
      this.setData({
          value:'', 
          bannerCurrent: 0

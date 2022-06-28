@@ -1,3 +1,6 @@
+import {
+    getUserProfile
+  } from "../../utils/utils"  
 Page({
     /**  
      * 页面的初始数据
@@ -23,6 +26,12 @@ Page({
     },
 
     shop_card(event){
+        let avatar_Url = wx.getStorageSync('avatarUrl')
+        if(avatar_Url == 0){
+            this.judgment()
+            return
+        }
+
         let id  = this.data.detailid
         wx.cloud.database().collection("goods")
         .doc(id)
@@ -36,7 +45,7 @@ Page({
                 _openid:this.data.sk_openid
             })
             .get()
-            .then(res =>{
+            .then(res =>{  
                 if(res.data[0].shop_card == undefined || res.data[0].shop_card == ""){
                     this.setData({
                         shopcard_img:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/haveno2.jpg",
@@ -59,6 +68,11 @@ Page({
     },
     
     phone(event){
+        let avatar_Url = wx.getStorageSync('avatarUrl')
+        if(avatar_Url == 0){
+            this.judgment()
+            return
+        }
     wx.makePhoneCall({
       phoneNumber: event.currentTarget.dataset.phone,
       success: function () {        
@@ -69,6 +83,24 @@ Page({
       }
     })
   },
+
+  judgment(){
+    wx.showModal({
+        title: '提示',
+        content:'该功能在登录之后开放',
+        showCancel:false,
+        success:res => {
+        getUserProfile().then(res => {
+            wx.showToast({
+                icon: "true",
+                title: "已登录"
+              })
+        })
+      }
+    })
+},
+
+
   bigImg() { 
     wx.previewImage({
       urls: [this.data.imgUrl],

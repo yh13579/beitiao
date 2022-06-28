@@ -39,7 +39,7 @@ Page({
     })
     if(this.data.wxname.length == 0){
       this.setData({
-        wxname:"尚未完善个人信息", 
+        wxname:"未登录",   
         AvatarUrl:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg',
         name_avatar:-1
       })
@@ -82,12 +82,20 @@ Information() {
     url: '../information/information',
   })
   },
-  ownupload(){        
+  ownupload(){ 
+    if(this.data.AvatarUrl == "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg"){
+        this.judgment()  
+        return
+    }
     wx.navigateTo({
       url: '../ownupload/ownupload',   
     })
   },
-  sold(){             
+  sold(){   
+    if(this.data.AvatarUrl == "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg"){
+        this.judgment()  
+        return
+    }        
     wx.navigateTo({
       url: '../sold/sold',   
     })
@@ -106,7 +114,7 @@ shopcard(){
     if(this.data.name_avatar == -1){
         wx.showToast({
             icon: "none",
-            title: "请先完善个人信息.."
+            title: "尚未登录,请先登录.."
           })
         return 
     }
@@ -114,11 +122,47 @@ shopcard(){
         url: '../shopcard/shopcard',  
       })
 },
+
+judgment(){
+        wx.showModal({
+            title: '提示',
+            content:'该功能在登录之后开放',
+            showCancel:false,
+            success:res => {
+            getUserProfile().then(res => {
+                this.onShow()
+            })
+          }
+        })
+},
+
+/*  更新登录按钮 ，尚待处理*/
 refresh(){
-    wx.setStorageSync('avatarUrl','')
-    wx.setStorageSync('nickName', '')
+    // let temp_avatarUrl = wx.getStorageSync('avatarUrl')
+    // let temp_nickName = wx.getStorageSync('nickName')
+    // wx.setStorageSync('avatarUrl','')
+    // wx.setStorageSync('nickName', '')
     getUserProfile().then(res => {
         this.onShow()
+        console.log(res)
+        console.log(res.avatarUrl)
+        console.log(res.nickName)
+    //    if(res.avatarUrl == temp_avatarUrl && res.nickName == temp_nickName){
+    //        console.log("并没有更换头像和昵称")
+    //    }
+    //    else{
+    //        this.onShow()
+    //    }
+        //this.onShow()
     })
+},
+
+
+refresh_login(){
+    if(this.data.AvatarUrl == "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg"){
+        getUserProfile().then(res => {
+            this.onShow()
+        })
+    }
 }
 })
