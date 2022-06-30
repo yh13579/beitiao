@@ -195,20 +195,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        let shop_card= wx.getStorageSync('shop_card')
+        let shop_card = wx.getStorageSync('shop_card')
         if(shop_card.length != 0){
-            console.log("存储的有shop_card的值")
+            console.log("有商家名片缓存")
             this.setData({
-            imgUrl:shop_card  
-        })
-        }
-        else{
-            console.log("无shop_card的值，尚未上传名片")
-            this.setData({
-                imgUrl:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shopcardadd.jpg"
+                imgUrl:shop_card
             })
         }
-        
+        else{
+            this.find_shopcard()
+        }
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -219,6 +215,33 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() { 
+    },
+    find_shopcard(){
+        wx.cloud.callFunction({
+            name:'login',
+        })
+        .then(res => {
+            wx.cloud.database().collection("information")
+            .where({
+                _openid:res.result.userInfo.openId,
+            })
+            .get()
+            .then(res =>{
+                if(res.data[0].shop_card == undefined || res.data[0].shop_card == 0){
+                console.log("该用户没有上传商家名片")
+                this.setData({
+                    imgUrl:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shopcardadd.jpg"
+                  })
+                }
+                else{
+                    console.log("有商家名片信息")
+                    this.setData({
+                        imgUrl:res.data[0].shop_card
+                    })
+                    wx.setStorageSync('shop_card',this.data.imgUrl)
+                }
+            })
+        })
     },
     /**
      * 生命周期函数--监听页面隐藏

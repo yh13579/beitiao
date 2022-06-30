@@ -32,6 +32,11 @@ Page({
     this.setData({
         shopvalue:shopvalue
     })
+    console.log("shopvalue is ",shopvalue)
+    if(this.data.shopvalue.length == 0){
+        console.log("没有shopvalue")
+        this.find_shopvalue()
+    }
     let wxname = wx.getStorageSync('nickName')
     let AvatarUrl = wx.getStorageSync('avatarUrl')
     this.setData({
@@ -171,5 +176,28 @@ unlogin(){
             this.onShow()
         })
     }
+},
+find_shopvalue(){
+    wx.cloud.callFunction({
+        name:'login',
+    })
+    .then(res => {
+        wx.cloud.database().collection("information")
+        .where({
+            _openid:res.result.userInfo.openId,
+        })
+        .get()
+        .then(res => {
+           if(res.data.length == 0){
+               console.log("没有用户记录，基本信息都没有")
+           }
+           else{
+                this.setData({
+                    shopvalue:res.data[0].shopvalue
+                })
+                wx.setStorageSync('shopvalue', this.data.shopvalue)
+           }
+        })
+    })
 }
 })
