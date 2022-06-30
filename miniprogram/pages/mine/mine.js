@@ -112,16 +112,35 @@ guestbook(){
 },
 
 shopcard(){ 
-    if(this.data.name_avatar == -1){
-        wx.showToast({
-            icon: "none",
-            title: "尚未登录,请先登录.."
-          })
-        return 
-    }
-    wx.navigateTo({  
-        url: '../shopcard/shopcard',  
+    wx.cloud.callFunction({
+        name:'login',
+    })
+    .then(res =>{
+        wx.cloud.database().collection("information")
+    .where({
+        _openid:res.result.userInfo.openId,  
+       })
+       .get()
+       .then( res =>{
+           this.setData({
+               information_data:res.data.length
+           })
+           if(this.data.information_data < 1 || this.data.name_avatar == -1){
+            wx.showToast({
+                icon: "none", 
+                title: "请先登录和完善个人信息"  
+              })
+        }
+        else{
+            wx.navigateTo({  
+                url: '../shopcard/shopcard',  
+              })
+           }
+       })
+       .catch(err => {
+        console.log(err)
       })
+    })
 },
 
 judgment(){
