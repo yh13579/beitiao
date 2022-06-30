@@ -110,7 +110,8 @@ guestbook(){
     url: '../guestbook/guestbook',  
   })
 },
-shopcard(){
+
+shopcard(){ 
     if(this.data.name_avatar == -1){
         wx.showToast({
             icon: "none",
@@ -136,29 +137,16 @@ judgment(){
         })
 },
 
-/*  更新登录按钮 ，尚待处理*/
 refresh(){
-    // let temp_avatarUrl = wx.getStorageSync('avatarUrl')
-    // let temp_nickName = wx.getStorageSync('nickName')
-    // wx.setStorageSync('avatarUrl','')
-    // wx.setStorageSync('nickName', '')
+    wx.setStorageSync('avatarUrl','')
+    wx.setStorageSync('nickName', '')
     getUserProfile().then(res => {
         this.onShow()
-        console.log(res)
-        console.log(res.avatarUrl)
-        console.log(res.nickName)
-    //    if(res.avatarUrl == temp_avatarUrl && res.nickName == temp_nickName){
-    //        console.log("并没有更换头像和昵称")
-    //    }
-    //    else{
-    //        this.onShow()
-    //    }
-        //this.onShow()
     })
+    this.onShow()
 },
 
-
-refresh_login(){
+unlogin(){
     if(this.data.AvatarUrl == "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg"){
         getUserProfile().then(res => {
             this.onShow()

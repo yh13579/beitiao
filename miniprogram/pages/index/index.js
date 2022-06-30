@@ -224,12 +224,13 @@ Page({
             options: 'i',
           }),
         },
-        {   audit:1,  //物品种类
-          category: db.RegExp({
+        {   
+            audit:1,  //物品种类
+            category: db.RegExp({
             regexp: this.data.value,
             options: 'i',
           }),
-        }
+        },
       ])).orderBy('createTime','desc')
       .skip(length)  
       .get()

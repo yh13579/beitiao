@@ -162,3 +162,11 @@ page{
     right: 25rpx;
     bottom: 205rpx;
   }
+  .goodown_avatar{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    position: absolute;
+    right: 10rpx;
+    bottom: 5rpx;
+  }

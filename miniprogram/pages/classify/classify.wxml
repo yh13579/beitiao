@@ -6,6 +6,7 @@
        <image src="{{item.imgUrl}}" class="image_img" mode="aspectFill"></image>
       <text class="goodname">{{item.goodname}}</text>
      <text class="goodprice">{{item.goodprice}}</text>
+     <image src="{{item.userAvatarUrl}}" class="goodown_avatar"></image>  
     </view>
   </view>
 </view>

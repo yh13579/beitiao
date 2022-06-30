@@ -65,4 +65,12 @@ page{
     right: 10rpx;
     top: 0rpx;
 }
+.image_avatarUrl{
+    position: absolute;
+    right: 50rpx;
+    top: 720rpx;
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+}
 

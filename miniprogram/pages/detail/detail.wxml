@@ -6,6 +6,7 @@
 <text class="goodprice">{{goodprice}}</text>
 <text class="goodname">{{goodname}}</text> 
 <text class="gooddetail">物品介绍 (备注) : {{gooddetail}}</text>
+<image src="{{avatarUrl}}" class="image_avatarUrl"></image> 
 
 <!-- 商家名片和电话按钮 -->
 <view class="message_phone_card"> 

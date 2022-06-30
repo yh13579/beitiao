@@ -19,6 +19,9 @@ Page({
             content:'评论不能为空',  
             showCancel:false,
           })
+          this.setData({
+              comment:''
+          })
         }
         else if(this.data.comment.length>50){
             console.log(this.data.comment.length)

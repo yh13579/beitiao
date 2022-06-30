@@ -67,7 +67,13 @@ Page({
                 regexp: this.data.valuedetail,
                 options: 'i',
               }),
-            }
+            },
+            {   audit:1,  //物品种类
+                userNickName: db.RegExp({
+                  regexp: this.data.valuedetail,
+                  options: 'i',
+                }),
+              }
           ])).orderBy('createTime','desc').get()
           .then(res => {
               this.setData({
@@ -134,6 +140,12 @@ Page({
           },
           {   audit:1,  
             category: db.RegExp({
+              regexp: this.data.valuedetail,
+              options: 'i',
+            }),
+          },
+          {   audit:1,  
+            userNickName: db.RegExp({
               regexp: this.data.valuedetail,
               options: 'i',
             }),
