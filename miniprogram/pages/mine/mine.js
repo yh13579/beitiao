@@ -32,7 +32,6 @@ Page({
     this.setData({
         shopvalue:shopvalue
     })
-    console.log("shopvalue is ",shopvalue)
     if(this.data.shopvalue.length == 0){
         console.log("没有shopvalue")
         this.find_shopvalue()
@@ -188,10 +187,14 @@ find_shopvalue(){
         })
         .get()
         .then(res => {
-           if(res.data.length == 0){
+           if(res.data.length == 0){ 
                console.log("没有用户记录，基本信息都没有")
            }
+           else if(res.data[0].shopvalue == undefined || res.data[0].shopvalue == 0){
+               console.log("数据库没有shop值，或者shop值为''")
+           }
            else{
+               console.log("数据库中有用户信息，且shopvalue值完整")
                 this.setData({
                     shopvalue:res.data[0].shopvalue
                 })
