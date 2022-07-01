@@ -1,12 +1,6 @@
 import {
   getUserProfile
 } from "../../utils/utils" 
-let phone = wx.getStorageSync("phone")
-let gender = wx.getStorageSync("gender")
-let department = wx.getStorageSync("department")
-let classroom = wx.getStorageSync("classroom")
-let signature = wx.getStorageSync("signature")
-let ownid = wx.getStorageSync('ownid')
 Page({
     /**
      * 页面的初始数据
@@ -39,25 +33,18 @@ Page({
        })
        .get()
        .then(res =>{
-    if(res.data.length == 0){
+        if(res.data.length == 0){
          console.log("infomation中没有用户记录")
         }
-    else if(phone.length == 0 || gender.length == 0 ||
-            department.length == 0 || classroom.length == 0 || ownid.length == 0){
-        console.log("information中有用户记录,但是用户删除了缓存,或Storage中的数据不完整")
-        let ownid = res.data[0]._id
-        let phone = res.data[0].phone
-        let gender = res.data[0].gender
-        let department = res.data[0].department
-        let classroom = res.data[0].classroom
-        let signature = res.data[0].signature
+        else{
+        console.log("information中有用户记录,缓存中的数据不完整")
         this.setData({
-            ownid:ownid,
-            phone:phone,
-            gender:gender,
-            department:department,
-            classroom:classroom,
-            signature:signature
+            phone:res.data[0].phone,
+            gender:res.data[0].gender,
+            department:res.data[0].department,
+            classroom:res.data[0].classroom,
+            signature:res.data[0].signature,
+            ownid:res.data[0]._id
             }) 
         wx.setStorageSync('phone', this.data.phone)
         wx.setStorageSync('gender', this.data.gender)
@@ -68,11 +55,6 @@ Page({
            }
          })
        })
-    },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
     },
     /**
      * 生命周期函数--监听页面显示
@@ -100,6 +82,11 @@ Page({
         this.findpeople()
       }
      
+    },
+     /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
     },
     /**
      * 生命周期函数--监听页面隐藏
@@ -202,13 +189,10 @@ Page({
           wx.setStorageSync('department', this.data.department)
           wx.setStorageSync('classroom', this.data.classroom)
           wx.setStorageSync('signature', this.data.signature)
-          wx.setStorageSync('ownid', this.data.ownid)
           wx.cloud.database().collection("information")
           .doc(this.data.ownid)
           .update({
             data:{
-              userAvatarUrl: res.avatarUrl,  
-              userNickName: res.nickName,  
               phone: this.data.phone,        
               signature:this.data.signature,  
               gender:this.data.gender,       
@@ -239,7 +223,6 @@ Page({
     wx.setStorageSync('department', this.data.department)
     wx.setStorageSync('classroom', this.data.classroom)
     wx.setStorageSync('signature', this.data.signature)
-    wx.setStorageSync('ownid', this.data.ownid)
     wx.cloud.database().collection("information")
           .add({
             data:{
