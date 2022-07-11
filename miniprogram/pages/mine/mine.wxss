@@ -36,10 +36,10 @@ page{
 .nickname{        
     font-size: x-large;
     position: absolute;
-    left: 229rpx;
+    left: 210rpx;
     top: 65rpx;
     height: 90rpx;
-    width: 520rpx;
+    width: 390rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

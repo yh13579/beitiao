@@ -81,7 +81,11 @@ Page({
    */
   onShareAppMessage: function() {
   },
-Information() {       
+Information() {  
+    if(this.data.AvatarUrl == "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg"){
+        this.judgment()  
+        return
+    }     
   wx.navigateTo({
     url: '../information/information',
   })
@@ -187,7 +191,7 @@ find_shopvalue(){
         })
         .get()
         .then(res => {
-           if(res.data.length == 0){ 
+           if(res.data.length == 0){  
                console.log("没有用户记录，基本信息都没有")
            }
            else if(res.data[0].shopvalue == undefined || res.data[0].shopvalue == 0){

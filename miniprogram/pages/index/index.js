@@ -1,6 +1,6 @@
 const db = wx.cloud.database();  
 Page({
-    data:{ 
+    data:{
         menu:{           
             imgUrls:[    
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/dailyuse.png',
@@ -23,24 +23,19 @@ Page({
                 '其他'
             ]
       },
-      background: [     
-        //轮播图图片
+      background:[
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt1.jpg'}, 
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt2.jpg'}, 
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt3.jpg'},
       {url:'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shouye_lbt4.jpg'}
-    
     ],
-      interval: 5000,     //间歇：5000  →  5秒轮播一张
-      duration: 1000,    //持续时间 指换图轮播时的切换速度
+      interval: 5000,       //间歇：5000  →  5秒轮播一张
+      duration: 1000,      //持续时间 指换图轮播时的切换速度
       bannerCurrent: 0,   //初始轮播的图片
       goodsList: [],      
       value: '',         //搜索框里的内容
-      announcement:''        //公告
+      announcement:''   //公告
     }, 
-  /**
-   * 生命周期函数--监听页面加载
-   */
    onLoad: function (options) {
     this.getTabBar().setData({      //设置tabbar的值
       active : 0 
