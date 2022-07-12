@@ -74,11 +74,12 @@ Page({
             this.setData({
                 admin:-1
             })   //非管理员-1
-          } else {
+          } 
+          else {
             wx.setStorageSync('admin', 1)
             this.setData({
                 admin:1
-            })     //管理员1
+            })   //管理员1
           }
         })
         .catch(err => {
@@ -115,12 +116,10 @@ Page({
           })
       })
   },
-
-
   search_content(e) {    //搜索框编辑内容
     this.setData({
         value: e.detail
-    });
+    })
   },
   admin(){    //获取管理员身份
    if(this.data.admin == 1){
@@ -178,7 +177,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
@@ -194,13 +192,16 @@ Page({
          value:'', 
          bannerCurrent: 0
         }) 
-         //清除搜索框的内容,轮播图变成第一张开始轮播
-     console.log("刷新成功")
+     //清除搜索框的内容,轮播图变成第一张开始轮播
+     //console.log("刷新成功")
   },
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+      this.setData({
+          value:''
+      })
       let _ = db.command
       let length = this.data.goodsList.length
       let old_data = this.data.goodsList
@@ -213,7 +214,8 @@ Page({
             options: 'i', //大小写不区分
           }),
         },
-        {  audit:1,   //物品详情
+        {  
+            audit:1,   //物品详情
           gooddetail: db.RegExp({
             regexp: this.data.value,
             options: 'i',
@@ -256,7 +258,6 @@ Page({
             bannerCurrent: e.detail.current
         })
     }
-   
   },
 intervalChange(e) {    //间歇：5000  →  5秒轮播一张
   this.setData({
