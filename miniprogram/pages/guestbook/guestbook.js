@@ -53,7 +53,7 @@ Page({
                   data:{
                     userAvatarUrl: res.avatarUrl,  
                     userNickName: res.nickName,    
-                    detailid:this.data.detailid,
+                    //detailid:this.data.detailid,
                     comment:this.data.comment,
                     date:date,
                     createTime:timestamp

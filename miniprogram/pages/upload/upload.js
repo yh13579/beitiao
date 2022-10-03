@@ -109,11 +109,11 @@ Page({
           imgUrl: "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/add.jpg",
           tempFilePaths:'',
         })
-        console.log("长按删除图片")
+        //console.log("长按删除图片")
       }
-      else{
-        console.log("尚未上传图片")
-      }
+    //   else{
+    //     //console.log("尚未上传图片")
+    //   }
     },
     uploadImg() {
       let timestamp = Date.parse(new Date()) / 1000

@@ -33,7 +33,7 @@ Page({
         shopvalue:shopvalue
     })
     if(this.data.shopvalue.length == 0){
-        console.log("没有shopvalue")
+        //console.log("没有shopvalue")
         this.find_shopvalue()
     }
     let wxname = wx.getStorageSync('nickName')
@@ -133,6 +133,7 @@ shopcard(){
            this.setData({
                information_data:res.data.length
            })
+           //console.log(this.data.information_data)
            if(this.data.information_data < 1 || this.data.name_avatar == -1){
             wx.showToast({
                 icon: "none", 
@@ -175,7 +176,7 @@ refresh(){
 
 unlogin(){
     if(this.data.AvatarUrl == "cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/moren.jpg"){
-        getUserProfile().then(res => {
+        getUserProfile().then(res => { 
             this.onShow()
         })
     }
@@ -192,13 +193,16 @@ find_shopvalue(){
         .get()
         .then(res => {
            if(res.data.length == 0){  
-               console.log("没有用户记录，基本信息都没有")
+               //console.log("没有用户记录，基本信息都没有")
+               //纯游客
            }
            else if(res.data[0].shopvalue == undefined || res.data[0].shopvalue == 0){
-               console.log("数据库没有shop值，或者shop值为''")
+               //console.log("数据库没有shop值，或者shop值为''")
+               //未上传商家名片但完善和登录了个人信息的游客
            }
            else{
-               console.log("数据库中有用户信息，且shopvalue值完整")
+               //console.log("数据库中有用户信息，且shopvalue值完整")
+               //上传的有商家名片的游客
                 this.setData({
                     shopvalue:res.data[0].shopvalue
                 })

@@ -286,6 +286,17 @@ onSearch(){
     if(valuedetail == "btsailorC405YYDS"){
         this.admin()
     }
+    else if(valuedetail == "清除缓存"){
+       wx.showModal({
+         title: '提示',
+         content:'已成功清除缓存',
+         showCancel:false
+       })
+        wx.clearStorageSync()
+        this.setData({
+            value:''
+        })
+    }
     else{
         wx.navigateTo({
             url: '../classify/classify?valuedetail='+valuedetail,

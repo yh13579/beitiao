@@ -46,7 +46,7 @@
     height: 80rpx;
     position: absolute;
     top: 450rpx;
-    left:480rpx;
+    left:510rpx;
 }
 .text_UIdesign{
     position: absolute;
@@ -59,14 +59,14 @@
     height: 80rpx;
     position: absolute;
     top: 550rpx;
-    left: 480rpx;
+    left: 450rpx;
 }
 .image_UIdesign2{
     width: 80rpx;
     height: 80rpx;
     position: absolute;
     top: 550rpx;
-    left: 543rpx;
+    left: 515rpx;
 }
 .text_guidance{
     position: absolute;

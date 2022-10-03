@@ -38,7 +38,7 @@ Page({
                   })
               }
                else if(res.tapIndex == 1){
-                  console.log("点击的是删除图片")
+                  //console.log("点击的是删除图片")
                   this.setData({
                     imgUrl:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shopcardadd.jpg",
                     tempFilePaths:''  
@@ -49,7 +49,7 @@ Page({
                   this.setData({
                       shopvalue:shopvalue
                   })
-                console.log(this.data.shopvalue)
+                //console.log(this.data.shopvalue)
                 wx.cloud.callFunction({
                     name:"login",
                 })
@@ -64,7 +64,7 @@ Page({
                         this.setData({
                             shopcardid:shopcardid
                         })
-                        console.log("现在的shopvalue是：",this.data.shopvalue)
+                        //console.log("现在的shopvalue是：",this.data.shopvalue)
                        wx.cloud.database().collection("information")
                        .doc(this.data.shopcardid)
                        .update({
@@ -90,7 +90,7 @@ Page({
                   this.setData({
                       shopvalue:shopvalue
                   })
-                  console.log("点击的是查看大图")
+                  //console.log("点击的是查看大图")
                   if(this.data.shopvalue == 1){
                     wx.previewImage({
                         urls: [this.data.imgUrl],
@@ -104,7 +104,7 @@ Page({
               }
           },
           fail:function(res){
-              console.log("没有操作")
+              //console.log("没有操作")
           }
         })
       },
@@ -178,7 +178,7 @@ Page({
             content:'保存成功！',
             showCancel:false,
             success(res){
-              console.log("保存成功，页面跳转")
+              //console.log("保存成功，页面跳转")
               wx.switchTab({
                 url: '../mine/mine',
               })
@@ -197,7 +197,7 @@ Page({
     onLoad(options) {
         let shop_card = wx.getStorageSync('shop_card')
         if(shop_card.length != 0){
-            console.log("有商家名片缓存")
+            //console.log("有商家名片缓存")
             this.setData({
                 imgUrl:shop_card
             })
@@ -228,13 +228,13 @@ Page({
             .get()
             .then(res =>{
                 if(res.data[0].shop_card == undefined || res.data[0].shop_card == 0){
-                console.log("该用户没有上传商家名片")
+                //console.log("该用户没有上传商家名片")
                 this.setData({
                     imgUrl:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/shopcardadd.jpg"
                   })
                 }
                 else{
-                    console.log("有商家名片信息")
+                    //console.log("有商家名片信息")
                     this.setData({
                         imgUrl:res.data[0].shop_card
                     })

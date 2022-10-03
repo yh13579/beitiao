@@ -48,7 +48,7 @@ Page({
         wx.showActionSheet({
           itemList: ['删除'],
           success:res => {  
-              console.log("点击了删除")
+              //console.log("点击了删除")
               var goodsList = this.data.goodsList
               goodsList.splice(idx,1)
               this.setData({
@@ -58,14 +58,14 @@ Page({
               .doc(id)
               .remove()
               .then(res => {
-                  console.log("数据库中删除成功",res)
+                  //console.log("数据库中删除成功",res)
               })
               .catch(res => {
-                  console.log("数据库中删除失败",res)
+                  //console.log("数据库中删除失败",res)
               })
           },
           fail:function(res){
-              console.log("点击了取消")
+              //console.log("点击了取消")
           }
         })
     },

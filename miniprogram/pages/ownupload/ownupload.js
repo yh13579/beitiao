@@ -50,19 +50,19 @@ Page({
             goodsList:this.data.goodsList.concat(res.data)
         })
     if(this.data.index == 0){  
-        console.log("获取已上架物品列表")
+        //console.log("获取已上架物品列表")
         this.setData({
           onselvelist:this.data.goodsList
         })
         }
     else if(this.data.index == 1){
-        console.log("获取审核中物品列表")
+        //console.log("获取审核中物品列表")
         this.setData({
             auditing:this.data.goodsList
         })
         }
     else if(this.data.index == 2){
-        console.log("获取未通过物品列表")
+        //console.log("获取未通过物品列表")
         this.setData({
             nopassed:this.data.goodsList
         })
@@ -155,7 +155,7 @@ Page({
              itemList: ['标记为卖出物品','删除'],
              success:res => {
                  if(res.tapIndex == 0){
-                    console.log("点击的是标记为卖出物品")
+                    //console.log("点击的是标记为卖出物品")
                     var onselvelist = this.data.onselvelist
                     onselvelist.splice(idx,1)
                     this.setData({
@@ -179,7 +179,7 @@ Page({
                     })
                  }
                 else{
-                    console.log("点击的是删除")
+                    //console.log("点击的是删除")
                     var onselvelist = this.data.onselvelist
                     onselvelist.splice(idx,1)
                     this.setData({
@@ -189,15 +189,15 @@ Page({
                     .doc(id)
                     .remove()
                     .then(res => {
-                        console.log("数据库中删除成功",res)
+                        //console.log("数据库中删除成功",res)
                     })
                     .catch(res => {
-                        console.log("数据库中删除失败",res)
+                        //console.log("数据库中删除失败",res)
                     })
                 }
              },
              fail:function(){
-                console.log("点击了取消")
+                //console.log("点击了取消")
              }
            })
        }
@@ -208,7 +208,7 @@ Page({
             itemList: ['修改物品信息','删除'],
             success:res => {
                 if(res.tapIndex == 0){
-                   console.log("点击的是修改物品信息")
+                   //console.log("点击的是修改物品信息")
                    wx.cloud.database().collection("goods")
                    .doc(id)
                    .get()
@@ -220,7 +220,7 @@ Page({
                    })
                 }
                else{
-                   console.log("点击的是删除")
+                   //console.log("点击的是删除")
                    var auditing = this.data.auditing
                     auditing.splice(idx,1)
                     this.setData({
@@ -230,15 +230,15 @@ Page({
                     .doc(id)
                     .remove()
                     .then(res => {
-                        console.log("数据库中删除成功",res)
+                        //console.log("数据库中删除成功",res)
                     })
                     .catch(res => {
-                        console.log("数据库中删除失败",res)
+                        //console.log("数据库中删除失败",res)
                     })
                }
             },
             fail:function(){
-               console.log("点击了取消")
+               //console.log("点击了取消")
             }
           })
        }
@@ -249,7 +249,7 @@ Page({
             itemList: ['重新上传审核','删除'],
             success:res => {
                 if(res.tapIndex == 0){
-                   console.log("点击的是重新上传审核")
+                   //console.log("点击的是重新上传审核")
                    wx.cloud.database().collection("goods")
                    .doc(id)
                    .get()
@@ -270,7 +270,7 @@ Page({
                    })
                 }
                else{
-                   console.log("点击的是删除")
+                   //console.log("点击的是删除")
                    var nopassed = this.data.nopassed
                    nopassed.splice(idx,1)
                    this.setData({
@@ -280,15 +280,15 @@ Page({
                    .doc(id)
                    .remove()
                    .then(res => {
-                       console.log("数据库中删除成功",res)
+                       //console.log("数据库中删除成功",res)
                    })
                    .catch(res => {
-                       console.log("数据库中删除失败",res)
+                       //console.log("数据库中删除失败",res)
                    })
                }
             },
             fail:function(){
-               console.log("点击了取消")
+               //console.log("点击了取消")
             }
           })
        }

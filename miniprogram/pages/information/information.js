@@ -34,10 +34,11 @@ Page({
        .get()
        .then(res =>{
         if(res.data.length == 0){
-         console.log("infomation中没有用户记录")
+         //console.log("infomation中没有用户记录")
         }
         else{
-        console.log("information中有用户记录,缓存中的数据不完整")
+        //console.log("information中有用户记录,缓存中的数据不完整")
+        //可以理解为换设备登录
         this.setData({
             phone:res.data[0].phone,
             gender:res.data[0].gender,
@@ -68,7 +69,7 @@ Page({
     let ownid = wx.getStorageSync('ownid')
       if(phone.length != 0 && gender.length != 0 &&
         department.length != 0 && classroom.length != 0 && ownid.length != 0){
-      console.log("有用户信息且信息完整")
+      //console.log("有用户信息且信息完整")
       this.setData({
           phone:phone,
           gender:gender,
@@ -183,7 +184,7 @@ Page({
            })
          }
          else if(this.data.ownid.length != 0){
-          console.log("用户曾经填写过信息，想要修改信息")
+          //console.log("用户曾经填写过信息，想要修改信息")
           wx.setStorageSync('phone', this.data.phone)
           wx.setStorageSync('gender', this.data.gender)
           wx.setStorageSync('department', this.data.department)
@@ -206,7 +207,7 @@ Page({
               content:'保存成功！',
               showCancel:false,
               success(res){
-                console.log("保存成功，页面跳转")
+                //console.log("保存成功，页面跳转")
                 wx.switchTab({
                   url: '../mine/mine',
                 })
@@ -241,7 +242,7 @@ Page({
               content:'保存成功！',
               showCancel:false,
               success(res){
-                console.log("保存成功,页面跳转")
+                //console.log("保存成功,页面跳转")
                 wx.switchTab({
                   url: '../mine/mine',
                 })
