@@ -2,5 +2,5 @@
     "usingComponents": { 
     },
     "enablePullDownRefresh": false,
-    "navigationBarTitleText": "发布物品(重新编辑)"   
+    "navigationBarTitleText": "重新编辑"   
   }

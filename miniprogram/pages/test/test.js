@@ -1,3 +1,4 @@
+const db = wx.cloud.database();  
 import {
     getUserProfile
   } from "../../utils/utils"  
@@ -7,6 +8,7 @@ import {
        * 页面的初始数据 
        */
       data: {   
+          test:'',
           columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
           state: -1,
           tempFilePaths: "",    //要上传的文件的小程序临时文件路径
@@ -18,6 +20,24 @@ import {
           category:'',
           ownlistlength:'',
           id_audit:''
+      },
+      gettest(){     //获取test的值
+        //console.log("获取test的值")
+        db.collection('announcement')
+        .doc("d2fe6f206243305802f9420737d78698")
+        .get()
+        .then(res => {
+          this.setData({
+            test:res.data.test
+          })
+        })
+      },
+      haha(){
+        wx.showModal({
+            title: '提示',
+            content:'然后就没有然后了~',
+            showCancel:false
+          })
       },
       getPhoto() { 
           wx.showModal({
@@ -47,6 +67,7 @@ import {
        * 生命周期函数--监听页面加载
        */
       onLoad: function (options) { 
+        this.gettest()
         this.getgood_detail(options.id_audit)
         let admin = wx.getStorageSync('admin')
         this.setData({

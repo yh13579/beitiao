@@ -1,5 +1,6 @@
 <view class="view_all">
 
+<view wx:if="{{test == 1}}">
 <!-- 物品名称 -->
   <van-field  placeholder="请输入物品名称" value="{{goodname}}"  maxlength="15"    show-word-limit bind:change="getgoodname"/>
   <view class="line"></view>
@@ -46,5 +47,28 @@
   <button class="button_value" catchtap="uploadGood">确认发布</button>
 </view>
 
+</view>
+
+
+<view wx:if="{{test == -1}}">
+    <view class="line"></view>
+  <view class="item" bindtap="haha">
+    <view class="title">
+      时间和日期设定</view>
+    </view>
+    <view class="line"></view>
+  <view class="item" bindtap="haha">
+    <view class="title">
+        编辑备忘录</view>
+    </view>
+    <view class="line"></view>
+    <view class="item" bindtap="haha">
+    <view class="title">
+        夜间模式</view>
+    </view>
+    <view class="line"></view>
+<van-empty description="暂无更多..">
+</van-empty>
+</view>
 </view>
 

@@ -1,5 +1,6 @@
 {
   "usingComponents": { 
+      "van-empyt":"../../miniprogram_npm/@vant/weapp/empty/index"
   },
   "enablePullDownRefresh": false,
   "navigationBarTitleText": "发布物品"   

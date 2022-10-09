@@ -1,4 +1,4 @@
-<view class="text_detail">"北林跳蚤市场"是Sailor编程工作室开发的第二款微信小程序(第一款为<text class="text_modediu" bindtap="goto_modediu">"莫得丢"</text>,用来做失物招领的,下方有小程序入口)。"北林跳蚤市场"可以作为闲置物品交易的中间平台,方便闲置物品的出售,目前仅限于北林校区的使用。</view>  
+<view class="text_detail">"北林跳蚤市场"是Sailor编程工作室开发的第二款微信小程序(第一款为<text class="text_modediu" bindtap="goto_modediu">"莫得丢"</text>,用来做失物招领的)。"北林跳蚤市场"可以作为闲置物品交易的中间平台,方便闲置物品的出售,目前仅限于北林校区的使用。</view>  
 
 <view class="thanks_imgall">
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/thanks.jpg" class="image_thanks"></image> 
@@ -7,8 +7,8 @@
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/yh.png" class="image_engineer"></image>
 
 <text class="text_UIdesign">UI设计:一米八九ღ、!</text>
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/zsy.png" class="image_UIdesign1"></image>
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/hfy.png" class="image_UIdesign2"></image>
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/zsyzsy.png" class="image_UIdesign1"></image>
+<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/hfyhfy.png" class="image_UIdesign2"></image>
 
 <text class="text_guidance">意见指导:风祭、小刘同学、物自体、
 weiliang、tolive</text>
@@ -23,7 +23,7 @@ weiliang、tolive</text>
 
 
 <text class="text_detaildown">觉得不错的点个赞吧...</text>
-<image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/modediu.png" class="img_modediu" catchtap="goto_modediu"></image>
+<!-- <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/modediu.png" class="img_modediu" catchtap="goto_modediu"></image> -->
 <view class="like_step">
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/zan.png" class="like" bindtap="zan"></image>
 <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/cai.png" class="step" bindtap="cai"></image>
