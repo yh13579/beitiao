@@ -1,6 +1,7 @@
 const db = wx.cloud.database();  
 Page({
-    data:{
+    data:{ 
+        test:'',
         menu:{           
             imgUrls:[    
               'cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/dailyuse.png',
@@ -40,8 +41,20 @@ Page({
     this.getTabBar().setData({      //设置tabbar的值
       active : 0 
     })
+    this.gettest()
   this.findgood()   
   //this.announcement()  //动态公告，后续保留此行功能，不要误删
+  },
+  gettest(){     //获取test的值
+    //console.log("获取test的值")
+    db.collection('announcement')
+    .doc("d2fe6f206243305802f9420737d78698")
+    .get()
+    .then(res => {
+      this.setData({
+        test:res.data.test
+      })
+    })
   },
  
   findgood(){            

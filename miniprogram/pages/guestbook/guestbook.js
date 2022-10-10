@@ -1,3 +1,4 @@
+const db = wx.cloud.database();  
 var demo = require("../../utils/utils_time")
 import {
     getUserProfile  
@@ -8,10 +9,24 @@ Page({
      * 页面的初始数据
      */
     data: {
+        test:'',
         comment:'',
         commentsList: [],
         idx:0
     },
+
+    gettest(){     //获取test的值
+        //console.log("获取test的值")
+        db.collection('announcement')
+        .doc("d2fe6f206243305802f9420737d78698")
+        .get()
+        .then(res => {
+          this.setData({
+            test:res.data.test
+          })
+        })
+      },
+
     comment(){
         if(this.data.comment.replace(/\s+/g, '').length == 0){
           wx.showModal({
@@ -131,6 +146,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.gettest()
         this.commentfind()
         let admin = wx.getStorageSync('admin')
         this.setData({

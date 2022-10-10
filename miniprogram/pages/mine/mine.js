@@ -1,3 +1,4 @@
+const db = wx.cloud.database();  
 import {
     getUserProfile
   } from "../../utils/utils"  
@@ -6,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {  
+    test:'',
     AvatarUrl:'',
     wxname:'',
     name_avatar:'',
@@ -17,6 +19,18 @@ Page({
   onLoad:function(){ 
     this.getTabBar().setData({
       active : 2
+    })
+    this.gettest()
+  },
+  gettest(){     //获取test的值
+    //console.log("获取test的值")
+    db.collection('announcement')
+    .doc("d2fe6f206243305802f9420737d78698")
+    .get()
+    .then(res => {
+      this.setData({
+        test:res.data.test
+      })
     })
   },
   /**

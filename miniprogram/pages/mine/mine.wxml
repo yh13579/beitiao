@@ -3,13 +3,20 @@
   <image src="{{AvatarUrl}}" mode="aspectFill" class="avatarurl"></image>   
     <text class="nickname" catchtap="unlogin">{{wxname}}</text>
     <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/refresh.png" class="refresh" catchtap="refresh"></image> 
-    <text wx:if="{{shopvalue == 0}}" class="shopcard" bindtap="shopcard">暂无商家名片>></text> 
+    <text wx:if="{{shopvalue == 0}}" class="shopcard" bindtap="shopcard">暂无名片>></text> 
     <text wx:if="{{shopvalue == 1}}" class="shopcard_exist" bindtap="shopcard">我的名片>></text> 
 </van-cell-group>
 
 <!-- 个人信息 -->
 <view class="line"></view>
-  <view class='item' bindtap="Information">
+
+<view wx:if="{{test == -1}}" class='item'>
+    <view class="title">
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/personal_information.png" class="img">
+      </image>管理员界面</view>
+    </view>
+
+    <view wx:if="{{test == 1}}" class='item' bindtap="Information">
     <view class="title">
       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/personal_information.png" class="img">
       </image>个人信息</view>
@@ -17,7 +24,14 @@
 
 <!-- 我发布的 -->
 <view class="line"></view>
-  <view class="item" bindtap="ownupload">
+
+  <view wx:if="{{test == -1}}" class="item" bindtap="ownupload">
+    <view class="title">
+        <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pubilsh.png" class="img">
+        </image>我的编辑</view>
+    </view>
+
+    <view wx:if="{{test == 1}}" class="item" bindtap="ownupload">
     <view class="title">
         <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/pubilsh.png" class="img">
         </image>我的发布</view>
@@ -25,7 +39,8 @@
  
   <!-- 我的交易 -->
 <view class="line"></view>
-  <view class="item" bindtap="sold">
+
+  <view wx:if="{{test == 1}}" class="item" bindtap="sold">
     <view class="title">
       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/trading.png" class="img">
       </image>我的交易</view>
@@ -41,7 +56,14 @@
  
    <!-- 留言板 -->
 <view class="line"></view>
-  <view class="item" bindtap="guestbook">
+
+<view wx:if="{{test == -1}}" class='item'>
+    <view class="title">
+      <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/personal_information.png" class="img">
+      </image>更多>></view>
+    </view>
+
+  <view wx:if="{{test == 1}}" class="item" bindtap="guestbook">
     <view class="title">
       <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/leave_word.png" class="img">
       </image>留言板</view>

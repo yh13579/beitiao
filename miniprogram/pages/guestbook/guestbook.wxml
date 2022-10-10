@@ -1,6 +1,8 @@
 <view class="view_all">
 
 <!-- 评论区 -->
+<view wx:if="{{test == 1}}">
+
 <view wx:for="{{commentsList}}" wx:key="index">
   <view data-id="{{item._id}}" data-idx="{{index}}" bindlongpress="handLongPress" class="view_comment_detail"> 
     <image src="{{item.userAvatarUrl}}" class="comment_userimage"></image>
@@ -21,5 +23,11 @@
 	</view>
 	<button class="button_view" bindtap="comment">发送</button>
   </view>
+</view>
+
+<view wx:if="{{test == -1}}"> 
+<text>没有更多了...</text>
+</view>
+
 
 </view>

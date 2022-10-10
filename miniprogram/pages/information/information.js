@@ -1,3 +1,4 @@
+const db = wx.cloud.database();   
 import {
   getUserProfile
 } from "../../utils/utils" 
@@ -6,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        test:'',
         show:false,              //性别选择器（关闭）
         columns: ['男','女'],    //性别选择器
         gender:'',            
@@ -21,7 +23,19 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.gettest()
     },
+    gettest(){     //获取test的值
+        //console.log("获取test的值")
+        db.collection('announcement')
+        .doc("d2fe6f206243305802f9420737d78698")
+        .get()
+        .then(res => {
+          this.setData({
+            test:res.data.test
+          })
+        })
+      },
     findpeople(){
       wx.cloud.callFunction({
           name:'login',

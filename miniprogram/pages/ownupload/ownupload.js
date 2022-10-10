@@ -1,9 +1,11 @@
+const db = wx.cloud.database();  
 var demo = require("../../utils/utils_time")
-Page({
+Page({ 
     /**
      * 页面的初始数据 
      */ 
     data: {  
+        test:'',
         buttons:['已上架','审核中','未通过'],
         state:'',
         goodsList:[],
@@ -26,8 +28,20 @@ Page({
      * 生命周期函数--监听页面加载 
      */
     onLoad: function (options) {
+        this.gettest()
         this.getmylist()
     },  
+    gettest(){     //获取test的值
+        //console.log("获取test的值")
+        db.collection('announcement')
+        .doc("d2fe6f206243305802f9420737d78698")
+        .get()
+        .then(res => {
+          this.setData({
+            test:res.data.test
+          })
+        })
+      },
 
     getmylist(){   
     wx.cloud.callFunction({

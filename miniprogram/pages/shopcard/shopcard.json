@@ -1,5 +1,4 @@
 {
     "usingComponents": {},
-    "enablePullDownRefresh": false,
-    "navigationBarTitleText": "商家名片" 
+    "enablePullDownRefresh": false
 }

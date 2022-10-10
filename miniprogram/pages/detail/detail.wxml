@@ -9,7 +9,7 @@
 <image src="{{avatarUrl}}" class="image_avatarUrl"></image> 
 
 <!-- 商家名片和电话按钮 -->
-<view class="message_phone_card"> 
+<view wx:if="{{test == 1}}" class="message_phone_card"> 
   <button class="message_-card" bindtap="shop_card">商家名片</button>
   <button class="message_-phone" bindtap="phone" data-phone="{{phone}}">电话</button>
 </view>

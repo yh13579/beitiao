@@ -1,5 +1,5 @@
 <!-- 顶部按钮 -->
-<view class="button_viewd">
+<view wx:if="{{test == 1}}" class="button_viewd">
   <view class="buttonlist" wx:for="{{buttons}}" wx:key="index">   
     <button class="unbutton {{state==index?'ontouchbutton':''}}" bindtap="buttonsdetail" data-index="{{index}}">{{buttons[index]}}</button> 
   </view>   

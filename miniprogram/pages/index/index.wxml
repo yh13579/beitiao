@@ -16,7 +16,7 @@
 <view class="menu-wrp">
   <view class="menu-list" wx:for="{{menu.imgUrls}}" wx:key="index" data-idx = "{{index}}" bindtap="classify">
       <image class="menu-img" src="{{item}}"  />
-    <view class="menu-desc">{{menu.descs[index]}}</view>
+    <view wx:if="{{test == 1}}" class="menu-desc">{{menu.descs[index]}}</view>
   </view>
 </view>
 

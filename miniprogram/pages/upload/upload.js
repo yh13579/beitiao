@@ -1,4 +1,4 @@
-const db = wx.cloud.database();  
+const db = wx.cloud.database();   
 import {
   getUserProfile
 } from "../../utils/utils"  
