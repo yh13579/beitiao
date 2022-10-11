@@ -60,6 +60,8 @@ Page({
             })
             .get()
             .then(res =>{  
+               // console.log(res)
+                //console.log(res.data[0].shop_card)
                 if(res.data[0].shop_card == undefined || res.data[0].shop_card == ""){
                     this.setData({
                         shopcard_img:"cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/haveno2.jpg",

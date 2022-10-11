@@ -2,7 +2,7 @@
 
 <!-- 顶部图形和北跳艺术字以及搜索框 -->
 <view class="counter">
-    <image src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image> 
+    <image wx:if="{{test == 1}}" src="cloud://cloud1-4g0b3ffme4d6fba4.636c-cloud1-4g0b3ffme4d6fba4-1309031657/fontbt.png" class="image_btfont"></image> 
         <van-search
           value="{{ value }}"  
           shape='round'
@@ -21,7 +21,7 @@
 </view>
 
 <!-- 轮播图 -->
-  <view class="lb_swiper">
+  <view wx:if="{{test == 1}}" class="lb_swiper">
     <swiper class="lunbotu" indicator-dots="true" circular="true"
      current="{{bannerCurrent}}" bindchange="bannerChange"
       autoplay="true" interval="{{interval}}" duration="{{duration}}">
@@ -35,7 +35,7 @@
 <view class="blank"></view>
 
 <!-- 遍历物品 -->
-  <view wx:for="{{goodsList}}" wx:key="index" class="goodslist">   
+  <view wx:if="{{test == 1}}" wx:for="{{goodsList}}" wx:key="index" class="goodslist">   
     <view class="card" bindtap="detail" data-id="{{item._id}}">
        <image src="{{item.imgUrl}}" class="image" mode="aspectFill"></image>
       <text class="goodname">{{item.goodname}}</text>

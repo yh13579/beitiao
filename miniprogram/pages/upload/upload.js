@@ -8,6 +8,7 @@ Page({
      * 页面的初始数据 
      */
     data: {   
+        information_data:'',
         test:'',
         columns: ['生活用品','学习用品','休闲食品','休闲玩物','美妆护肤','电子设备','药物','其他'],   
         state: -1,
@@ -23,7 +24,7 @@ Page({
     haha(){
         wx.showModal({
             title: '提示',
-            content:'然后就没有然后了~',
+            content:'作者正在努力改bug中...下次再过来吧~',
             showCancel:false
           })
       },
@@ -97,6 +98,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        this.judgement_infomation()
     },
     /**
      * 生命周期函数--监听页面隐藏
@@ -134,6 +136,27 @@ Page({
     //   else{
     //     //console.log("尚未上传图片")
     //   }
+    },
+    judgement_infomation(){ 
+        wx.cloud.callFunction({
+            name:'login',
+        })
+        .then(res =>{
+            wx.cloud.database().collection("information")
+        .where({
+            _openid:res.result.userInfo.openId,  
+           })
+           .get()
+           .then( res =>{
+               this.setData({
+                   information_data:res.data.length
+               })
+               //console.log(this.data.information_data)
+           })
+           .catch(err => {
+            console.log(err)
+          })
+        })
     },
     uploadImg() {
       let timestamp = Date.parse(new Date()) / 1000
@@ -194,8 +217,16 @@ Page({
       })
     },
     uploadGood(event) {
+        //this.judgement_infomation()
         this.getownlist()
-        if(this.data.phone.length != 11 || this.data.phone[0] != 1){
+        if(this.data.information_data < 1){
+            wx.showModal({
+                title: '提示',
+                content: '请先登录和完善个人信息' ,
+                showCancel:false
+              })
+        }
+        else if(this.data.phone.length != 11 || this.data.phone[0] != 1){
           this.setData({
         errorPhone: "输入必须是11位数字开头为1的手机号"
           })
